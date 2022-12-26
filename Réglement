@@ -1,0 +1,4858 @@
+init python:
+    class Item:
+        def __init__(self, name, image):
+            self.name = name
+            self.image = image
+define na = Character('Narrateur', color="#c8ffc8")
+define h = Character('[player_name]',color="#c8ffc8")
+define nn = Character('Narrateur du passe', color="#c8ffc8")
+default talent = 100
+default succes = 0
+default vie = 100
+default mental = 100
+default gold = 0
+define mana = 100
+define rage = 100
+define esquive = 100
+define poison = 100
+default charisme = 100
+default force = 100
+define equipement = True
+default intelligence = 100
+default endurance = 100
+default competence = 100
+screen inventory:
+    hbox:
+        for i in inventaire:
+            frame:
+                xmargin 5
+                ymargin 5
+                add i.image size(45,45)
+
+
+
+screen bars1:
+    bar :
+        value succes
+        range 5
+        left_bar "#0E24FF"
+        right_bar "#B2B9FF"
+        xysize(200,25)
+        xpos 1100
+        ypos 1
+
+    text "Succes:[succes]/5":
+        xysize(200,25)
+        xpos 1100
+        ypos 1
+
+screen mana:
+    bar:
+        value mana
+        range 100
+        left_bar "#0E24FF"
+        right_bar "#B2B9FF"
+        xysize(200,25)
+        xpos 1100
+        ypos 615
+
+    text "Mana:[mana]/100":
+        xysize(200,25)
+        xpos 1100
+        ypos 615
+screen esquive:
+    bar:
+        value esquive
+        range 100
+        left_bar "#0E24FF"
+        right_bar "#B2B9FF"
+        xysize(200,25)
+        xpos 1100
+        ypos 615
+
+    text "Esquive:[esquive]/100":
+        xysize(400,25)
+        xpos 1100
+        ypos 615
+
+
+screen poison:
+    bar:
+        value poison
+        range 100
+        xysize(200,25)
+        xpos 1100
+        ypos 615
+
+    text "poison:[poison]/100":
+        xysize(200,25)
+        xpos 1100
+        ypos 615
+
+screen rage:
+    bar:
+        value rage
+        range 100
+        left_bar "#0E24FF"
+        right_bar "#B2B9FF"
+        xysize(200,25)
+        xpos 1100
+        ypos 615
+
+    text "rage:[rage]/100":
+        xysize(200,25)
+        xpos 1100
+        ypos 615
+
+
+
+screen vie:
+    bar:
+        value vie
+        range 100
+        left_bar "#F83C3C"
+        right_bar "#B20808"
+        xysize(200,25)
+        xpos 1100
+        ypos 25
+
+    text "Vie:[vie]/100":
+        xysize(200,25)
+        xpos 1100
+        ypos 22
+
+screen mental:
+    bar:
+        value mental
+        range 100
+        left_bar "#48995E"
+        right_bar "#47C469"
+        xysize(200,25)
+        xpos 1100
+        ypos 50
+
+    text "Mental:[mental]/100":
+        xysize(200,25)
+        xpos 1100
+        ypos 47
+screen gold:
+    bar:
+        value gold
+        range 1000
+        left_bar "#B0BE00"
+        right_bar "#E9FC02"
+        xysize(200,15)
+        xpos 1100
+        ypos 75
+
+    text "{color=#000000}Gold[gold]{/color}":
+        xysize(50,15)
+        xpos 1100
+        ypos 70
+
+screen charisme:
+    bar:
+        value charisme
+        range 100
+        left_bar "#48995E"
+        right_bar "#47C469"
+        xysize(200,25)
+        xpos 1100
+        ypos 90
+
+    text "Charisme:[charisme]":
+        xysize(200,25)
+        xpos 1100
+        ypos 87
+
+
+screen intelligence:
+    bar:
+        value intelligence
+        range 100
+        left_bar "#A30AB6"
+        right_bar "#E458F5"
+        xysize(200,25)
+        xpos 1100
+        ypos 90
+
+    text "Intelligence:[intelligence]":
+        xysize(200,25)
+        xpos 1100
+        ypos 87
+
+screen force:
+    bar:
+        value force
+        range 100
+        left_bar "#1E3732"
+        right_bar "#3B685F"
+        xysize(200,25)
+        xpos 1100
+        ypos 90
+
+    text "Force:[force]":
+        xysize(200,25)
+        xpos 1100
+        ypos 87
+
+
+
+screen endurance:
+    bar:
+        value endurance
+        range 100
+        left_bar "#E4EA1D"
+        right_bar "#CDD137"
+        xysize(200,25)
+        xpos 1100
+        ypos 300
+
+    text "Endurance:[endurance]":
+        xysize(200,15)
+        xpos 1100
+        ypos 300
+
+screen talent:
+    bar:
+        value talent
+        range 100
+        left_bar "#05FCFC"
+        right_bar "#BDFFFF"
+        xysize(200,25)
+        xpos 1100
+        ypos 400
+
+    text "Talent:[talent]":
+        xysize(200,15)
+        xpos 1100
+        ypos 400
+
+screen timide:
+    text "{size=17}{color=#2E0A08}Timide{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 243
+
+screen cleptoman:
+    text "{size=17}{color=#2E0A08}Cleptoman{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 243
+
+screen immature:
+    text "{size=17}{color=#2E0A08}Immature{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 243
+
+screen arrogant:
+    text "{size=17}{color=#2E0A08}Arrogant{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 243
+
+screen impulsif:
+    text "{size=17}{color=#2E0A08}Impulsif{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 243
+
+screen autoritaire:
+    text "{size=17}{color=#2E0A08}Autoritaire{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 243
+
+screen influancable:
+    text "{size=17}{color=#2E0A08}Influancable{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 243
+
+screen instable:
+    text "{size=17}{color=#2E0A08}Instable{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 243
+
+screen mytho:
+    text "{size=17}{color=#2E0A08}Mythoman{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 243
+
+screen colerique:
+    text "{size=17}{color=#2E0A08}Colérique{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 243
+
+screen vulgaire:
+    text "{size=17}{color=#2E0A08}Vulgaire{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 243
+
+screen paresseux:
+    text "{size=17}{color=#2E0A08}Paresseux{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 243
+
+screen susceptible:
+    text "{size=17}{color=#2E0A08}Susceptible{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 243
+
+screen debile:
+    text "{size=17}{color=#2E0A08}Débile{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 243
+
+screen parano:
+    text "{size=17}{color=#2E0A08}Parano{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 243
+
+screen pervert:
+    text "{size=17}{color=#2E0A08}Pervert{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 243
+
+screen imprudent:
+    text "{size=17}{color=#2E0A08}Imprudent{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 243
+
+screen egoiste:
+    text "{size=17}{color=#2E0A08}Egoiste{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 243
+
+screen moche:
+    text "{size=17}{color=#2E0A08}Moche{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 243
+
+screen deprime:
+    text "{size=17}{color=#2E0A08}Déprimé{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 243
+
+screen unite:
+    text "{size=20}{color=#2E0A08}{b}[unite]Unité{/size}"
+
+screen zoophile:
+    text "{size=17}{color=#2E0A08}Zoophile{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 243
+
+screen sanguinaire:
+    text "{size=17}{color=#2E0A08}Sanguinaire{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 243
+
+screen chanceux:
+    imagebutton:
+        xpos 1100
+        ypos 150
+        idle "chanceux.png"
+        at imageclasse
+
+
+screen detendu:
+    imagebutton:
+        xpos 1100
+        ypos 300
+        idle "chanceux.png"
+        at imageclasse
+
+
+screen guerrier:
+    imagebutton:
+        xpos 1100
+        ypos 125
+        idle "classeguerrier.png"
+        at imageclasse
+    text "{size=12}{color=#000000}[attaque]{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1180
+        ypos 278
+
+screen rodeur:
+    imagebutton:
+        xpos 1100
+        ypos 125
+
+        idle "classerodeur.png"
+        at imageclasse
+
+    text "{size=12}{color=#000000}[attaque]{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1180
+        ypos 278
+
+screen mage:
+    imagebutton:
+        xpos 1100
+        ypos 125
+        idle "classemage.png"
+        at imageclasse
+
+    text "{size=12}{color=#000000}[attaque]{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1180
+        ypos 278
+
+screen assassin:
+    imagebutton:
+        xpos 1100
+        ypos 125
+        idle "classeassassin.png"
+        at imageclasse
+
+    text "{size=12}{color=#000000}[attaque]{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1180
+        ypos 278
+
+screen ideaste:
+    imagebutton:
+        xysize(200,25)
+        xpos 1150
+        ypos 350
+        idle "ideaste.png"
+        at imageclasse
+        action Jump("ideaste")
+
+screen chanceux:
+    imagebutton:
+        xysize(200,25)
+        xpos 1150
+        ypos 350
+        idle "chanceux.png"
+        at imageclasse
+        action Jump("chanceux")
+
+screen motive:
+    imagebutton:
+        xysize(200,25)
+        xpos 1150
+        ypos 350
+        idle "motive.png"
+        at imageclasse
+        action Jump("motive")
+
+screen passif:
+    imagebutton:
+        xysize(200,25)
+        xpos 1150
+        ypos 350
+        idle "passif.png"
+        at imageclasse
+        action Jump("detendu")
+
+screen riche:
+    imagebutton:
+        xysize(200,25)
+        xpos 1150
+        ypos 350
+        idle "richesse.png"
+        at imageclasse
+        action Jump("riche")
+
+screen famous:
+    imagebutton:
+        xysize(200,25)
+        xpos 1150
+        ypos 350
+        idle "famous.png"
+        at imageclasse
+        action Jump("famous")
+
+screen rune1:
+    imagebutton:
+        xysize(200,45)
+        xpos 700
+        ypos 350
+        idle "rune.png"
+        at imageclasse
+        action Jump(rune1)
+
+screen rune2:
+    imagebutton:
+        xysize(200,45)
+        xpos 700
+        ypos 350
+        idle "rune.png"
+        at imageclasse
+        action Jump(rune2)
+
+screen rune3:
+    imagebutton:
+        xysize(200,45)
+        xpos 1
+        ypos 782
+        idle "rune3.png"
+        at imageclasse
+        action Jump(rune1)
+
+screen rune4:
+    imagebutton:
+        xysize(200,45)
+        xpos 500
+        ypos 500
+        idle "rune.png"
+        at imageclasse
+        action Jump(rune4)
+
+screen rune5:
+    imagebutton:
+        xysize(200,45)
+        xpos 100
+        ypos 50
+        idle "rune.png"
+        at imageclasse
+        action Jump(rune5)
+
+screen rune6:
+    imagebutton:
+        xysize(200,45)
+        xpos 300
+        ypos 350
+        idle "rune.png"
+        at imageclasse
+        action Jump(rune6)
+
+screen rune7:
+    imagebutton:
+        xysize(200,45)
+        xpos 750
+        ypos 500
+        idle "rune.png"
+        at imageclasse
+        action Jump(rune7)
+
+screen rune8:
+    imagebutton:
+        xysize(200,45)
+        xpos 600
+        ypos 450
+        idle "rune8.png"
+        at imageclasse
+        action Jump(rune8)
+
+screen rune9:
+    imagebutton:
+        xysize(20,45)
+        xpos 700
+        ypos 350
+        idle "rune.png"
+        at imageclasse
+        action Jump(rune9)
+
+screen rune10:
+    imagebutton:
+        xysize(200,45)
+        xpos 700
+        ypos 350
+        idle "rune.png"
+        at imageclasse
+        action Jump(rune10)
+
+screen rune11:
+    imagebutton:
+        xysize(200,45)
+        xpos 700
+        ypos 350
+        idle "rune.png"
+        at imageclasse
+        action Jump(rune11)
+
+screen rune12:
+    imagebutton:
+        xysize(200,45)
+        xpos 700
+        ypos 350
+        idle "rune.png"
+        at imageclasse
+        action Jump(rune12)
+
+screen rune13:
+    imagebutton:
+        xysize(200,45)
+        xpos 110
+        ypos 100
+        idle "rune.png"
+        at imageclasse
+        action Jump(rune13)
+
+screen rune14:
+    imagebutton:
+        xysize(210,5)
+        xpos 700
+        ypos 350
+        idle "rune.png"
+        at imageclasse
+        action Jump(rune14)
+
+screen rune15:
+    imagebutton:
+        xysize(800,45)
+        xpos 700
+        ypos 350
+        idle "rune.png"
+        at imageclasse
+        action Jump(rune15)
+screen genereux:
+    imagebutton:
+        xysize(200,25)
+        xpos 1150
+        ypos 350
+        idle "genereux.png"
+        at imageclasse
+        action Jump("genereux")
+
+screen polivalent:
+    imagebutton:
+        xysize(200,25)
+        xpos 1150
+        ypos 350
+        idle "polivalent.png"
+        at imageclasse
+        action Jump("polivalent")
+screen detendu:
+    imagebutton:
+        xysize(200,25)
+        xpos 1150
+        ypos 350
+        idle "detendu.png"
+        at imageclasse
+        action Jump("detendu")
+
+screen chevalier:
+    imagebutton:
+        xpos 1100
+        ypos 125
+        idle "soldat"
+        at imageclasse
+
+    text "{b}{size=20}{color=#000000}[unite]{/couleur}{/size}{/b}":
+        xysize(30,10)
+        xpos 1180
+        ypos 650
+
+
+
+screen frappeur1:
+    textbutton "{color=#000000}Bouhhhhhhh{/couleur}"action Jump("frappeur1"):
+        xalign 0.1
+        yalign 0.7
+
+
+screen frappeur2:
+    textbutton "Bouhh"action Jump("frappeur2"):
+        xalign 0.5
+        yalign 0.5
+
+screen frappeur3:
+    textbutton "BAAAA"action Jump("frappeur3"):
+        xalign 0.9
+        yalign 0.5
+
+screen frappeur4:
+    textbutton "Mwahaha"action Jump("frappeur4"):
+        xalign 0.3
+        yalign 0.4
+
+screen frappeur5:
+    textbutton "Vien par ici"action Jump("frappeur4"):
+        xalign 0.7
+        yalign 0.7
+
+screen pet1:
+    imagebutton:
+        xpos 10
+        ypos 125
+        idle "mascotterat.png"
+        at imageclasse
+        action Jump("petrat")
+
+screen pet2:
+    imagebutton:
+        xpos 200
+        ypos 125
+        idle "mascottechat.png"
+        at imageclasse
+        action Jump("petchat")
+
+screen pet3:
+    imagebutton:
+        xpos 500
+        ypos 125
+        idle "mascottechatnoir.png"
+        at imageclasse
+        action Jump("petchatn")
+
+screen pet4:
+    imagebutton:
+        xpos 800
+        ypos 125
+        idle "mascottepoulpe.png"
+        at imageclasse
+        action Jump("petpoulpe")
+
+screen pet5:
+    imagebutton:
+        xpos 1000
+        ypos 125
+        idle "mascottedragon.png"
+        at imageclasse
+        action Jump("petdragon")
+
+screen bleu:
+    imagebutton:
+        xpos 500
+        ypos 500
+        idle "bleu"
+        action Jump("erreur")
+screen rouge:
+    imagebutton:
+        xpos 750
+        ypos 750
+        idle "rouge"
+        action Jump("erreur")
+
+screen vert:
+    imagebutton:
+        xpos 250
+        ypos 250
+        idle "vert"
+        action Jump(vert)
+
+screen richesse:
+    imagebutton:
+        xpos 500
+        ypos 200
+        idle "primo.png"
+        at imageclasse
+        action Jump("richesse")
+
+screen tome4:
+    imagebutton:
+        xpos 10
+        ypos 50
+        idle "livredeglace.png"
+        at cachette
+        action Jump("tome4")
+
+screen tome1:
+    imagebutton:
+        xpos 1000
+        ypos 50
+        idle "livredefeu.png"
+        at cachette
+        action Jump("tome1")
+
+screen tome2:
+    imagebutton:
+        xpos 1000
+        ypos 50
+        idle "livredefeu.png"
+        at cachette
+        action Jump("tome2")
+
+screen tome3:
+    imagebutton:
+        xpos 100
+        ypos 50
+        idle "livredefeu.png"
+        at cachette
+        action Jump("tome3")
+
+screen narrateur1:
+    imagebutton:
+        xpos 100
+        ypos 50
+        idle "narrateurbaby.png"
+        at imageclasse
+        action Jump("narrateurfaux")
+
+screen narrateur2:
+    imagebutton:
+        xpos 500
+        ypos 50
+        idle "narrateurtriso.png"
+        at imageclasse
+        action Jump("narrateurfaux")
+
+screen narrateur3:
+    imagebutton:
+        xpos 500
+        ypos 300
+        idle "narrateurlady.png"
+        at imageclasse
+        action Jump("narrateurfaux")
+
+screen narrateur4:
+    imagebutton:
+        xpos 100
+        ypos 300
+        idle "narrateurbouda.png"
+        at imageclasse
+        action Jump("narrateurfaux")
+
+screen narrateur5:
+    imagebutton:
+        xpos 800
+        ypos 300
+        idle "narrateur.jpg"
+        at imageclasse
+        action Jump("narrateurvrai")
+
+screen dinde1:
+    imagebutton:
+        xpos 400
+        ypos 125
+        idle "dinde.png"
+        action Jump("dindevrai")
+
+screen dinde2:
+    imagebutton:
+        xpos 800
+        ypos 125
+        idle "dinde.png"
+        action Jump("dindefaux")
+
+screen dinde3:
+    imagebutton:
+        xpos 50
+        ypos 125
+        idle "dinde.png"
+        action Jump("dindefaux")
+
+
+screen kaka01:
+    imagebutton:
+        xpos 750
+        ypos 10
+        idle "bulletxt.png"
+        at imagerobot
+
+    text "{size=12}{color=#000000}code 0000, espece identifié type humanoide {/couleur}{/size}":
+        xysize(20,10)
+        xpos 800
+        ypos 20
+
+screen kaka:
+    imagebutton:
+        xpos 802
+        ypos 10
+        idle "kakax1.png"
+        at kaka0
+        action Jump("aka01")
+
+
+screen kaka1:
+    imagebutton:
+        xpos 950
+        ypos 10
+        idle "kaka.png"
+        at kaka0
+        action Jump("aka01")
+
+screen kaka2:
+    imagebutton:
+        xpos 950
+        ypos 10
+        idle "kaka.png"
+        at kaka0
+        action Jump("aka02")
+
+screen kaka3:
+    imagebutton:
+        xpos 950
+        ypos 10
+        idle "kaka.png"
+        at kaka0
+        action Jump("aka03")
+
+screen kaka4:
+    imagebutton:
+        xpos 950
+        ypos 10
+        idle "kaka.png"
+        at kaka0
+        action Jump("aka04")
+
+screen kaka5:
+    imagebutton:
+        xpos 950
+        ypos 10
+        idle "kaka.png"
+        at kaka0
+        action Jump("aka05")
+
+screen kaka6:
+    imagebutton:
+        xpos 950
+        ypos 10
+        idle "kaka.png"
+        at kaka0
+        action Jump("aka06")
+
+screen kaka7:
+    imagebutton:
+        xpos 950
+        ypos 10
+        idle "kaka.png"
+        at kaka0
+        action Jump("aka07")
+
+screen kaka8:
+    imagebutton:
+        xpos 950
+        ypos 10
+        idle "kaka.png"
+        at kaka0
+        action Jump("aka08")
+
+screen kaka9:
+    imagebutton:
+        xpos 950
+        ypos 10
+        idle "kaka.png"
+        at kaka0
+        action Jump("aka09")
+
+screen kaka10:
+    imagebutton:
+        xpos 950
+        ypos 10
+        idle "kaka.png"
+        at kaka0
+        action Jump("aka10")
+
+screen kaka001:
+    imagebutton:
+        xpos 750
+        ypos 10
+        idle "kaka001.png"
+        at imagerobot
+
+transform imagerobot:
+    zoom 0.25
+transform kaka0:
+    zoom 0.10
+
+transform imageclasse:
+    zoom 0.35
+
+transform narrat:
+    zoom 0.1
+transform cachette:
+    zoom 0.2
+screen amical:
+    text "{size=17}{color=#00631B}Amical{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 193
+
+screen efficace:
+    text "{size=17}{color=#00631B}Efficace{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 193
+
+screen fiable:
+    text "{size=17}{color=#00631B}Fiable{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 193
+
+screen creatif:
+    text "{size=17}{color=#00631B}Creatif{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 193
+
+screen determine:
+    text "{size=17}{color=#00631B}Détérminé{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 193
+
+screen optimiste:
+    text "{size=17}{color=#00631B}Optimiste{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 193
+
+screen prudent:
+    text "{size=17}{color=#00631B}Prudent{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 193
+
+screen drole:
+    text "{size=17}{color=#00631B}Drole{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 193
+
+screen persuasif:
+    text "{size=17}{color=#00631B}Persuasif{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 193
+
+screen charmeur:
+    text "{size=17}{color=#00631B}Charmeur{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 193
+
+screen logique:
+    text "{size=17}{color=#00631B}Logique{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 193
+
+screen econome:
+    text "{size=17}{color=#00631B}Econome{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 193
+
+screen courageux:
+    text "{size=17}{color=#00631B}Courageux{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 193
+
+screen tenace:
+    text "{size=17}{color=#00631B}Tenace{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 193
+
+
+screen agile:
+    text "{size=17}{color=#00631B}Agile{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 193
+
+screen mysterieux:
+    text "{size=17}{color=#00631B}Mysterieux{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 193
+
+screen bulle:
+    text "{size=13}{color=#00631B}AmisDesBulles{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 193
+
+screen magnifique:
+    text "{size=17}{color=#00631B}Magnifique{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 193
+
+screen enthousiaste:
+    text "{size=15}{color=#00631B}Enthousiaste{/couleur}{/size}":
+        xysize(3,1)
+        xpos 1150
+        ypos 193
+
+screen bete:
+    text "{size=13}{color=#00631B}AmisDesBêtes{/couleur}{/size}":
+        xysize(3,1)
+        xpos 1150
+        ypos 193
+
+screen herboriste:
+    text "{size=17}{color=#00631B}Herboriste{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 193
+
+screen patient0:
+    text "{size=17}{color=#00631B}Patient0{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 193
+
+screen farfouilleur:
+    text "{size=17}{color=#00631B}Farfouilleur{/couleur}{/size}":
+        xysize(30,10)
+        xpos 1150
+        ypos 193
+
+screen recrue:
+    imagebutton:
+        xysize(20,10)
+        xpos 50
+        ypos 500
+        idle "recrue.png"
+        at imageclasse
+
+screen carte:
+    frame:
+        imagemap:
+            ground "carte.png"
+            hotspot (185, 160, 101, 109)action Jump("tresorx")
+            hotspot (124, 476, 79, 70)action Jump("crane")
+            hotspot (629, 137, 70, 95)action Jump("requin")
+            hotspot (374, 10, 119, 93)action Jump("magasin")
+            hotspot (615, 619, 71, 72)action Jump("magasin")
+screen sacequip:
+    hbox:
+        imagebutton:
+            xysize(3,5)
+            xpos 500
+            ypos 1
+            idle "sac.jpg"
+            at imageclasse
+
+
+
+screen danger:
+    imagebutton:
+        xysize(30,10)
+        xpos 100
+        ypos 1
+        idle danger.png
+        at narat
+
+
+
+screen nefaste:
+    frame:
+        imagemap:
+            ground "nefaste.png"
+            hotspot (112, 76, 170, 172)action Jump("chanceux")
+            hotspot (298, 78, 166, 163)action Jump("detendu")
+            hotspot (471, 81, 167, 161)action Jump("ideaste")
+            hotspot (110, 256, 170, 154)action Jump("riche")
+            hotspot (291, 248, 166, 166)action Jump("motive")
+            hotspot (466, 250, 175, 162)action Jump("polivalent")
+            hotspot (114, 425, 169, 158)action Jump("passif")
+            hotspot (294, 432, 158, 155)action Jump("famous")
+            hotspot (469, 424, 172, 165)action Jump("genereux")
+screen vote:
+    frame:
+        imagemap:
+            ground "vote.png"
+            hotspot (33, 42, 421, 170)action Jump("mioki1")
+            hotspot (35, 212, 410, 175)action Jump("scara1")
+            hotspot (38, 386, 402, 164)action Jump("jinks1")
+            hotspot (461, 50, 377, 168)action Jump("yui1")
+            hotspot (460, 214, 371, 165)action Jump("elayna1")
+            hotspot (448, 383, 394, 161)action Jump("soraya1")
+            hotspot (856, 56, 398, 163)action Jump("seikyo1")
+            hotspot (854, 219, 389, 160)action Jump("rubie1")
+            hotspot (856, 388, 394, 163)action Jump("dimitri1")
+            hotspot (482, 591, 319, 102)action Jump("village2")
+screen vote1:
+    frame:
+        imagemap:
+            ground "vote.png"
+            hotspot (33, 42, 421, 170)action Jump("mioki2")
+            hotspot (35, 212, 410, 175)action Jump("scara2")
+            hotspot (38, 386, 402, 164)action Jump("jinks2")
+            hotspot (461, 50, 377, 168)action Jump("yui2")
+            hotspot (460, 214, 371, 165)action Jump("elayna2")
+            hotspot (448, 383, 394, 161)action Jump("soraya2")
+            hotspot (856, 56, 398, 163)action Jump("seikyo2")
+            hotspot (854, 219, 389, 160)action Jump("rubie2")
+            hotspot (856, 388, 394, 163)action Jump("dimitri2")
+            hotspot (482, 591, 319, 102)action Jump("jour1")
+
+screen vote3:
+    frame:
+        imagemap:
+            ground "vote.png"
+            hotspot (33, 42, 421, 170)action Jump("mioki3")
+            hotspot (35, 212, 410, 175)action Jump("scara3")
+            hotspot (38, 386, 402, 164)action Jump("jinks3")
+            hotspot (461, 50, 377, 168)action Jump("yui3")
+            hotspot (460, 214, 371, 165)action Jump("elayna3")
+            hotspot (448, 383, 394, 161)action Jump("soraya3")
+            hotspot (856, 56, 398, 163)action Jump("seikyo3")
+            hotspot (854, 219, 389, 160)action Jump("rubie3")
+            hotspot (856, 388, 394, 163)action Jump("dimitri3")
+            hotspot (482, 591, 319, 102)action Jump("jour2")
+
+screen enquete:
+    frame:
+        imagemap:
+            ground "villagek.png"
+            hotspot (33, 42, 421, 170)action Jump("mioki20")
+            hotspot (35, 212, 410, 175)action Jump("scara20")
+            hotspot (38, 386, 402, 164)action Jump("jinks20")
+            hotspot (461, 50, 377, 168)action Jump("yui20")
+            hotspot (460, 214, 371, 165)action Jump("elayna20")
+            hotspot (448, 383, 394, 161)action Jump("soraya20")
+            hotspot (856, 56, 398, 163)action Jump("seikyo20")
+            hotspot (854, 219, 389, 160)action Jump("rubie20")
+            hotspot (856, 388, 394, 163)action Jump("dimitri20")
+            hotspot (228, 555, 142, 164)action Jump("azure20")
+            hotspot (47, 555, 148, 164)action Jump("kurake20")
+            hotspot (881, 564, 150, 154)action Jump("shawn20")
+            hotspot (1059, 565, 137, 153)action Jump("guss20")
+            hotspot (482, 591, 319, 102)action Jump("renquete ")
+
+screen allan:
+    imagebutton:
+        xpos 500
+        ypos 50
+        idle "allan.png"
+
+
+screen nara:
+    imagebutton:
+        xpos 802
+        ypos 268
+        idle "narrateur.jpg"
+        at narrat
+
+screen risktuto:
+    frame:
+        imagemap:
+            ground "risk.png"
+            hotspot (757, 401, 121, 87)action Jump("taegax")
+
+screen nara2:
+    imagebutton:
+        xpos 802
+        ypos 463
+        idle "narrateur.jpg"
+        at narrat
+#taega
+screen nara3:
+    imagebutton:
+        xpos 820
+        ypos 268
+        idle "narrateur.jpg"
+        at narrat
+
+
+#lunore
+screen nara4:
+    imagebutton:
+        xpos 1050
+        ypos 11
+        idle "narrateur.jpg"
+        at narrat
+#shacrow
+screen nara5:
+    imagebutton:
+        xpos 1059
+        ypos 65
+        idle "narrateur.jpg"
+        at narrat
+#mekania
+screen nara6:
+    imagebutton:
+        xpos 966
+        ypos 98
+        idle "narrateur.jpg"
+        at narrat
+#hamma
+screen nara7:
+    imagebutton:
+        xpos 780
+        ypos 103
+        idle "narrateur.jpg"
+        at narrat
+#anagar
+screen nara8:
+    imagebutton:
+        xpos 642
+        ypos 100
+        idle "narrateur.jpg"
+        at narrat
+#varnymir
+screen nara9:
+    imagebutton:
+        xpos 628
+        ypos 61
+        idle "narrateur.jpg"
+        at narrat
+#aries
+screen nara10:
+    imagebutton:
+        xpos 549
+        ypos 95
+        idle "narrateur.jpg"
+        at narrat
+#arkania
+screen nara11:
+    imagebutton:
+        xpos 511
+        ypos 115
+        idle "narrateur.jpg"
+        at narrat
+#lumia
+screen nara12:
+    imagebutton:
+        xpos 528
+        ypos 79
+        idle "narrateur.jpg"
+        at narrat
+#lorsha
+screen nara13:
+    imagebutton:
+        xpos 649
+        ypos 93
+        idle "narrateur.jpg"
+        at narrat
+#ile
+screen nara14:
+    imagebutton:
+        xpos 266
+        ypos 102
+        idle "narrateur.jpg"
+        at narrat
+#elysion
+
+screen nara15:
+    imagebutton:
+        xpos 39
+        ypos 102
+        idle "narrateur.jpg"
+        at narrat
+#gemini
+screen nara16:
+    imagebutton:
+        xpos 48
+        ypos 112
+        idle "narrateur.jpg"
+        at narrat
+#neferia
+screen nara17:
+    imagebutton:
+        xpos 179
+        ypos 233
+        idle "narrateur.jpg"
+        at narrat
+#leevia
+screen nara18:
+    imagebutton:
+        xpos 418
+        ypos 104
+        idle "narrateur.jpg"
+        at narrat
+#Solaria
+
+screen nara19:
+    imagebutton:
+        xpos 466
+        ypos 76
+        idle "narrateur.jpg"
+        at narrat
+#maunaria
+screen nara20:
+    imagebutton:
+        xpos 903
+        ypos 182
+        idle "narrateur.jpg"
+        at narrat
+
+screen bleu:
+    imagebutton:
+        xpos 903
+        ypos 182
+        idle "bleu.jpg"
+        at narrat
+screen rouge:
+    imagebutton:
+        xpos 500
+        ypos 182
+        idle "rouge.jpg"
+        at narrat
+screen vert:
+    imagebutton:
+        xpos 100
+        ypos 182
+        idle "vert.jpg"
+        at narrat
+
+screen risktuto:
+    frame:
+        imagemap:
+            ground "risk.png"
+            hotspot (757, 401, 121, 87)action Jump("risktuto")
+screen risk:
+    frame:
+        imagemap:
+            ground "risk.png"
+            hotspot (752, 115, 121, 245)action Jump("wingdhel")
+            hotspot (757, 401, 121, 87)action Jump("taega")
+            hotspot (949, 204, 91, 86)action Jump("lunore")
+            hotspot (1066, 214, 92, 112)action Jump("shacrow")
+            hotspot (1059, 361, 65, 63)action Jump("mekania")
+            hotspot (966, 423, 98, 62)action Jump("hamma")
+            hotspot (780, 536, 103, 138)action Jump("anagar")
+            hotspot (642, 121, 100, 188)action Jump("varnymir")
+            hotspot (628, 313, 61, 69)action Jump("aries")
+            hotspot (549, 200, 95, 128)action Jump("arkania")
+            hotspot (511, 363, 115, 80)action Jump("lumia")
+            hotspot (528, 456, 79, 94)action Jump("lorsha")
+            hotspot (649, 520, 93, 88)action Jump("ile")
+            hotspot (266, 503, 102, 136)action Jump("elysion")
+            hotspot (39, 395, 112, 113)action Jump("gemini")
+            hotspot (48, 138, 99, 111)action Jump("neferia")
+            hotspot (179, 43, 233, 93)action Jump("leevia")
+            hotspot (418, 149, 104, 53)action Jump("solaria")
+            hotspot (466, 212, 76, 124)action Jump("maunaria")
+            hotspot (903, 519, 182, 123)action Jump("arakia")
+
+
+screen risk1:
+    frame:
+        imagemap:
+            ground "risk.png"
+            hotspot (752, 115, 121, 245)action Jump("wingdhel01")
+            hotspot (757, 401, 121, 87)action Jump("taega01")
+            hotspot (949, 204, 91, 86)action Jump("lunore01")
+            hotspot (1066, 214, 92, 112)action Jump("shacrow01")
+            hotspot (1059, 361, 65, 63)action Jump("mekania01")
+            hotspot (966, 423, 98, 62)action Jump("hamma01")
+            hotspot (780, 536, 103, 138)action Jump("anagar01")
+            hotspot (642, 121, 100, 188)action Jump("varnymir01")
+            hotspot (628, 313, 61, 69)action Jump("aries01")
+            hotspot (549, 200, 95, 128)action Jump("arkania01")
+            hotspot (511, 363, 115, 80)action Jump("lumia01")
+            hotspot (528, 456, 79, 94)action Jump("lorsha01")
+            hotspot (649, 520, 93, 88)action Jump("ile01")
+            hotspot (266, 503, 102, 136)action Jump("elysion01")
+            hotspot (39, 395, 112, 113)action Jump("gemini01")
+            hotspot (48, 138, 99, 111)action Jump("neferia01")
+            hotspot (179, 43, 233, 93)action Jump("leevia01")
+            hotspot (418, 149, 104, 53)action Jump("solaria01")
+            hotspot (466, 212, 76, 124)action Jump("maunaria01")
+            hotspot (903, 519, 182, 123)action Jump("arakia01")
+screen positive:
+    frame:
+        imagemap:
+            ground "caracteristiquepositive.png"
+            hotspot (428, 83, 185, 46)action Jump("amical")
+            hotspot (427, 133, 185, 47)action Jump("efficace")
+            hotspot (428, 183, 185, 48)action Jump("fiable")
+            hotspot (428, 235, 184, 46)action Jump("creatif")
+            hotspot (427, 285, 185, 47)action Jump("determine")
+            hotspot (426, 333, 184, 50)action Jump("enthousiaste")
+            hotspot (428, 386, 186, 48)action Jump("optimiste")
+            hotspot (427, 435, 184, 46)action Jump("prudent")
+            hotspot (426, 486, 186, 48)action Jump("drole")
+            hotspot (427, 538, 185, 47)action Jump("magnifique")
+            hotspot (426, 587, 185, 45)action Jump("herboriste")
+            hotspot (665, 81, 187, 49)action Jump ("persuasif")
+            hotspot (667, 135, 184, 46)action Jump("charmeur")
+            hotspot (665, 183, 183, 49)action Jump("logique")
+            hotspot (665, 235, 184, 49)action Jump("econome")
+            hotspot (663, 288, 187, 47)action Jump("courageux")
+            hotspot (664, 340, 184, 46)action Jump("tenace")
+            hotspot (663, 389, 182, 46)action Jump("agile")
+            hotspot (663, 440, 186, 44)action Jump("mysterieux")
+            hotspot (661, 486, 187, 45)action Jump("bulle")
+            hotspot (662, 537, 184, 45)action Jump("bete")
+            hotspot (660, 584, 186, 48)action Jump("farfouilleur")
+            hotspot (977, 359, 87, 90)action Jump("pif")
+
+screen positiveexpress:
+    frame:
+        imagemap:
+            ground "caracteristiquepositive.png"
+            hotspot (428, 83, 185, 46)action Jump("amical1")
+            hotspot (427, 133, 185, 47)action Jump("efficace1")
+            hotspot (428, 183, 185, 48)action Jump("fiable1")
+            hotspot (428, 235, 184, 46)action Jump("creatif1")
+            hotspot (427, 285, 185, 47)action Jump("determine1")
+            hotspot (426, 333, 184, 50)action Jump("enthousiaste1")
+            hotspot (428, 386, 186, 48)action Jump("optimiste1")
+            hotspot (427, 435, 184, 46)action Jump("prudent1")
+            hotspot (426, 486, 186, 48)action Jump("drole1")
+            hotspot (427, 538, 185, 47)action Jump("magnifique1")
+            hotspot (426, 587, 185, 45)action Jump("herboriste1")
+            hotspot (665, 81, 187, 49)action Jump ("persuasif1")
+            hotspot (667, 135, 184, 46)action Jump("charmeur1")
+            hotspot (665, 183, 183, 49)action Jump("logique1")
+            hotspot (665, 235, 184, 49)action Jump("econome1")
+            hotspot (663, 288, 187, 47)action Jump("courageux1")
+            hotspot (664, 340, 184, 46)action Jump("tenace1")
+            hotspot (663, 389, 182, 46)action Jump("agile1")
+            hotspot (663, 440, 186, 44)action Jump("mysterieux1")
+            hotspot (661, 486, 187, 45)action Jump("bulle1")
+            hotspot (662, 537, 184, 45)action Jump("bete1")
+            hotspot (660, 584, 186, 48)action Jump("farfouilleur1")
+
+screen negative:
+    frame:
+        imagemap:
+            ground "caracteristiquenegative.png"
+            hotspot (415, 96, 185, 47)action Jump("timide")
+            hotspot (416, 147, 184, 46)action Jump("cleptoman")
+            hotspot (416, 195, 184, 48)action Jump("immature")
+            hotspot (415, 247, 185, 48)action Jump("arrogant")
+            hotspot (417, 298, 182, 46)action Jump("autoritaire")
+            hotspot (415, 347, 184, 49)action Jump("impulsif")
+            hotspot (415, 397, 185, 48)action Jump("influancable")
+            hotspot (417, 449, 181, 47)action Jump("instable")
+            hotspot (416, 500, 183, 46)action Jump("mytho")
+            hotspot (417, 551, 184, 44)action Jump("colerique")
+            hotspot (417, 600, 183, 45)action Jump("vulgaire")
+            hotspot (655, 94, 185, 50)action Jump("paresseux")
+            hotspot (654, 146, 185, 48)action Jump ("susceptible")
+            hotspot (653, 195, 186, 50)action Jump("debile")
+            hotspot (652, 248, 185, 48)action Jump("parano")
+            hotspot (650, 301, 186, 47)action Jump("pervert")
+            hotspot (652, 351, 184, 47)action Jump("imprudent")
+            hotspot (651, 403, 185, 47)action Jump("egoiste")
+            hotspot (651, 453, 184, 45)action Jump("moche")
+            hotspot (649, 499, 187, 49)action Jump("deprime")
+            hotspot (650, 549, 187, 45)action Jump("zoophile")
+            hotspot (650, 598, 185, 46)action Jump("sanguinaire")
+
+screen negativeexpress:
+    frame:
+        imagemap:
+            ground "caracteristiquenegative.png"
+            hotspot (415, 96, 185, 47)action Jump("timide1")
+            hotspot (416, 147, 184, 46)action Jump("cleptoman1")
+            hotspot (416, 195, 184, 48)action Jump("immature1")
+            hotspot (415, 247, 185, 48)action Jump("arrogant1")
+            hotspot (417, 298, 182, 46)action Jump("autoritaire1")
+            hotspot (415, 347, 184, 49)action Jump("impulsif1")
+            hotspot (415, 397, 185, 48)action Jump("influancable1")
+            hotspot (417, 449, 181, 47)action Jump("instable1")
+            hotspot (416, 500, 183, 46)action Jump("mytho1")
+            hotspot (417, 551, 184, 44)action Jump("colerique1")
+            hotspot (417, 600, 183, 45)action Jump("vulgaire1")
+            hotspot (655, 94, 185, 50)action Jump("paresseux1")
+            hotspot (654, 146, 185, 48)action Jump ("susceptible1")
+            hotspot (653, 195, 186, 50)action Jump("debile1")
+            hotspot (652, 248, 185, 48)action Jump("parano1")
+            hotspot (650, 301, 186, 47)action Jump("pervert1")
+            hotspot (652, 351, 184, 47)action Jump("imprudent1")
+            hotspot (651, 403, 185, 47)action Jump("egoiste1")
+            hotspot (651, 453, 184, 45)action Jump("moche1")
+            hotspot (649, 499, 187, 49)action Jump("deprime1")
+            hotspot (650, 549, 187, 45)action Jump("zoophile1")
+            hotspot (650, 598, 185, 46)action Jump("sanguinaire1")
+screen imagemap1:
+    frame:
+        imagemap:
+            ground "imagemap1.png"
+            hotspot (0, 414, 480, 300)action Jump("prairie")
+            hotspot (969, 125, 309, 507)action Jump("foret")
+            hotspot (0, 143, 521, 54)action Jump("desert")
+
+screen imagemap2:
+    frame:
+        imagemap:
+            ground "imagemap2.png"
+            hotspot (0, 223, 344, 280)action Jump("montagne")
+            hotspot (403, 520, 388, 197)action Jump("marais")
+            hotspot (861, 0, 404, 717)action Jump("plage")
+
+label start:
+    show screen sacequip
+    "Voici votre équipement je vous ferais un retour des que possible"
+    hide screen sacequip
+    show equipement
+    "Voici votre fiche personnage"
+    hide equipement
+    "Vous pouvez l'ouvrir a tout moment"
+    show danger
+    "Ce bouton vous ramene a un jeu simple sans insulte tout en courtoisi"
+    "Si vous n'aimer pas le style du narrateur qui embete le joueur cliquer sur ce bouton"
+    hide danger
+    $ passivguerrier = 0
+    $ charge = 0
+    $ tank = 0
+    $ poison = 0
+    $ tranchelame = 0
+    $ daguedestenebre = 0
+    $ soin = 0
+    $ cristalisation = 0
+    $ magiedeselement = 0
+    $ flechedefeu = 0
+    $ precision = 0
+    $ sniper = 0
+    $ equipement = 0
+    $ torse = 0
+    $ casque = 0
+    $ jambe = 0
+    $ bras = 0
+    $ epee = 0
+    $ arc = 0
+    $ magie = 0
+    $ assa = 0
+    $ passe = 0
+    $ pied = 0
+    jump startx
+
+label startx:
+    $ passe = 0
+    menu verni:
+
+        "Skip":
+            jump starttrue
+
+
+        "Sinon continuer ici:":
+            jump blex
+
+label blex:
+    show yae
+    $ passe = 0
+    hide screen equipement
+    "Yae" "...C'est la fin mon tendre amour"
+    "Yae" "..."
+    "Yae" "Je... t aime"
+    "Adieu"
+    "NOOOOOOOOONNNN"
+    hide yae
+    with hpunch
+    show dragalaxa
+    with vpunch
+    "..."
+    hide dragalaxa
+    "Vous vous évanouissez lore d'un combat"
+    "*Soupir*"
+    "Encore 1 chemin je trouverai le bon yae"
+    "Pour toi"
+    "???" "Alors cher aventurier et tu prêt à me rejoindre,dans cette noble quête?"
+    "Dit la dame au long cheveux d'or habillée d'une longue robe avec des fleurs cristaline"
+
+label ballade:
+    play music ballade
+    "Loin Loin...Aventurier"
+    "tu parcourra tout les sentier"
+    "Choisit ton chemin parmi les gravier"
+    "l'Astre du Bien sera coupé"
+    "En deux parti opposé"
+
+    "Refrain :"
+    "Fait attention a ta santé"
+    "Tu risque des trouble ton mental entier"
+    "Avec l'endurance tu pourra braver"
+    "Tout tout les danger"
+    "Tout tout les sentier"
+    "tout tout les rocher"
+    "tout tout sera surmonté"
+
+    "La Grande Connection et établi"
+    "Les planète par millier"
+    "Astrae et rempli de calomnie"
+    "Fait attention a Vega il va te surveiller"
+
+    "refrain 2 :"
+    "Utilise ta force pour soulever"
+    "Utilise ton charisme pour une belle amitié"
+    "Utilise ton intelligence pour trouver"
+    "Un endroit émerveillé"
+    "Loin Loin aventurier"
+
+    "refrain 1 :"
+    "Fait attention a ta santé"
+    "Tu risque des trouble ton mental entier"
+    "Avec l'endurance tu pourra braver"
+    "Tout tout les danger"
+    "Tout tout les sentier"
+    "tout tout les rocher"
+    "tout tout sera surmonté"
+
+    "refrain 2 :"
+    "Utilise ta force pour soulever"
+    "Utilise ton charisme pour une belle amitié"
+    "Utilise ton intelligence pour trouver"
+    "Un endroit émerveillé"
+    "Loin Loin aventurier"
+
+    "Un choix difficile ce pose devant toi"
+    "On ce demande même si tu survivra"
+    "A la recherche des arcanne"
+    "Loin Loin aventurier brave tout les danger"
+    "Loin loin dans les sentier"
+    "loin loin aventurier"
+    "Proche proche tu tombera"
+    "revient a chaque fois sur tes pas"
+    "Loin aventurier x3"
+    "…"
+    "…"
+    "…"
+    "Arrivera tu a sauver yae"
+    "…"
+    "FIN"
+    show narrateur
+    "Salut joueur je suis le Narrateur"
+    "Quel type de Narrateur aimez vous?"
+    hide narrateur
+    stop music
+    play music piano
+    jump starttrue
+
+label starttrue:
+    $ vigoureux = 0
+    $ passe = 0
+    $ esquive = 0
+    $ poison = 0
+    $ acte1x = 0
+    $ acte2x = 0
+    $ acte3x = 0
+    $ charisme = 0
+    $ force = 0
+    $ talent = 0
+    $ intelligence = 0
+    $ narafutur = 0
+    $ narapasse = 0
+    $ aleatoire = 0
+    menu naralum:
+        "Narrateur de Lumiere":
+            "En choisisant le narrateur de lumiere vous n'aurez pas tout les succes du début"
+            "Le Narrateur du futur vous donne les compétance et les talent aléatoirement"
+            "Pas besoin de se Casser la Tête"
+            $ narafutur = 1
+            $ aleatoire = 1
+            "Sinon vous pouvez décider d'étre le patient0"
+            "Les patient0 a besoin juste d'appuyer sur continuer"
+            "parcontre les patient0 non pas de talent"
+            "Je déconne bien sur tête à cheveux"
+            jump carismex
+
+
+        "Narrateur Roleplay":
+            "En choisisant le narrateur roleplay tu décide a renoncé au succés"
+            $ passe = 1
+            jump roleplay1
+
+        "Narrateur Normal":
+            jump grounds
+label carismex:
+    "{a=jump:carisme2}Charisme{/a};{a=jump:intel2}Intelligence{/a};{a=jump:force2}Force{/a};"
+    jump carismex
+
+label carisme2:
+    show screen charisme
+    $ charisme = 100
+    jump allan
+
+label force2:
+    show screen force
+    $ force = 100
+label intel2:
+    show screen intelligence
+    $ intelligence = 100
+    jump allan
+
+label roleplay1:
+    if passe == 1:
+        jump grounds
+    $ passe = 0
+    $ mana = 0
+    $ basic = 0
+    $ cle = 0
+    $ clee100000 = 1
+    if basic = 1:
+        if basic = 0:
+            "Vous n'avez pas accés a ce programme"
+        elif = 1:
+            jump cle
+        if clee100000 = 0:
+            "Vous n'avez pas la cle pour avoir votre chemin"
+
+label cle:
+    $ clee100000 = 1
+    $ clee100000 = renpy.random.randint(0,1000000)
+    if cleclee100000 >= 0:
+        jump reda
+
+label reda:
+    $ reda = 0
+    if reda = 0:
+        "Tu pensé avoir l'histoire de reda facilement?"
+        "Bah non joueur"
+        "tu va devoir la trouvé"
+        jump xdfeadf
+label xdfeadf:
+    if reda = 1:
+        "Tu a trouver l'histoire de reda"
+        jump reda1
+
+label grounds:
+    "il y'a d'autre version version basic a 5euro"
+    "version standart a 10euro"
+    "version avancé a 15euro"
+    "version pro a 20euro"
+    "version diabolique a 50euro"
+    "version universel a 75 euro"
+    "version ultime a 100euro"
+    "version vip a 300euro"
+    "Allez sur ma campagne Ulule pour soutenir le projet"
+    "Une Histoire qui remonte a des lustres "
+    "Aelia Les Esperant de Saphir"
+    "Helios Les Affranchisseur de rubie"
+    "2 dieu qui surveille le monde d'Astrae"
+    "Helios avide de liberté et de Conquete et de gloires"
+    "Aelia avide d'equilibre et d'espoir"
+    "Les deux dieu qui o paravant étais proche ce sont dissocier"
+    "l'Un voulant de controle l'autre voulant la protection"
+    "Alors Helios créa humain orc et nain et aelia créa elfes sombre et de lumiere"
+    "Cependant Les race convoité sont voisin les ténébre a la recherche de la lumiere"
+    "Les Force s'opposa les une aux autre"
+    "Alors prêt(e) a vivre une aventure meilleur?"
+    "Voyons cela dans un instant !"
+    play music celtic
+    $ rage = 0
+    $ esquive = 0
+    $ mana = 0
+    $ poison = 0
+    "Avant de commencer ce rp vous pouvez retrouver moulte histoire sur les races les pays les arkane les astres"
+    "Mais 2 romans en cours de parution donc vous avez La Déesse aux Masque dardelia"
+    show dardelia
+    with vpunch
+    "Dardelia la femme au milles sangle"
+    hide dardelia
+    "Vous pouvez trouver toute les informations sur astraelia.com"
+    "Sur le site vous pourrais astraelia.com vous aurez tout mais réseau ici"
+    $ rage = 0
+    $ esquive = 0
+    $ poison = 0
+    $ mana = 0
+    $ succes = 0
+    $ vie = 100
+    $ skip = 0
+    $ mental = 100
+    $ gold = 0
+    $ force = 1
+    $ charisme = 1
+    $ intelligence = 1
+    $ attaque = 0
+    $ timide = 0
+    $ cleptoman = 0
+    $ immature = 0
+    $ talent = 0
+    $ arrogant = 0
+    $ aleatoire = 0
+    $ autoritaire = 0
+    $ impulsif = 0
+    $ influancable = 0
+    $ talent = 100
+    $ instable = 0
+    $ ame = 0
+    $ mytho = 0
+    $ colerique = 0
+    $ vulgaire = 0
+    $ paresseux = 0
+    $ susceptible = 0
+    $ debile = 0
+    $ parano = 0
+    $ chanceux = 0
+    $ malchance = 0
+    $ detendu = 0
+    $ obsede = 0
+    $ ideaste = 0
+    $ impulsif = 0
+    $ riche = 0
+    $ pauvrete = 0
+    $ motive = 0
+    $ flemmard = 0
+    $ polivalent = 0
+    $ famous = 0
+    $ inconnue = 0
+    $ genereux = 0
+    $ avide = 0
+    $ competance = 0
+    $ pervert = 0
+    $ imprudent = 0
+    $ egoiste = 0
+    $ moche = 0
+    $ couteau = 0
+    $ deprime = 0
+    $ poupe = 0
+    $ zoophile = 0
+    $ sanguinaire = 0
+    $ amical = 0
+    $ talent = 0
+    $ poison = 0
+    $ efficace = 0
+    $ fiable = 0
+    $ creatif = 0
+    $ determine = 0
+    $ maudit = 0
+    $ enthousiaste = 0
+    $ optimiste = 0
+    $ prudent = 0
+    $ drole = 0
+    $ persuasif = 0
+    $ charmeur = 0
+    $ logique = 0
+    $ econome = 0
+    $ courageux = 0
+    $ tenace = 0
+    $ agile = 0
+    $ mysterieux = 0
+    $ bulle = 0
+    $ bete = 0
+    $ magnifique = 0
+    $ armement = 0
+    $ herboriste = 0
+    $ farfouilleur = 0
+    $ connard = 0
+    $ patien0 = 0
+    $ creature = 0
+    $ pif = 0
+    $ arme = 0
+    $ fleur = 0
+    $ carte = 0
+    $ personalite = 0
+    $ trouduq = 0
+    $ timmyyy = Item("timmy", "timmyy.png")
+    $ couteauu = Item("couteau", "daguemediocre.png")
+    $ etoilee = Item("etoile", "primo.png")
+    $ amee = Item("ame", "ame.jpg")
+    $ etoile = 0
+    $ clouu = Item("Clou", "clou.png")
+    $ poupev = Item("Poupée Vaudou", "poupevaudou.png")
+    $ piochee = Item("Pioche", "pioche.png")
+    $ casque2 = Item("Casque", "casque.png")
+    $ boussole2 = Item("Boussole", "boussole.png")
+    $ sextant2 = Item("sextant", "sextant.png")
+    $ cigare2 = Item("Cigare", "cigare.png")
+    $ chocolat2 = Item("Chocolat", "chocolat.png")
+    $ fusil2 = Item("Fusil", "fusil.png")
+    $ rose2 = Item("Rose", "rose.png")
+    $ puce2 = Item("Puce", "puce.png")
+    $ coeur2 = Item("Coeur", "coeur.png")
+    $ bracelet2 = Item("Bracelet", "bracelet.png")
+    $ poudre2 = Item("poudre", "poudre.png")
+    $ emeraude2 = Item("emeraude", "emeraude.png")
+    $ lampe2 = Item("lampe", "lampe.png")
+    $ diademe2 = Item("Diademe", "diademe.png")
+    $ carte2 = Item("Carte", "carte.png")
+    $ portrait2 = Item("Portrait", "portrait.png")
+    $ talent = 0
+    $ endurance = 0
+    $ acte1x = 0
+    $ vigoureux = 0
+    $ poison = 0
+    $ boulon = 0
+    $ magie = 0
+    $ fleche = 0
+    $ acte1x = 0
+    $ acte2x = 0
+    $ acte3x = 0
+    $ skip = 0
+    $ boulon = 0
+    $ test = 20
+    $ n = 0
+    $ inventaire = []
+    $ guerrier = 0
+    $ mage = 0
+    $ rodeur = 0
+    $ assassin = 0
+    $ patien0 = 0
+    show screen bars1
+    show screen vie
+    show screen allan
+    show screen mental
+    show screen gold
+    show screen inventory
+    hide screen allan
+    "La Formule VIP présente 6type d'information différente"
+    "1 enquete criminel"
+    "1 bataille naval"
+    "1 pendu"
+    "1 un combat de imaginmon"
+    "1 combat de carte"
+    "1 mode cauchemard"
+    "1 jeu spacial"
+    "Découvré aussi l'Histoire de personnage inconnu"
+    "Reda,Redel,Atlas,Naos,Helios,Aelia,Dardelia,Dionessa,certain Hakai,1 histoire sur les masque
+    1 histoire sur les dieu,1 histoire de Dragou,1 histoire sur le culte de l'ombre"
+
+    "êtes vous un patient ou un entrepreneur ou autre?"
+    "{a=jump:allan}Oui je suis patien ou entreprenneur{/a} -
+    {a=jump:start3}Non je suis pas patien{/a}"
+label allan:
+    "On va voir ton dossier patient d'accord?"
+    "parcontre si vous faite un voyage temporel il y'aura un cou de 50 de vie et de mental"
+    $ patien0 = 0
+    $ carte = 0
+    $ carte = 1
+    $ mental = 50
+    $ aleatoire = renpy.random.randint(1,17)
+    $ vie = 50
+    $ rage = 0
+    $ esquive = 0
+    $ poison = 0
+    $ mana = 0
+    $ succes = 0
+    $ vie = 100
+    $ skip = 0
+    $ mental = 100
+    $ gold = 0
+    $ force = 1
+    $ charisme = 1
+    $ intelligence = 1
+    $ attaque = 0
+    $ timide = 0
+    $ cleptoman = 0
+    $ immature = 0
+    $ talent = 0
+    $ arrogant = 0
+    $ aleatoire = 0
+    $ autoritaire = 0
+    $ impulsif = 0
+    $ influancable = 0
+    $ talent = 100
+    $ instable = 0
+    $ ame = 0
+    $ mytho = 0
+    $ colerique = 0
+    $ vulgaire = 0
+    $ paresseux = 0
+    $ susceptible = 0
+    $ debile = 0
+    $ parano = 0
+    $ chanceux = 0
+    $ malchance = 0
+    $ detendu = 0
+    $ obsede = 0
+    $ ideaste = 0
+    $ impulsif = 0
+    $ riche = 0
+    $ pauvrete = 0
+    $ motive = 0
+    $ flemmard = 0
+    $ polivalent = 0
+    $ famous = 0
+    $ inconnue = 0
+    $ genereux = 0
+    $ avide = 0
+    $ competance = 0
+    $ pervert = 0
+    $ imprudent = 0
+    $ egoiste = 0
+    $ moche = 0
+    $ couteau = 0
+    $ deprime = 0
+    $ poupe = 0
+    $ zoophile = 0
+    $ sanguinaire = 0
+    $ amical = 0
+    $ talent = 0
+    $ poison = 0
+    $ efficace = 0
+    $ fiable = 0
+    $ creatif = 0
+    $ determine = 0
+    $ maudit = 0
+    $ enthousiaste = 0
+    $ optimiste = 0
+    $ prudent = 0
+    $ drole = 0
+    $ persuasif = 0
+    $ charmeur = 0
+    $ logique = 0
+    $ econome = 0
+    $ courageux = 0
+    $ tenace = 0
+    $ agile = 0
+    $ mysterieux = 0
+    $ bulle = 0
+    $ bete = 0
+    $ magnifique = 0
+    $ armement = 0
+    $ herboriste = 0
+    $ farfouilleur = 0
+    jump aglan
+
+
+
+label aglan:
+    "Souhaitez vous éviter l'aide de Allan ? Oui je le veux ; Non je ne veux pas"
+    show screen allan
+    "Allan" "Bonjour je suis ingénieur informaticien"
+    "Si vous ne connaissez pas les bases du RP je vous informerai"
+    "Allan" "Je vais vous apprendre les règles du jeu de façon simplifié"
+    "Allan" "Si vous ne souhaitez pas mon aide vous je fais remonté le travail au patront"
+    hide allan
+    "Allan" "Appuyer ici{a=jump:allan2}OUI.{/a} {a=jump:start3}sinon cliquer ici ou ailleurs,Non{/a}"
+    jump start3
+
+label allan2:
+    show allan
+    "Bien joué joueur"
+    "Attention cliquer sur patient 0 si vous êtes uniquement un patien un entrepreneur ou autres"
+    "En faisant cela nous déciderons d'une nouvelle caractéristique négative celle du patient 0"
+    " Toute action sous le terme du patien 0 seront pour vous"
+    "Le Patien 0 ? C'est quoi c'est un caractère qui perd du mental selon un jet de dée 10"
+    "Atteint de moment de folie ou de crise d'angoisse voir d'autres maladies mentales"
+    "Si tu as appuyé sur le bouton tu devrais être capable de cliquer sur tes caractéristiques"
+    hide allan
+    menu debut0:
+        "Cliquer ici si vous êtes juste novice":
+            play sound pet
+            "Bien bravo joueur bon par contre je te préviens cliquer sur les boutons
+            ça donne des gaz"
+            stop sound
+            jump magex1
+
+        "Patient 0":
+            "Vous êtes patient professionel ou autres votre caractere négatif sera patient 0"
+            $ patient0 = 1
+            jump magex1
+
+        "Cliquer ici pour vous passé les info de allan":
+            jump start3
+
+label magex1:
+    show visuel
+    "Voyez que sur cette fiche nous avont une capture(guerrier)"
+    "Vous pouvez appercevoir en haut a droite"
+    "On va l'appeler la barre d'information"
+    "Elle vous indique le nombre de succés"
+    "Les succés vous aideront a trouver le chapitre bonus"
+    "Pour les avoir écouté bien les pornostick de Honny"
+    "Vous avez la chance de recommancer plusieur fois le jeu et découvrir toute les fin"
+    hide visuel
+    "sinon pour revoir vos items cliquer en haut a droite sur le sac"
+    "en recoltant toute les fin vous trouverai la vrai fin du jeu"
+    "Maintenant passons a la vie en combat ou si vous trouver un piege vous devrez perdre de la vie"
+    "Maintenant le mental tout dépendra de ce que vous faite si vous essayer de tricher si vous essayer de les esquiver"
+    "Ou encore que vous soyer attein de votre caractere negatif"
+    "caractere positif votre caractere positif vous donne du mental en plus vous ne pouvez l'utiliser seulement si
+    votre caractere et cité cependant si il ya votre caractere négatif de cité il prendra le dessus sur votre caractere positif"
+    "caractere négatif prend le dessus sur votre caractere positif"
+    "Les talent sont la pour vous aidez a passez au dessus d'une mauvaise caractere ou bon caractere ou encore *Autre*"
+    "Cependant il vous réduiron le talent a 10point a chaque utilisation"
+    "et pour finir le double tranchant si vous avez le double"
+    "Le Double tranchant s'active quand vous n'avez pas d'autre droit de continuez"
+    hide allan
+    "Souhaiter vous de l'aide plus approffondi pour être sur d'être sur la bonne voie"
+    "Oui je voudrais mieux comprendre clique {a=jump:allang}OUI.{/a}"
+    "Non cebon je pense avoir compris{a=jump:start3}ICI{/a}"
+    jump start3
+
+label allang:
+    "Allan" "Pour mieux t'aider a comprendre et pour montré ma valeur auprès de toi"
+    "Allan" "Je vais organiser plusieur jeu"
+    "Allan mais pour l'instant reston concentré sur les chose que tu ne comprend pas"
+    "On va déjà commencer par le talent alors au début ta le choix sur la difficulté"
+    "Mais voyons ça autrement imaginon que tu et charismatique"
+    "Mais cependant il ya une caracteristique negative en pluss"
+    "Donc imaginon que votre caractere négatif et *méchant*"
+    "Mais cependant vous avez 100 point de talent en charisme"
+    "Quesque vous faite?"
+    "Je te rappel que le talent si il et utiliser tu payera 10 de charisme mais tu pourra éviter le caractere negatif"
+    "{a=jump:erreur}Je suis un piege{/a},{a=jump:erreur}Méchant{/a};{a=jump:bien}charisme{/a};"
+label erreur:
+    "Non ton avec ton talent tu pouvez avancer et choisir le charisme"
+    jump alasuite
+label bien:
+    "Allan" "Bravo joueur"
+    jump alasuite
+
+label alasuite:
+    "Bon cette fois si on va changer la situation"
+    "Cette fois si tu n'aura pas de talent"
+    "Mais tu devra faire 1 choix"
+    "Donc dans cette situation tu et brave en positif et méchant en négatif"
+    "{a=jump:erreur1}Brave{/a},{a=jump:allan3}Méchant{/a}"
+    jump erreur1
+
+label erreur1:
+    "Non comme je te le disais un caractere négatif et plus fort que un positif"
+    jump allan3
+
+label allan3:
+    show allan
+    "Bon dernier exercice et après on s'amuse un peut !"
+    "Cette fois si on va voir le double tranchant"
+    "Cette fois si tu ne sera ni talent ni caractere"
+    "Il faudra poursuivre le dialogue autrement"
+    hide allan
+    "{a=jump:erreur3}Brave{/a},{a=jump:erreur3}Méchant{/a}{a=jump:erreur3}Intelligent{/a},{a=jump:bien3}Continuer la route{/a}"
+    jump erreur3
+
+label erreur3:
+    "Non joueur je t'avais dit que tu n'avait rien"
+    jump allan3
+
+label bien3:
+    "Bien joué joueur"
+    "Attention ton double tranchant va s'activé"
+    $ test = renpy.random.randint(0,2)
+    if test == 1:
+        "Vous avez réussi"
+    if test == 2:
+        "Mince alors vous êtes pas tomber du bon coté"
+        "Ce n'est pas grave le test et réussi quand même"
+    jump allan4
+
+label allan4:
+    "Bon maintenant on va faire des interaction avec le décors"
+    "On va comment par jouer a 1 2 3 Couleur"
+    "Je vais compter jusqu'a 3"
+    "Une fois terminer tu devra cliquer sur une couleur"
+    "Bien allons y !"
+    "1"
+    "2"
+    "3"
+    "Bleu"
+    show screen bleu
+    show screen vert
+    show screen rouge
+    "Maintenant pour la derniere parti nous allons jouer a une enquete criminel"
+    "Je vous laisse entre de bonne main"
+    hide screen bleu
+    hide screen vert
+    hide rouge
+    hide allan
+    "Vous vous retrouver sur une scène de crime"
+    "Vous appercevez un corps inanimé soudain une personne te vois et s'enfuit"
+    "Vous appercever sont chien qui le suis et un chat qui ce cache sous une voiture"
+    hide allan
+    show shawn
+    "Shawn" "Un Meutre a coup de cuillere vous dite?"
+    hide shawn
+    "Joueur" "Oui je les vue sous mais yeux"
+    show guss
+    "Guss" "Faisons un tour dans ma voiture bleu chéri"
+    show shawn
+    hide guss
+    "Shawn" "Guss on et pas en couple on et juste les meilleur amis du monde entier"
+    hide shawn
+    show guss
+    "Guss" "Ne m'oblige pas a sortir mon mot adjornamento"
+    show shawn
+    hide guss
+    "Shawn" "Poutant je tes dit que c'était un e et pas un o"
+    "Guss" "Shawn respecte moi un minimum je peut ouvrir tout les coffre fort de ma liste d'ennemis mortel"
+    show shawn
+    hide guss
+    "Shawn" "Moi j'ai suis médium alors je peut prédir tous ce qui ce passe"
+    "Shawn" "Je ressent des vibration dans l'air guss pourquoi tu a une erection"
+    show guss
+    hide shawn
+    "Guss" "Désolé je pensé encore a rachel"
+    hide guss
+    "Joueur" "Excuser moi j'ai un probleme aussi je n'ai pas tout les DVD de la version francaise"
+    "Joueur" "Je voudrais bien l'avoir car vous êtes ma série préféré"
+    show shawn
+    "Shawn" "Je vais voir ce que je peut faire en attendant inspecton la scene de crime"
+    hide shawn
+    $ argent = 0
+    $ affection = 30
+    $ argent = 100
+    $ carlton = 5
+    $ juliette = 5
+    $ shawn = 5
+    $ carte = 0
+    $ chute = 0
+    $ ferme = 0
+    $ fuite = 0
+    $ guss = 5
+    jump crimino
+
+label crimino:
+    play music cowboy
+    "Il s'agit d'une femme tuer violament par une cuillere"
+    "Malheureusement il faut fouiller la piece pour trouver cette cuillere"
+    show criminel
+    "Les Derniere personne vue a ce jour sont Ilyes,Laurine,Titou,Cindy,et vous"
+    "Utiliser shawn ou guss pour avoir de nouveau détaille"
+    "Si shawn touche le tralala de l'accusé il aura une vision cependant la personne peut fuir"
+    "Si guss renifle le cadavre de cette femme va prendre sont ame ou il découvrira des indice"
+    "Soudain 2 personne arrive !!!"
+    show lassiter
+    "Carleton" "Vous n'avez rien a faire ici shawn et guss c'est une simple affaire de suicide"
+    "Carleton" "c'est notre enquête a nous pas la votre"
+    "Carleton" "Qui et cette personne a face de singe"
+    "Carleton" "VOUS ! Le gugusse vous n'avez rien a faire la"
+    "Carleton" "c'est quoi cette dégaine de hippies?"
+    hide lassiter
+    show juliette
+    "Juliette" "Enfaite si il a le droit car il était sur la scène de crime"
+    hide juliette
+    show lassiter
+    "Carleton" "Bon d'accord mais fait pas trop le rigolo et si tu ve vraiment nous aider "
+    "Ne traine pas avec les 2 pignouf rejoin un vrai enqueteur comme moi"
+    hide lassiter
+    show juliette
+    "Juliette" "Non aventurier rejoin moi je suis sur que l'on fera une bonne équipe"
+    hide juliette
+    show shawn
+    "Shawn" "Les Ondes me parle je vois de l'argent et de la nourriture"
+    "Shawn"  "Je vois des blessures"
+    "Shawn" "Je vois de la corruption je vois un tueur en série"
+    "Shawn" "Je vois une cuillere un vampire et un loup garou"
+    "Shawn" "Je vois aussi une pomme empoisonné par une sorciere"
+    "Shawn" "Je vois aussi un chat sous une voiture bleu et un chien poursuivant le meurtrier"
+    "Shawn" "Malheureusement je vois rien d'autre aventurier tu peut nous aider?"
+    hide shawn
+    show lassiter
+    "Carleton" "n'importe quoi ça ce vois que c'est un suicide aventurier n'écoute pas les bétise de cette homme
+    écoute moi plutot"
+    "Carleton" "il a un solide alibi il était avec sont chat toute la nuit dans sa maison"
+    hide lassiter
+    jump lassiter
+    "Toute les video  long vue"
+    "et cette personne oui vous monsieur avez failli perdre la vie hier"
+    show juliette
+    "Juliette" "Tu nous a encore devancé mais comment il fait a chaque fois"
+    "Juliette" "Quil et mignon ce joli chat"
+    show juliette
+    with vpunch
+    "Juliette" "Aie il ma griffé"
+    "Juliette" "VILAIN LE CHAT !!"
+    hide juliette
+    jump trifouilli
+
+label magasin:
+    show juliette
+    "Juliette" "Aux super un magasin de vétement faisont quelque emplete"
+    hide juliette
+    menu refuserx:
+
+        "Allons y":
+            $ affection += 20
+            jump boutique
+
+        "Non,je préfére pas":
+            "Juliette et très remonté contre toi joueur"
+            "Vous perdez 10 argent et 1 point d'affinité et aussi 2 point d'amitié avec juliette"
+            $ argent - 10
+            $ affection -= 5
+
+            jump juliettex2
+
+        "Je préfére interoger quelqu'un d'autre":
+            $ affection -= 10
+
+            jump juliettex3
+
+        "Je ve jouer":
+            jump start
+
+label juliettex2:
+    show juliette
+    "Juliette" "QUOI ! mais il me faut trop ce sac joueur"
+    "Juliette" "et cette veste en alpaga"
+    "Juliette" "Et c'est chaussure avec des fleur de lys"
+    "Juliette" "Je t'en prie joueur achete moi un ptit truc"
+    $ time_start = time_start
+    $ typebutton = typebutton
+    $ time_max = 2.0
+    $ interval = interval
+
+    $ trigger_key = []
+    $ trigger_key_display = ""
+
+    $ x_align = random.randint(1, 9) * 0.1 # emplacement aléatoire sur l'axe X
+    $ y_align = random.randint(1, 9) * 0.1 # emplacement aléatoire sur l'axe Y
+
+    $ arr_keys         = ["K_LEFT", "K_RIGHT", "K_UP", "K_DOWN", "K_SPACE"]     #list of keyboard inputs to be selected from. See https://www.pygame.org/docs/ref/key.html for more keys
+    $ arr_keys_display = ["Gauche", "Droite", "Haut", "Bas", "Barre espace"]    #libellé correspondant
+    $ trigger_key = random.choice(arr_keys) # choix aléatoire de valeur parmi le tableau.
+
+    $ trigger_key_display = arr_keys_display[arr_keys.index(trigger_key)] # correspondance avec le libellé
+
+    if typebutton == "alttab":
+        call screen qte_button_alttab() # soit c'est un clic rapide sur un icone
+    elif typebutton == "keypress":
+        call screen qte_button_keypress(trigger_key_display) # soit on attend une touche.
+
+    # suivant le retour qu'on à eut :
+    if _return == 1:
+        if typebutton == "keypress":
+            play sound "sound/correct-answer-marimba-02.mp3" # bonne réponse mp3
+        $ cont += 1
+    else:
+        play sound "sound/wrong-answer-fall-03.mp3" # mauvaise réponse mp3
+
+    jump boutique
+
+label boutique:
+    show juliette
+    "Juliette" "Je vais prendre cette jolie veste ce beau ptit pull"
+    "Juliette" "Regarde toute c'est jolie chaussure !"
+    "Juliette et completement accro et a déjà rempli le cadis mais attender elle a pas fini"
+    "Juliette" "Et ce sac a main de marques"
+    "Juliette" "Joueur tu peut payer pour moi s'il te plait je te rendrais un peu d'argent d'ici quelque temps"
+    hide juliette
+    menu juliettex1:
+        "D'accord...":
+            $ argent - 50
+            $ affection += 10
+            $ juliette += 3
+            jump crimino
+
+
+        "Un petit geste alors":
+            $ argent -= 20
+            $ affection += 5
+            $ juliette += 2
+            "J'aurais pas assez d'argent pour acheter ce que je veut..."
+            "Bon les main sur la tête je fouille tes poche espece de radin"
+            $ argent -= 10
+            "Elle te dépuille de 10 argent supplémentaire"
+            jump crimino
+
+        "Non excuse moi je peut pas":
+            "Les main derrière la tête vous êtes en état d'arrestation"
+            "Elle vous emmene en prison"
+            "Cela dure 5jour que vous n'avez rien a manger"
+            "Vous décidé de partir et d'offrir la moitié de l'argent que vous aviez au départ"
+            $ argent - 50
+            $ affection - 8
+            jump crimino
+
+
+
+        "c'est toi qui veut acheté les vétement pas moi !":
+            "Bon cela suffit je vais t'emmener en cellule on vera si tu survivra"
+            "Tien en passant je prend ton argent"
+            $ argent -= 90
+            $ affection - 10
+            jump crimino
+
+
+label tresorx:
+    show juliette
+    "Juliette" "Regarde il ya des trace de pas par ici"
+    "Juliette" "Il y'a une fleche d'arbalete au sol"
+    "Juliette" "c'est bien Tyler Django qui a voler le trèsor"
+    "Juliette" "j'emmene cela au bureau de police"
+    "Juliette" "Merci joueur de m'avoir accompagné"
+    jump crimino
+
+label requin:
+    show juliette
+    "Juliette" "Bon j'ai le droit d'allez en mer il ya un bateau prétolier"
+    "Juliette" "Le probleme c'est qui creuse du petrole sur une terre sysmique"
+    "Juliette" "Donc je doit inspecter le bateau"
+    "Juliette" "en attandant joueur je t'invite a plonger sous la mer et de voir ce qui ce passe"
+    jump requinx
+
+label requinx:
+    show requin
+    $ arr_keys         = ["K_LEFT", "K_RIGHT", "K_UP", "K_DOWN", "K_SPACE"]     #list of keyboard inputs to be selected from. See https://www.pygame.org/docs/ref/key.html for more keys
+    $ arr_keys_display = ["Gauche", "Droite", "Haut", "Bas", "Barre espace"]    #libellé correspondant
+    $ trigger_key = random.choice(arr_keys) # choix aléatoire de valeur parmi le tableau.
+
+
+label trifouilli:
+    "si vous faite équipe avec shawn et guss vous il vont ce disputer pour vous avoir dans leur équipe"
+    "Choississez shawn et guss pour apaiser shawn il faudra acheter un ananas"
+    "Si vous Choississez guss vous devrais lui acheté un livre sur pluton"
+    "Si vous avez choisit carleton acheté lui une boule a neige"
+    "Si juliette vous choisit elle voudra des vétement"
+    "Carlton a un badge de police et une meilleur voiture parcontre il va s'énerver si vous choississez shaw ou guss"
+    "Si la crise de carlton = a 10 il ne voudra plus de vous sur cette enquête"
+    "Juliette idéal pour trouver les dossier informatique des autre parcontre si elle reste trop longtemp sur l'ordinnateur
+    elle va faire des achat pour le shopping avec votre argent"
+    "Vous avez 100 argent"
+    "Il ya 10 indice a trouvé"
+    "Pour l'instant les gens vous apprécie moyennement vous êtes a 5/10 affection avec chacun"
+    "Si vous faite les mauvais choix vous serait enregistré enregistré de vos bourde dans le rapport de police"
+    "Il faut absolument résoudre l'enquete et ne pas contrarié vos camarades"
+    "Il ya 5 fracture de repéré"
+    menu fracture:
+        "Piece a Conviction 1":
+                "Il c est fait étouffé par une cuillere"
+                jump conviction1
+        "Piece a conviction 2":
+                "Il c'est fait griffer par un chat"
+                jump conviction2
+        "Piece a conviction 3":
+            "Il c'est fait mordre par un vampire"
+            jump conviction3
+        "Piece a conviction 4":
+            "Il c'est fait assomer par un pissenlit"
+            jump conviction4
+        "Piece a conviction 5":
+            "Il a des poils de chien partout"
+            jump conviction5
+
+label conviction1:
+    show guss
+    "ça ne ressemble pas a un meurtre on dirait un suicide"
+    hide guss
+    show shawn
+    "Shawn" "Non guss rappel toi il faut savoir retourné les chose a l'envert pour quel apparaisse a l'endroit"
+    "Shawn" "Il nous faut un plan"
+    hide shawn
+    "Vers qui vous tourné?"
+    menu enkete:
+
+        "Carleton Lassiter":
+            jump carleston
+
+        "Juliette Ohara":
+            jump juliette
+
+        "Shawn Spencer":
+            jump spencer
+
+        "Burton Guster":
+            jump burton
+
+label juliette:
+    show juliette
+    "Juliette" "Je penser  que le chat serait plus doux sa fait mal cette griffure"
+    "Juliette" "Bon bref d'après le rapport de police l'agresseur s'appellerai Tyler Django"
+    "Juliette" "Autrement appelé *l'Arbalette*"
+    "Juliette" "Mais on a toujours aucunne piste pour le trouver"
+    "Juliette" "Si vous pouvez nous aidez ?"
+    hide juliette
+    "{a=jump:affairej}Allons le retrouver !{/a} ; {a=jump:affairej1}Je préfére interoger les autres{/a} ; {a=jump:affairej2}je préfére demander de l'aide a quelqu'un d'autre{/a}"
+
+
+label affairej:
+    show juliette
+    "Juliette" "Bon allons a ça poursuite !"
+    "Juliette" "Il parait quil vie dans une bourgade a wingdhel"
+    "Juliette" "Vérifion sur notre carte"
+    hide juliette
+    show carte
+    jump affairej
+
+label affairej1:
+    show juliette
+    "Juliette" "D'accord tu le prend comme ça ne compte pas sur moi pour t'aider d'avantage"
+    "Juliette" "vue que je tes montré un document confidentiel c'est soit tu m'achete la nouvelle tenue channel"
+    "Juliette" "Sinon tu finira dans notre cellule pour violation sur une enquete criminel"
+    "tu vois que juliette et vraiment en colere"
+    hide juliette
+
+
+label carleston:
+    show lassiter
+    "Carleton" "Mhh.. Donc vous me faite confiance ?"
+    "Carleton" "Vous voyez c'est emprunte un bon enquêteur ce serait dit ce n'est que une simple emprunte"
+    "Mais cepandant elle correspond exactement avec les emprunte de la victime"
+    "Carleton" "n'écouter pas les lubie de ce Shawn Spencer faite confiance au vrai enqueteur"
+    "Carleton" "Affaire classé?"
+    hide lassiter
+    show guss
+    "Guss" "Ne l'écoute pas il faut toujours mettre la charue avant les Meuuuhhh ATCHOUM"
+    hide guss
+    "{a=jump:affairec}OUI.{/a} ; {a=jump:affairec1}NON.{/a}"
+    jump carlton
+
+label affairec:
+    "Vous avez classé l'affaire malheureusement les conseils de carlton sont pas tout le temp les meilleur"
+    "Utiliser le pour allez a des endroit ou d'interoger des témoin il sera plus utile"
+    "Vous pouvez réeouvrir votre enquête seulement carlton va moin vous apprécier et va vous suspecter d'être le meurtrier"
+    menu carlton:
+
+        "Affaire Classé":
+            "Malheureusement carlton avez tord on découvrit le meurtre grace a shawn spencer"
+            "Mais qui était don caché sous ce crime audieu qui tire les ficelle de ce crime?"
+            jump start3
+
+        "Continuer l'enquête":
+            if affinite >= 20:
+                jump starttrue
+            "Vous avez conclu quil y'avait autre chose que un simple suicide"
+            "Parcontre carlton va le prendre très mal"
+            $ affinite - 2
+            $ carlton - 2
+            jump trifouilli
+
+        "Revenir dans le passé":
+            $ carlton - 4
+            $ affinite - 3
+            "Il vous reste [affinite] affinité avec carlton"
+            "Faite attention a qui demander conseil"
+            $ chute = 1
+            jump crimino
+
+        "revenir au jeu?":
+            jump starttrue
+
+    jump starttrue
+
+
+label shawnspencer :
+    "Il ya les toilette la salle de bain le salon la chambre 1 la chambre 2,3,4,5,on a un escalier un ascenceur une cuisine"
+    "Un grenier dans les 3 piece de la maison une cuisine un debaras une salle de sport une salle d'attente une salle de jeu"
+    "Une salle de jeux video, une nurserie, un couloir,"
+    "Attention ce contenu et réservé aux membre vip"
+    show crime
+    "..."
+    hide crime
+    return
+
+
+
+
+label start3:
+    menu skipp:
+        "Ne pas regarder l'Introduction":
+            "En choisissant de skip l'Introduction vous renoncer a débloquer les succés du départ"
+            $ skip = 1
+            jump classe1
+        "Regarder les régles du jeux sérieusement sans humour blessant mal interprété?"
+        "Une régle ou il n'ya ni injure ni de *rire*":
+            jump courtois
+        "Reprendre une parti à partir de l'Acte 1":
+            $ skip = 1
+            $ acte1x = 1
+            "Attention en ne regardant pas les régles du début vous risquer d'être perdu"
+            "Aussi vous ne pourrait pas avoir tout les succès"
+            jump classe1
+            jump start2
+        "Reprendre une parti à partir de l'Acte 2":
+            "Attention en ne regardant pas les régles du début vous risquer d'être perdu"
+            "Aussi vous ne pourrait pas avoir tout les succès"
+            $ acte2x = 1
+            $ skip = 1
+            jump acte2x
+            jump start2
+        "Reprendre une parti à partir de l'Acte 3":
+            jump acte3x
+            jump classe1
+            "Attention en ne regardant pas les régles du début vous risquer d'être perdu"
+            "Aussi vous ne pourrait pas avoir tout les succès"
+            jump start2
+        "Résumé du Chapitre 1":
+            "Vous allez rencontré une jeune et jolie jeune femme"
+            "Vous êtes prêt d'un Arbre que vous n'arriver pas à voir"
+            "Sur vos route vous trouverez une crevasse et un tombeau maudit"
+            "Sinon vous pourrait partir avec une misterieuse magiry qui souhaite l'aide d'un aventurier digne de ce nom..."
+            "Si vous ne suivez pas votre compagnion de route vous pourrais partir dans 3 endroit différent"
+            "La Prairie : vous rencontré une jeune fille qui souhaite aider un vieux cerf qui a besoin de fragment d'âme pour partir de ce monde"
+            "La Forêt : Vous rencontré un aventurier qui vous met en garde l équilibre qui régit sur la forêt et très puissant, la forêt sera très austère tenez vous prêt a un éventuel combat"
+            "Le Désert : Vous allez rencontré Bunda grand vainqueur et grand organisateur d'une arene pleine de monstres et créature"
+            "Voilà pour le Début de l'Histoire"
+            jump skipp
+
+        "Résumé du Chapitre 2":
+            "Sur votre chemin du retour vous recroiser yae"
+            "Vous décidé de partir avec elle forcé de constaté que les épreuve sont plus difficile cette fois si"
+            "Marais: Vous allez vous rendre dans les marecage, vous vous enfoncer de plus en plus sur votre chemin des esprits et des créture ou autre démon erant,
+            vous aimeriez bien que cette endroit soit luxuriant mais ce n'est pas le cas"
+            "Plage: En vous rendant a la plage vous rencontré fred le père de yae il voudrait traverser le dôme du tonnere mais pour cela il aura besoin de vous et des autres,"
+            "Montagne Abyssal: En vous rendant dans la montagne abyssal vous remarqué que chaque étage et différent et plus vous monté plus le niveau sera difficile mais peut être que par de la les ténébre une lumière existe"
+            "Si vous avez réussi les succés alors vous retrouverais le narrateur qui va vous faire subir autant de vice que possible"
+            jump skipp
+
+        "Résumé du l'Acte 3":
+            "3 vois s'offre a vous votre esprit et comme divisé en 4 ! vous allez assisté a la guerre contre l'astre de la vie grace a une épée légendaire nommé forzana"
+            "l'empereur Mobos veut s'emparé de cette épée mais il étais tourmenté par la lumière et les ténebre par aelia et helios"
+            "Finalement l'épée ce brisa en 3 morceau distinct"
+            jump skipp
+
+        "Continuer(Nouvelle Partie)":
+            jump regledujeu
+
+
+label courtois:
+    play music courtoit
+    show narrateurbouda
+    "nn" "Diantre qui a l'outrecuidanse de pénétré ma demeure"
+    "nn" "narrateur a vous voilà joueur ! je suis le Narrateur du passé !"
+    "nn" "Je vais t'expliqué moulte chose concernant le rp"
+    hide narrateurbouda
+    jump start2
+
+label start2:
+    menu skipp1:
+        "Oui je souhaite passez les dialogue ainsi que le réglement du jeu":
+            "En choisissant de skip l'Introduction vous renoncer a débloquer les succés du départ"
+            $ skip = 1
+            jump classe1
+        "Continuer le RP de façon rp sans humour avec une ballade romanesque":
+            $ passe = 1
+            jump regledujeu
+        "Non, je souhaite poursuivre normalement le réglement":
+            "Attention en ne regardant pas les régles du début vous risquer d'être perdu"
+            "Aussi vous ne pourrait pas avoir tout les succès"
+            jump regledujeu
+
+        "Revenir en Arriere, sur le menu de départ":
+            "Attention en ne regardant pas les régles du début vous risquer d'être perdu"
+            "Aussi vous ne pourrait pas avoir tout les succès"
+            $ acte1x = 0
+            $ acte2x = 0
+            $ acte3x = 0
+            jump skipp
+label regledujeu:
+    if passe == 1:
+        show narrateurbouda
+        "Ah te voilà la gueux c'est un outrage de te voir"
+        "Je te pensez mourru dans un violent barzing"
+        "Bon maintenant joueur projette toi dans une vie et reste avec moi non di diou"
+        hide narrateurbouda
+        jump honny
+    "Attention en ce début de RP le Narrateur fait des blagues contre le joueur je vous invite a rester mature ce RP et en Pegi 16"
+    "Si vous voulez éviter les blague du Narrateur"
+    "Si vous souhaiter skip l'intro cliquer ici: {a=jump:spoiler}OUI.{/a}"
+    show text "Astrae - Acte 1\n *l'Attaque contre l'Astre de la Vie.*"
+    "{b}Acte 1 *l'Attaque contre l'Astre de la Vie.*{/b}"
+    "Bonjour jeune joueur! bienvenue dans le monde d'Astrae."
+    hide text
+label honny:
+    if passe == 1:
+        "Narrateur bouda" "Il faut que vous prêté serment a la sainte dinde pour me contacter"
+        "Narrateur bouda" "Et toi tu ose interompe un oracle comme moi foutre toi pas de mon portrait"
+        "Narrateur bouda" "La je te montre les succès a ne pas oublier dans un immense crepuscule"
+    scene h1
+    show honny
+    $ skip = 0
+    "HonnyBee" "HOP HOP Les loulou je ne fait que passé !"
+    "HonnyBee" "Bonjour à tous les loulous, je suis HonnyBee!"
+    "HonnyBee" "Prépare toi pour les pornosticks du jour!"
+    "HonnyBee" "Avant de commencer ce RP, il te faut savoir qu'il y a plusieurs fins, plusieurs succès et d'autres surprises."
+    "HonnyBee" "Tu te dis que ça va être compliqué de réunir tout les succés ?"
+    "HonnyBee" "Ne t'inquiète pas! je suis là pour t'aider."
+    "HonnyBee" "D'abord pour commencer, il y a 18 fins possibles… à vous de les trouver!"
+    "HonnyBee" "Ensuite passons aux succès!"
+    "HonnyBee" "Le premier est simple… choisis un rôle important mais pour qui est ce que tu te prend?..."
+    "HonnyBee" "Le Deuxième, soit Optimiste! fait croire que tu triches!"
+    "HonnyBee" "Le Troisième, Touche moi le tralala et tu verras qui apparaîtra…"
+    "HonnyBee" "Le Quatrième, Si ton prénom il n'y a pas, succés tu auras."
+    "HonnyBee" "Le Cinquième, choisis un nom Important pour faire chier le grand imposant!"
+    "HonnyBee" "Voilà! ça c'est pour les cinq succès."
+    "HonnyBee" "Mais il y'en a d'autres… retrouve moi plus tard pour en savoir d'avantage."
+    "HonnyBee" "Je te souhaite un bon Rp."
+    hide honny
+    if passe == 0:
+        jump narage
+    if passe == 1:
+        jump naraka
+    jump narage
+
+label naraka:
+    show narrateurbouda
+    nn "Diantre c'est vous? le joueur dont j'entend parler beaucoup de fois"
+    nn "Bilvesé vous êtes toute a fait courtois"
+    nn "Vous êtes humble et digne de confiance on le vois facilement"
+    hide narrateur bouda
+    nn "Bon trève de mondanité suivez moi"
+    nn "Oh j'oubliais veut tu entendre les prequel d'astrae"
+    $ passe = 1
+    "{a=jump:premice}OUI.{/a}{a=jump:classe}Non{/a}"
+    jump naraka
+
+label narage:
+    show narrateur
+    na "Je suis le narrateur, je n'existe pas réellement…"
+    na "Enfin quoi que je suis la quand même… du coup c'est bizarre…"
+    na "Peut être que je suis juste une voix dans ta tête !"
+    na "PEUT ETRE QUE J'EXISTE VRAIMENT PAS."
+    na "ALED JOUEUR!  AIDE MOI!"
+    na "Dans ce RP, tu devras faire les bon choix, et comment te dire… il va y'en avoir BEAUCOUP!"
+    na "Tu devras découvrir la vraie fin."
+    na "Tu devras aussi découvrir toutes les autres fin si tu veux trouver le chapitre bonus…"
+    na "Je te souhaite pas bonne chance! t'es un connard et je t'aime pas! alors voila… Merde à toi !"
+    na "*tousse*"
+    na "Bon il est temps de choisir la classe que tu veux être!"
+    na "Mais avant cela, voudrais tu écouter les prémices de la création d’Astrae?"
+    hide narrateur
+    "{a=jump:premice}OUI.{/a}{a=jump:classe}Non{/a}"
+    jump classe
+
+label premice:
+    "Dans la noirceur de l’univers, la connexion fit son apparition. Elle embellissait l’univers de million de planètes,
+    de constellations, de trou noir et bien pluss encore."
+    "Inconnue était cette connexion… mais tout avait un début, et ce début était appelé *La grande connexion* l’origine de toute chose."
+    "Dans un coin de l’univers, une planète était née… Astrae. Prospère à la création de la vie, derrière le voile de l’univers, deux dieux apparurent… l’un et l’une différent."
+    " Ils avaient leur propre vision de la vie. Mais un conflit existait… deux tempérament différents. Helios, avide de richesse et de pouvoir…"
+    " Aelia, envieuse d'équilibre et d’espoir…"
+    "Helios voulait s'accaparer les pouvoirs et les richesses de ce monde, alors il créa les humains, les Orcs et les Nains."
+    " Les humains à la recherche de conquête des territoires, détruisait les forêt pour s’établir,"
+    " Les Orcs à la conquête de gloire et de sang. Les joutes des Orcs se livraient à des combats à mort,"
+    " Les Nains à la conquête de technologie et des richesses. Ils creusaient de nombreuses grottes à la recherche de trésors."
+    "Helios avait établi domicile sur Astrae. Mais Aelia, furieuse, voulait reprendre le contrôle pour établir un équilibre."
+    "Elle créa alors les Elfes de lumières, les Elfes sombres et de nombreuses autres races toutes protégés par des astres d’une énergie
+    incroyable, capable de maintenir l’équilibre. Tous étaient protégés par des anges."
+    "Aelia avait bâti tout un empire de races protectrices différentes, mais ce dont Aelia ne se doutait pas, c’est que sa création était imparfaite…"
+    " Les elfes sombres convoitaient la lumière, le mal voulait détruire le bien… les forces s’opposaient les unes aux autres"
+    "  C’est pourquoi, deux camps furent créés : le Camp de l'insurrection, sous la coupe d’Helios."
+    " Et le camp de la Libération, sous la coupe d’Aelia."
+    "Dans l'insurrection, les astres attire le désir de tout à chacun, ils unirent leurs forces et livrèrent bataille,
+     guerre après guerre, victoire après défaite, le sang ne cessait de couler."
+    "Voilà, vous connaissez plus ou moins les débuts d’Astrae!"
+    "Vous pourrez en savoir d'avantage lors de cette aventure."
+    "Je vous laisse maintenant choisir une classe!"
+    jump classe
+
+
+label classe:
+    show guerrier
+    na "Si tu veux être un Guerrier, fort et robuste, disposant de 20 points d’attaque et 200 points de vie"
+    "Votre compétance passive c'est Vigoureux si vous décendé en dessous de 80point de vie lors du combat la créature vous portera des coup"
+    "Sauf que au lieu de perdre de la vie vous perdez de l'endurance."
+    "Compétance active *Charge* utiliser cette attaque elle assomera le monstre pendant 1 tour vous coute 20 endurance"
+    "Ultime *Tous Tank Camion* faite des dégat en ajoutant les pv perdu au total de vos dégat utilise 50 endurancce"
+    $ passivguerrier = 1
+    hide guerrier
+    show archer
+    na "Si tu préfères être un rôdeur, précis et agile, disposant de 40 points d’attaque et 60 points de vie."
+    hide archer
+    show assassin
+    na "Si tu préfères être un assassin, destructeur et furtif, disposant de 60 points d’attaque et de 40 points de vie."
+    hide assassin
+    show mage
+    na "Si tu préfères être un Mage, Puissant et magique, disposant de 50 points d’attaque et 50 points de vie."
+    hide mage
+    "Sacher que chaque classe a une compétence passive ou parfois active"
+    "Durant le combat vous pouvez utilisez vos compétence voulez vous connaitre les compétences de chaque classes?"
+    $ skip = 0
+    "{a=jump:competancex}OUI.{/a},{a=jump:classe1}Non{/a}"
+    na "Alors que choisis tu ?"
+    hide narrateurbouda
+    menu classe1:
+        "Choisir la classe Guerrier?":
+            "Vous avez comme compétance vigoureux"
+            "pour en savoir + demander aux kaka-0826"
+            $ rage = 100
+            show screen rage
+            jump guerrier
+
+        "Choisir la classe Rôdeur?":
+            $ esquive = 100
+            show screen esquive
+            "Vous avez comme compétence vision imperceptible"
+            "et instinct du chasseur"
+            jump rodeur
+
+        "Choisir la classe Assassin? ":
+            $ poison = 100
+            show screen poison
+            "Vous avez comme compétence lame de poison"
+            "et aussi tranche lumiere"
+            jump assassin
+
+        "Choisir la classe Mage?":
+            $ mana = 100
+            show screen mana
+            "Vous avez plusieur competance magique"
+            jump mage
+
+        "Choisir le Narrateur..?":
+            jump narrateur
+
+label competancex:
+    if guerrier == 1:
+        "Tu n'a pas choisit une classe facile"
+        "Mais bon..Grace a ta compétence rage fait que tes dégat augmente a chaque coup que vous prennez"
+    if rodeur == 1:
+        "Rodeur vous réussirai a faire des esquive sans être touché vous permettant de lancer une contre attaque"
+    if mage == 1:
+        "Tout dépendra de la situation vous pouvez très bien utiliser l'air le vent, l'eau ocean,vert plante,foudre ou magie noire"
+    if assassin == 1:
+        "En tant que assassin tu a une competance de poison"
+        "l'ennemi perd 10pv par tour"
+        "Avec ceci tu a le tranchant de double lame"
+        "Tu a une chance sur 100 de faire 1 coup ultra critique qui mettra l'ennemi au sol a coup sur"
+        jump classe1
+label guerrier:
+    hide narrateurbouda
+    if skip == 1:
+        show guerrier
+        with vpunch
+        $ vie = 200
+        show screen rage
+        $ guerrier = 1
+        $ attaque += 20
+        show screen guerrier
+        hide guerrier
+        jump talent
+    "Es-tu certain de ton choix?{a=jump:classe1}Non{/a}"
+    if passe == 1:
+        nn "Quel Immondice que cela tu ressemble a pas grand chose"
+        nn "Enfin bon tu fait des progrès joueur"
+        nn "Tu dégage une odeur pouacre joueur"
+        nn "Passons a la suite si tu le ve bien"
+        $ vie = 200
+        $ guerrier = 1
+        show screen rage
+        $ attaque += 20
+        show screen guerrier
+        "Vous avez [vie] vie et [attaque] attaque"
+        hide guerrier
+        jump talent
+    "Bravo, tu as choisi la classe guerrière !"
+    "Avec une carrure comme la tienne, tu pourrais devenir garde du corps de la sainte pute!"
+    "Quand tu fais un coup d'épée, tu peux couper des siamois en deux!"
+    show guerrier
+    show screen rage
+    with vpunch
+    $ vie = 200
+    $ guerrier = 1
+    $ attaque += 20
+    show screen guerrier
+    "Vous avez [vie] vie et [attaque] attaque"
+    hide guerrier
+    jump talent
+
+label rodeur:
+    if passe == 1:
+        nn "Quel Immondice que cela tu ressemble a pas grand chose"
+        nn "Enfin bon tu fait des progrès joueur"
+        nn "Tu dégage une odeur pouacre joueur"
+        nn "Passons a la suite si tu le ve bien"
+        show screen esquive
+        show archer
+        with vpunch
+        show screen rodeur
+        $ vie = 60
+        $ rodeur = 1
+        $ attaque += 40
+        "Vous avez [vie] vie et [attaque] attaque [test]"
+        hide rodeur
+        hide archer
+        jump talent
+    if skip == 1:
+        show screen esquive
+        show archer
+        with vpunch
+        show screen rodeur
+        $ vie = 60
+        $ rodeur = 1
+        $ attaque += 40
+        hide archer
+        jump talent
+    "Es-tu certain de ton choix?{a=jump:classe1}Non{/a}"
+    "Bravo tu as choisi la classe rôdeur !"
+    "Alors t'es capable de viser un raisin coincé dans un anus…"
+    "Tu peux aussi tirer des flèches sur un tournicobite!"
+    show archer
+    show screen esquive
+    with vpunch
+    show screen rodeur
+    $ vie = 60
+    $ rodeur = 1
+    $ attaque += 40
+    "Vous avez [vie] vie et [attaque] attaque [test]"
+    hide rodeur
+    hide archer
+    jump talent
+
+label assassin:
+    if passe == 1:
+        nn "Quel Immondice que cela tu ressemble a pas grand chose"
+        nn "Enfin bon tu fait des progrès joueur"
+        nn "Tu dégage une odeur pouacre joueur"
+        nn "Passons a la suite si tu le ve bien"
+        show screen poison
+        show assassin
+        with vpunch
+        show screen assassin
+        $ vie = 40
+        $ assassin = 1
+        $ attaque += 60
+        "Vous avez [vie] vie et [attaque] attaque"
+        hide assassin
+        jump talent
+    if skip == 1:
+        show assassin
+        with vpunch
+        show screen assassin
+        show screen poison
+        $ vie = 40
+        $ assassin = 1
+        $ attaque += 60
+        hide assassin
+        jump talent
+    "Es-tu certain de ton choix?{a=jump:classe1}Non{/a}"
+    "Bravo tu as choisi la classe Assassin !"
+    "Tu es tellement furtif que tu vas dans les toilettes pour femmes et que personne ne te remarque…"
+    "Avec ta silhouette de gonzesse, tu pourrais postuler en tant que sage femme."
+    show assassin
+    with vpunch
+    show screen assassin
+    show screen poison
+    $ vie = 40
+    $ assassin = 1
+    $ attaque += 60
+    "Vous avez [vie] vie et [attaque] attaque"
+    hide assassin
+    jump talent
+
+label mage:
+    if passe == 1:
+        nn "Quel Immondice que cela tu ressemble a pas grand chose"
+        nn "Enfin bon tu fait des progrès joueur"
+        nn "Tu dégage une odeur pouacre joueur"
+        nn "Passons a la suite si tu le ve bien"
+        show screen mage
+        show screen mana
+        show mage
+        with vpunch
+        $ vie = 50
+        $ mage = 1
+        $ attaque += 50
+        "Vous avez [vie] vie et [attaque] attaque"
+        hide mage
+        jump talent
+    if skip == 1:
+        show screen mage
+        show mage
+        with vpunch
+        show screen mana
+        $ vie = 50
+        $ mage = 1
+        $ attaque += 50
+        hide mage
+        jump talent
+    "Es-tu certain de ton choix?{a=jump:classe1}Non{/a}"
+    "Bravo tu as choisi la classe Mage !"
+    show screen mana
+    if passe == 1:
+        show screen mage
+        show mage
+        with vpunch
+        $ vie = 50
+        $ mage = 1
+        $ attaque += 50
+        "Vous avez [vie] vie et [attaque] attaque"
+        jump talent
+    "Si tu étais dans Harry Potter, ton patronus serait une bite!"
+    "Alors comme ça ta magie est tellement puissante, que tu peux faire apparaitre et disparaitre ta mère d'un bar a pute!"
+    show screen mage
+    show mage
+    with vpunch
+    $ vie = 50
+    $ mage = 1
+    $ attaque += 50
+    "Vous avez [vie] vie et [attaque] attaque"
+    hide mage
+    jump talent
+
+label narrateur:
+    if n == 0:
+        show narrateur
+        if passe == 1:
+            na "Bravo tu as..."
+            na "TU AS VOLÉ MON TRAVAIL!"
+            na "COMMENT JE VAIS FAIRE MOI!?"
+            na "J’ai pas de gosse… donc pas d'alloc!"
+            na "Je fais comment pour nourrir mes chats??"
+            na "T’as pensé un peu à moi joueur?"
+            na "Bravo tu as gagné le succès *Un Narrateur à Pôle Emploi*"
+            jump classe1
+        $ succes += 1
+        $ n = 1
+        "Bon sérieusement joueur, va choisir ta classe !"
+        hide narrateur
+        jump classe1
+    if n == 1:
+        show narrateur
+        na "Bravo tu as..."
+        na "TU AS VOLÉ MON TRAVAIL!"
+        na "COMMENT JE VAIS FAIRE MOI!?"
+        na "J’ai pas de gosse donc pas d'alloc!"
+        na "Je fais comment pour nourrir mes chats??"
+        na "T’as pensé un peu à moi joueur?"
+        hide narrateur
+        jump classe1
+
+
+label talent:
+    if skip == 1:
+        na "{a=jump:charisme}Charisme{/a} ; {a=jump:intelligence}Intelligence{/a} ; {a=jump:force}Force{/a}"
+        jump talent
+    scene h
+    if passe == 1:
+        "{a=jump:charisme}Charisme{/a} ; {a=jump:intelligence}Intelligence{/a} ; {a=jump:force}Force{/a}"
+        jump talent
+    show narrateur
+
+    na "Bon, maintenant que tu as choisis ta classe, tu vas choisir ton talent."
+    na "*Charismatique* : Les gens ont tendance à l'écouter et à te faire confiance."
+    na "*Intelligent* : Tu trouves des solutions à certains problèmes."
+    na "*Force* : Ta force te permet de braver les dangers."
+    na "Juste avant, pour te préciser, ces talents ne sont pas illimités!"
+    na "Si tu décides d'utiliser ta force, ton intelligence ou ton charisme,"
+    na "Tu perdras des points dans le talent choisi."
+    na "Si tu n’as plus de point, tu ne pourras plus utiliser ton talent!"
+    na "Cependant, les talents se placent au-dessus de ton caractère. Ils peuvent donc être utiles pour ne pas perdre de mental."
+    na "Je t'expliquerai ce que le *mental* après."
+    hide narrateur
+    $ car = 1
+    na "Bon si t’as pas compris, demande au vrai moi qui doit être en train de lire ce texte."
+    na "{a=jump:charismex}Charisme{/a} ; {a=jump:intelligencex}Intelligence{/a} ; {a=jump:forcex}Force{/a}"
+    jump talent
+
+label charisme:
+    if passe == 1:
+        "La chevelure au gré du vent un homme connu de nul par débarque dans les parage il choisisame ça classe"
+        "Quel et ta destiné?"
+        "Choisit ton talent !"
+        na "Bon, maintenant que tu as choisis ta classe, tu vas choisir ton talent."
+        na "*Charismatique* : Les gens ont tendance à l'écouter et à te faire confiance."
+        na "*Intelligent* : Tu trouves des solutions à certains problèmes."
+        na "*Force* : Ta force te permet de braver les dangers."
+        na "Juste avant, pour te préciser, ces talents ne sont pas illimités!"
+        na "Si tu décides d'utiliser ta force, ton intelligence ou ton charisme,"
+        na "Tu perdras des points dans le talent choisi."
+        na "Si tu n’as plus de point, tu ne pourras plus utiliser ton talent!"
+        na "Cependant, les talents se placent au-dessus de ton caractère. Ils peuvent donc être utiles pour ne pas perdre de mental."
+        na "Je t'expliquerai ce que le *mental* après."
+        na "{a=jump:charismec}Charisme{/a} ; {a=jump:intelligence}Intelligence{/a} ; {a=jump:force}Force{/a}"
+
+label charismec:
+    if passe == 1:
+        show screen charisme
+        $ charisme = 100
+        na "Tu disposes de [charisme] charisme. "
+        na "Bon, passons à l'étape suivante !"
+        show screen charisme
+        $ charisme = 100
+        na "Tu disposes de [charisme] charisme. "
+        na "Bon, passons à l'étape suivante !"
+        hide narrateur
+        jump caractere
+    if skip == 1:
+        "Vous avez choisit Charisme"
+        show screen charisme
+        $ charisme = 100
+        jump caracter
+        show screen charisme
+        $ charisme = 100
+        na "Tu disposes de [charisme] charisme. "
+        na "Bon, passons à l'étape suivante !"
+        show screen charisme
+        jump carater
+
+label charismex:
+    na "Tu est sûr de vouloir être Charismatique?*Oui* {a=jump:talent}*Non*{/a}"
+    show narrateur
+    na "WHAOU c'est vrai que maintenant que je te regarde…"
+    na "Je vois pas le même connard de tout à l'heure…"
+    na "Bravo tu es admirable! et je commence à te respecter."
+    na "Tu as choisi d'être charismatique!"
+    na "Voila ta jauge de Charisme."
+    show screen charisme
+    $ charisme = 100
+    na "Tu disposes de [charisme] charisme. "
+    na "Bon, passons à l'étape suivante !"
+    hide narrateur
+    jump caractere
+
+label intelligence:
+    if skip == 1:
+        "Vous avez choisit Intelligent"
+        show screen intelligence
+        $ intelligence = 100
+        $ mana = 100
+        jump caracter
+    if passe == 1:
+        "La chevelure au gré du vent un homme connu de nul par débarque dans les parage il choisisame ça classe"
+        "Quel et ta destiné?"
+        "Choisit ton talent !"
+        show screen intelligence
+        $ intelligence = 100
+        $ mana = 100
+        na "Tu disposes de [intelligence] charisme. "
+        na "Bon, passons à l'étape suivante !"
+        hide narrateur
+        jump caractere
+label intelligencex:
+    na "Tu es sûr de vouloir être Intelligent?*Oui* {a=jump:talent}*Non*{/a}"
+    show narrateur
+    na "Ah bah alors, on est un petit fayot…"
+    na "Alors tête de noeud, combien ça fait 2+2?"
+    na "Bravo Einstein! t’as choisi d'être Intelligent"
+    na "Voila ta jauge d'Intelligence."
+    show screen intelligence
+    $ intelligence = 100
+    $ mana = 100
+    na "Tu disposes de [intelligence] Intelligence."
+    na "Bon passons à l'étape suivante !"
+    hide narrateur
+    jump caractere
+
+label force:
+    if skip == 1:
+        "Vous avez choisit Force"
+        show screen force
+        $ force = 100
+        jump caracter
+    if passe == 1:
+        show screen force
+        $ force = 100
+        na "Tu disposes de [force] Force."
+        na "Bon passons à l'étape suivante !"
+        hide narrateur
+        jump caractere
+label forcex:
+    na "Tu es sûr de vouloir être Fort?*Oui* {a=jump:talent}*Non*{/a}"
+    show narrateur
+    na "Bah alors musclor, fait tater tes biceps!"
+    na "Mouais… bof… j'ai connu des sacs à patate bien plus forts que toi!"
+    na "Bon tu as choisi ton talent la force."
+    na "N'oublie pas tête de nugget, le narrateur aussi fait de la muscu…"
+    na "Une fois à la salle de sport, j'ai porté une cuillère à soupe avec 2 doigts!"
+    na "Alors fait pas le mariole !"
+    na "Voila ta jauge de Force."
+    show screen force
+    $ force = 100
+    na "Tu disposes de [force] Force."
+    na "Bon passons à l'étape suivante !"
+    hide narrateur
+    jump caractere
+
+label caractere:
+    scene h2
+    show narrateur
+    if passe == 1:
+        show narrateurbouda
+        nn "Je dois vous expliquer moulte chose"
+        nn "Vous avez un caractere positif comme négatif"
+        "Le trait de caractere négatif sera cité seulement si il et indiqué dans vos choix pareillement pour le positif"
+        "Seulement si un de vos trait et négatif et qui et cité vous serait obliger de cliquer dessus"
+        "Sinon tu sera obligé de perdre de mental"
+        "Une caracteristique négative peut vous apporter des perte de mental de vie ou d'argent"
+        "Attend joueur j'ai recu un texto ! Regarde une publicité : acheté vite moin cher plus rapide"
+        "J'ai ma propre chaine twitch je suis vtuber zebra3d "
+        "J'ai mon propre instagram zebra3dx"
+        "J'ai un site internet astraelia.com (ne pas oublier le .com)"
+        "Je suis aussi ideaste donc si vous avez un probleme je serais la pour vous aidez"
+        "Bref"
+        "Comme je le disait un l'instant rien et laisser au hasard"
+        "un trait négatif sera toujours supérieur a une phrase positive"
+        "Cepandant grace a vos talent parfois il sera possible de passez a l'étape suivante"
+        "Le talent ce place au dessus de tout caractere"
+        "Cependant si vous continuer les dialogue ou que aucun caractere prend le dessus"
+        "Il y'aura ce que j'appelle un double tranchant"
+        " Quand vous cliquer sur *continuez votre course*"
+        "Votre double tranchant activera un bonus ou un malus"
+        "Vous avez une chance sur 2 de tomber sur le bien comme sur le mauvais"
+        "Voyons voir si tu a compris Imaginon que vous soyez débile évidemment je ne dit
+        pas ça pour vous persecuté"
+        hide narrateurbouda
+        jump caracter
+    na "Bon, la ont arrives dans la phase compliquée…"
+    na "Je t’ai dit tout à l'heure que tu avais une jauge de mental?"
+    na "Si ta jauge de mental arrive en dessous de 10, ton personnage perd la boule et devient fou…"
+    na "Inutile t'es déjà assez taré comme ça joueur !"
+    na "Tu vas devoir choisir un trait de caractère positif et un trait négatif."
+    na "Fais attention, une action négative prend toujours le dessus sur ton caractère positif!"
+    na "En gros, si tu es con… j'dis pas que t’es con…"
+    na "En fait, je pense sincèrement que t’es con!"
+    na " Si tu choisi *Magnifique* en caractère positif et *Moche* en caractère *négatif*"
+    na "Déjà faut vraiment être débile! donc t'aurais du choisir *Débile* en caractère négatif… ça va mieux avec ton teint pâle…"
+    na "Bref… si tu as un choix entre *Cliquez Ici si vous avez choisi d'être Magnifique* ou *Cliquez ici si vous avez choisi d'être Moche*."
+    na "Tu devras cliquer sur moche si tu  l’a choisi en caractère négatif."
+    na "Si dans les actions il y a ton trait de caractère négatif, tu es obligé de cliquer dessus! sauf si tu as un talent qui peut te sauver les fesses…"
+    na "Bon bref, pour me montrer que t’as compris, on va faire un essai!"
+    hide narrateur
+    jump caracter
+
+label caracter:
+    if skip == 1:
+        jump mabel
+    show narrateur
+    with fade
+    if passe = 1:
+        na "Si vous avez choisi d'être Optimiste {a=jump:deb}*Cliquez ici*{/a} ; Sinon, si vous êtes débile {a=jump:caracteristique1}*Cliquez ici*{/a}"
+        jump caracteristique1
+    na "Donc si tu as choisi d'être optimiste qui est un trait positif,"
+    na "Et que ton autre trait de caractère c'est débile, inutile de te dire que débile c'est négatif?"
+    na "donc exemple :"
+    na "vous avez réussi cette quête, brave homme. Voici votre récompense :"
+    hide narrateur
+    na "Si vous avez choisi d'être Optimiste {a=jump:deb}*Cliquez ici*{/a} ; Sinon, si vous êtes débile {a=jump:caracteristique1}*Cliquez ici*{/a}"
+    jump caracteristique1
+
+
+label caracteristique1:
+    if passe == 1:
+        $ skip += 1
+        jump mabel
+    show narrateur
+    na "Effectivement, t’as choisi débile. Je trouve que ça te correspond bien !"
+    na "Tu devrais investir dans ce beau projet d'avenir d'être débile!"
+    hide narrateur
+    na "Bon, au moin t’as compris… Si t’as pas compris demande à celui qui te lit le texte ou {a=jump:caractere}*Clique ici*{/a}"
+    show narrateur
+label mabel:
+    $ disciple = 0
+    $ cite = 0
+    $ croisiere = 0
+    $ desert = 0
+    $ mathias = 0
+    $ erwin = 0
+    $ eren = 0
+    $ armin = 0
+    $ elephant = 0
+    $ fin = 0
+    $ noob = 0
+    $ glacier = 0
+    $ corde = 0
+    $ esprit = 0
+    $ monolyte = 0
+    $ mort = 0
+    $ narrateur1 = 0
+    $ officiel = 0
+    $ endurance = 0
+    $ competence = 0
+    $ chanceux = 0
+    $ malchance = 0
+    $ detendu = 0
+    $ obsede = 0
+    $ timide = 0
+    $ cleptoman = 0
+    $ immature = 0
+    $ arrogant = 0
+    $ autoritaire = 0
+    $ impulsif = 0
+    $ influancable = 0
+    $ talent = 100
+    $ instable = 0
+    $ ame = 0
+    $ mytho = 0
+    $ colerique = 0
+    $ vulgaire = 0
+    $ paresseux = 0
+    $ susceptible = 0
+    $ debile = 0
+    $ parano = 0
+    $ chanceux = 0
+    $ malchance = 0
+    $ detendu = 0
+    $ obsede = 0
+    $ ideaste = 0
+    $ impulsif = 0
+    $ riche = 0
+    $ pauvrete = 0
+    $ motive = 0
+    $ flemmard = 0
+    $ polivalent = 0
+    $ famous = 0
+    $ inconnue = 0
+    $ genereux = 0
+    $ avide = 0
+    $ competance = 0
+    $ pervert = 0
+    $ imprudent = 0
+    $ egoiste = 0
+    $ moche = 0
+    $ couteau = 0
+    $ deprime = 0
+    $ poupe = 0
+    $ zoophile = 0
+    $ sanguinaire = 0
+    $ amical = 0
+    $ talent = 0
+    $ efficace = 0
+    $ fiable = 0
+    $ creatif = 0
+    $ determine = 0
+    $ maudit = 0
+    $ enthousiaste = 0
+    $ optimiste = 0
+    $ prudent = 0
+    $ drole = 0
+    $ persuasif = 0
+    $ charmeur = 0
+    $ logique = 0
+    $ econome = 0
+    $ courageux = 0
+    $ tenace = 0
+    $ agile = 0
+    $ mysterieux = 0
+    $ bulle = 0
+    $ bete = 0
+    $ magnifique = 0
+    $ armement = 0
+    $ herboriste = 0
+    $ farfouilleur = 0
+    $ connard = 0
+    $ creature = 0
+    $ pif = 0
+    $ arme = 0
+    $ fleur = 0
+    $ carte = 0
+    $ personalite = 0
+    $ trouduq = 0
+    $ timmyyy = Item("timmy", "timmyy.png")
+    $ couteauu = Item("couteau", "daguemediocre.png")
+    $ etoilee = Item("etoile", "primo.png")
+    $ amee = Item("ame", "ame.jpg")
+    $ etoile = 0
+    $ clouu = Item("Clou", "clou.png")
+    $ poupev = Item("Poupée Vaudou", "poupevaudou.png")
+    $ piochee = Item("Pioche", "pioche.png")
+    $ casque2 = Item("Casque", "casque.png")
+    $ boussole2 = Item("Boussole", "boussole.png")
+    $ sextant2 = Item("sextant", "sextant.png")
+    $ cigare2 = Item("Cigare", "cigare.png")
+    $ chocolat2 = Item("Chocolat", "chocolat.png")
+    $ fusil2 = Item("Fusil", "fusil.png")
+    $ rose2 = Item("Rose", "rose.png")
+    $ puce2 = Item("Puce", "puce.png")
+    $ coeur2 = Item("Coeur", "coeur.png")
+    $ bracelet2 = Item("Bracelet", "bracelet.png")
+    $ poudre2 = Item("poudre", "poudre.png")
+    $ emeraude2 = Item("emeraude", "emeraude.png")
+    $ lampe2 = Item("lampe", "lampe.png")
+    $ diademe2 = Item("Diademe", "diademe.png")
+    $ carte2 = Item("Carte", "carte.png")
+    $ portrait2 = Item("Portrait", "portrait.png")
+    $ kraken = 0
+    $ robot = 0
+    $ serpent = 0
+    $ squelette = 0
+    $ tentacule = 0
+    $ cerceuil = 0
+    $ esquive = 0
+    $ boulon = 0
+    if passe == 1:
+        $ skip = 1
+        jump caracteristique3
+    na "Bon, maintenant on peut passer à la suite !"
+    na "Comme tu l’a compris, si tu as un trait négatif a chaque fois qu'il te sera demandé, tu devras cliquer dessus."
+    na "Mais tu as moyen d'utiliser ton talent si celui ci est proposé. Un talent est plus fort qu’un trait négatif ou positif."
+    na "Il peut soit te permettre d'esquiver un trait négatif ou positif, soit te permettre d'accéder à la suite d'un dialogue."
+    na "Donc exemple, si on te propose d'utiliser ton talent ou être débile, si tu n’as pas choisi débile, ne clique pas sur débile!"
+    na "Mais imaginons ! dans ce cas là tu peux utiliser ton talent. Si tu utilises ton talent, tu perdras 10 points de talent à chaque fois."
+    na "Le talent est plus fort que les caractéristiques, et les caractéristiques négatives sont plus fortes que celles positives."
+    na "Donc je te conseille de les noter, dans le doute…"
+    na "Tu dois uniquement cliquer à chaque fois sur les traits que tu as choisis. Si t’as pas choisi créatif ne clique pas dessus… déjà c'est de la triche!"
+    na "En plus tu risques de tout recommencer, parce que je suis sadique… alors note bien tes traits. "
+    na "On va commencer par ton caractère positif, inutile de te dire de bien choisir?"
+    $ skip = 0
+    hide narrateur
+    jump caracteristique3
+label caracteristique3:
+    "Amical - Efficace - Fiable - Créatif - Déterminé - Enthousiaste - Optimiste - Prudent - Drôle - Persuasif -  Charmeur - Logique - Économe - Courageux - Tenace - Agile -"
+    "Mystérieux - Amis des Bulles - Magnifique  - Amis des Bêtes - Herboriste - Farfouilleur"
+    call screen positive
+    jump positif
+
+label negatif:
+    jump caracteristique2
+
+label caracteristique2:
+    if passe == 1:
+        $ skip = 1
+    na "Bon, maintenant le meilleur pour la fin! choisis ta caractéristique négative."
+    call screen negative
+    na "Timide - Cleptoman - Immature - Arrogant - Autoritaire - Impulsif - Influençable - Instable - Mythomane - Colérique - Vulgaire - Paresseux - Susceptible - Débile - Parano -"
+    "Pervert - Imprudent - Égoïste - Moche - Déprimé - Zoophile - Sanguinaire"
+    jump negatif
+
+label deb:
+    if car == 2:
+        show narrateur
+        na "Tu le fais vraiment exprès joueur! allez, retourne apprendre ta leçon!"
+        hide narrateur
+    if passe == 1:
+        $ succes += 1
+        jump caracteristique1
+    $ succes += 1
+    $ car = 2
+    "Vous remporter le succès *100 pourcent débile*"
+    "Vous avez [succes] succes"
+    jump caractere
+    show narrateur
+    with hpunch
+
+    na "{b}POURQUOI T’ES CON!?{/b}"
+    na "Je pose la question… je t'ai dit de choisir un trait négatif !"
+    na "Alors je te pose la question! Pourquoi tu te paye ma poire?"
+    na "Donc voila, je te félicite, tu es vraiment débile !"
+    hide narrateur
+
+    $ succes += 1
+    $ car = 2
+    "Vous remporter le succès *100 pourcent débile*"
+    "Vous avez [succes] succes"
+    jump caracteristique1
+
+
+
+    #Guerrier - Mage - Assassin - Rôdeur
+    #Charisme - Intelligence - Force
+    #Timide - Cleptoman - Immature - Arrogant - Autoritaire - Impulsif - Influençable - Instable - Mythomane - Colérique - Vulgaire - Paresseux - Susceptible - Débile - Parano
+    #Pervert - Imprudent - Égoïste - Moche - Déprimé - Zoophile - Sanguinaire
+    #Amical - Efficace - Fiable - Créatif - Déterminé - Enthousiaste - Optimiste - Prudent - Drôle - Persuasif -  Charmeur - Logique - Économe - Courageux - Tenace - Agile -
+    #Mystérieux - Amis des Bulles - Magnifique  - Amis des Bêtes - Herboriste
+    #-----
+
+    #-------
+
+label amical:
+    if skip == 1:
+        $ amical = 1
+        show screen amical
+        jump caracteristique2
+    "Vous avez le don pour vous faire de nouveaux amis +2 à 5 mental"
+    hide screen positive
+    na "Vous avez choisi d'être amical, êtes vous sûr de ce choix?{a=jump:positif}Non{/a}"
+    na "Très bien, donc vous êtes amical!"
+    show screen amical
+    $ amical = 1
+    na "C'est vrai que même avec une gueule de con, vous avez l'air sympa!"
+    na "Pour un joueur qui aime bien se faire des amis, juste entre nous, ça ne fonctionnera jamais …"
+    na "Mais bon, pour quelqu'un d'aussi con que vous, se faire des amis c'est important!"
+    na "Surtout quand on est née sans famille."
+    na "Que voulez-vous, vos parents sont sûrement morts après l'accident…"
+    na "Au cas où tu l'aurais pas compris joueur, c'est vous l'accident…"
+    na "Comme quoi, vous cachez bien votre jeu!"
+    jump caracteristique2
+
+label efficace:
+    if skip == 1:
+        $ efficace = 1
+        show screen efficace
+        jump caracteristique2
+    "Vous ne faite pas les chose à moitié +5 à 15 mental"
+    hide screen positive
+    na "Vous avez choisi d'être efficace, êtes vous sûr de ce choix?{a=jump:positif}Non{/a}"
+    na "Donc tu as choisi efficace."
+    show screen efficace
+    na "Bon bah joueur, si t'es si efficace… tu peux me laver le cul avec une serpillère!"
+    na "Moi je dis ça, c'est juste pour essayer de nouvelle chose…"
+    na "C'est mon psy qui m’a dit *explorez de nouveau territoire*"
+    na "Mon cul est un territoire, donc si tu veux venir explorer…"
+    na "Après avoir fait cela, profite en pour laver ton cul joueur, c'est tout noir encore dedans !"
+    $ efficace = 1
+    jump caracteristique2
+
+label fiable:
+    if skip == 1:
+        $ fiable = 1
+        show screen fiable
+        jump caracteristique2
+    "Vous avez le don pour que les gens ont confiance en vous +5 à 10 mental"
+    "En choisisant fiable vous avez une compétence supplémentaire"
+    "Faite 1d20 si le score et de 10 votre mental remonte a 100"
+    hide screen positive
+    na "Vous avez choisi d'être fiable, êtes vous sûr de ce choix?{a=jump:positif}Non{/a}"
+    na "Vous avez choisi d'être fiable."
+    show screen fiable
+    na "Bon, joueur, je peux donc te faire confiance!"
+    na "Je peux te confier un secret?"
+    na "Je collectionne les poils d'orteilles…"
+    na "J'ai 8 poils d'orteilles collector !"
+    na "Tu voudrais pas m'en donner?"
+    $ fiable = 1
+    jump caracteristique2
+
+label creatif:
+    if skip == 1:
+        $ creatif = 1
+        show screen creatif
+        jump caracteristique2
+    "Vous avez le don pour créer de nouvelle chose + 1d30 de mental"
+    hide screen positive
+    na "Vous avez choisi d'être créatif, êtes vous sûr de ce choix?{a=jump:positif}Non{/a}"
+    na "Vous avez choisi d'être créatif."
+    show screen creatif
+    na "Alors comme ça vous êtes doué avec vos mains?"
+    na "Vous pouvez me créer une statue de penis."
+    na "C’est pas pour moi, c'est pour un ami d'un ami…"
+    na "*tousse*"
+    na "Si par la suite tu pouvais te créer un cerveau et utiliser au moins 1 seul de tes neurones…"
+    na "J'aurais peut être plus d'estime pour toi…"
+    $ creatif = 1
+    jump caracteristique2
+
+label determine:
+    if skip == 1:
+        $ determine = 1
+        show screen determine
+        jump caracteristique2
+    "Vous êtes quelqu'un de déterminé à aller au bout de vos action +10 mental"
+    "Grace a votre détermination vous avez une compétence supplémentaire"
+    "persévere : +1d 15 d'attaque si le dée fait aux dessus de 15 votre jet sera considéré comme nul"
+    hide screen positive
+    na "Vous avez choisi d'être déterminé, êtes vous sûr de ce choix?{a=jump:positif}Non{/a}"
+    na "Vous avez choisi d'être déterminé."
+    show screen determine
+    na "Alors comme ça vous êtes déterminé? vous n'abandonnez jamais?"
+    na "Vous me trouvez gentil?"
+    na "Et Maintenant? 1x"
+    na "Et Maintenant? 2x"
+    na "Et Maintenant? 3x"
+    na "Et Maintenant? 4x"
+    na "Et Maintenant? 5x"
+    na "Et Maintenant? 6x"
+    na "Et Maintenant? 7x"
+    na "Et Maintenant? 8x"
+    na "Effectivement vous êtes maso et déterminé !"
+    $ determine = 1
+    jump caracteristique2
+
+label pif:
+    if pif == 1:
+        "Vous avez déjà touché mon nez? aller trifouiller le nez de quelqu'un d'autre !"
+        jump caracteristique3
+    show narrateur
+    na "AIE!"
+    na "Joueur, pourquoi t’as cliqué sur mon illustre nez!?"
+    na "Est ce que moi je lèche ta cérumen?"
+    na "Bon c'est arrivé… juste une fois au chalet…"
+    na "Je te comprends, tu voulais mettre les doigts dans mon nez…"
+    na "Pour goûter le met exquis qui est dedans."
+    na "Cette délicate odeur de narrateur."
+    na "Cette savoureuse texture de narrateur."
+    na "Ce goût romanesque!"
+    na "Les gens se bousculent pour avoir l'insigne honneur de goûter!"
+    na "Même moi j'en raffole!"
+    na "C'est un produit divin que tout le monde est avide de goûter."
+    na "{b}{i}Pour petits et grands, veuillez lire la notice! produit potentiellement toxique. Veuillez consulter les pompes funèbre en cas d'ingestion.{/i}{/b}"
+    na "Je comprends ton désir oppressant de vouloir goûter mes crottes de nez."
+    na "Mais t'es un connard! donc t'en aura pas! mange les tiennes!"
+    hide narrateur
+    $ succes += 1
+    $ pif = 1
+    "Vous avez remporté le succès {b}*Les Crottes de nez du Narrateur*{/b}"
+    jump caracteristique3
+
+label enthousiaste:
+    if skip == 1:
+        $ enthousiaste = 1
+        show screen enthousiaste
+        jump caracteristique2
+    "Vous gardez toujours le sourire dans les actions difficile +5 mental"
+    hide screen positive
+    na "Vous avez choisi d'être enthousiaste, êtes vous sûr de ce choix?{a=jump:positif}Non{/a}"
+    na "Vous avez choisi d'être enthousiaste"
+    show screen enthousiaste
+    na "Alors comme ça, ça vous fait plaisir? votre mère a dû vous avaler…"
+    na "Et ça vous arrive souvent d'avaler?"
+    na "La bouche grande ouverte?"
+    na "Vous faites quel bruit?"
+    na "Surement GLOUPS GLOUPS ARKs."
+    na "Ça vous rend heureux d'être un enfant non désiré?"
+    na "Même la planète vous considère comme un déchet!"
+    na "Pas étonnant, vu la tonne de CO2 qu'il a fallu pour vous expulser le jour de votre naissance…"
+    na "En parlant de ça, pourquoi sur votre photo de famille votre visage est remplacé par celui de timmy?"
+    $ enthousiaste = 1
+    jump caracteristique2
+
+label optimiste:
+    if skip == 1:
+        $ optimiste = 1
+        show screen optimiste
+        jump caracteristique2
+    "Vous savez garder espoir, vous restez positif, et ça se ressent +10 mental."
+    hide screen positive
+    na "Vous avez choisi d'être optimiste, êtes vous sûr de ce choix?{a=jump:positif}Non{/a}"
+    na "Vous avez choisi d'être optimiste."
+    show screen optimiste
+    na "C'est vrai que quand on est un enfant pas désiré, faut rester optimiste!"
+    na "Faut rester optimiste, vous avez raison. Au fond vous n'êtes pas qu'un simple connard, vous êtes LE CONNARD."
+    na "Pour autant, ça ne suffit pas d'être optimiste, quand y’a plus de chance qu'il vous arrive un truc de merde dans votre vie."
+    na "Que la pluie verse deux gouttes par seconde"
+    $ optimiste = 1
+    jump caracteristique2
+
+label prudent:
+    if skip == 1:
+        $ prudent = 1
+        show screen prudent
+        jump caracteristique2
+    "Vous faite attention à vos actions +2 à 10 mental"
+    hide screen positive
+    na "Vous avez choisi d'être prudent, êtes vous sûr de ce choix?{a=jump:positif}Non{/a}"
+    na "Vous avez choisi prudent."
+    show screen prudent
+    na "Vous faites bien de ne pas écraser la mamie sur le passage piéton."
+    na "Conduire à 30km/h comme un vieux retraité c'est tout à fait votre genre!"
+    na "Vous êtes d'un ennui mortel !"
+    na "Quand on vous dit stop, vous pouvez arriver à ne plus être un connard?"
+    $ prudent = 1
+    jump caracteristique2
+
+label drole:
+    if skip == 1:
+        $ drole = 1
+        show screen drole
+        jump caracteristique2
+    "Vous savez comment détendre l'atmosphère, une petite blague de temps en temps +10 à +15 mental."
+    hide screen positive
+    na "Vous avez choisi d'être drôle, êtes vous sûr de ce choix?{a=jump:positif}Non{/a}"
+    na "Vous avez choisi d'être drôle."
+    show screen drole
+    na "Vous êtes un sacré comique!"
+    na "Vous savez qui vous cache la télé quand il passe devant l'écran?"
+    na "{b}LE GROS CUL DE VOTRE MERE !{/b}"
+    na "Y’a marqué conducteur poid lourd sur son pantalon…"
+    na "Votre mère c'est un obus nucléaire !"
+    na "OUI j'arrête les blagues sur votre mère !"
+    na "Elle fait pas les trottoirs elle les fracasse…"
+    na "Vous savez ce qui dépasse la cagnotte du loto? le poid de votre mère…"
+    na "Voilà quelques compliments pour me faire pardonner."
+    na "Son coeur est aussi gros que son obésité!"
+    $ drole = 1
+    jump caracteristique2
+
+label persuasif:
+    if skip == 1:
+        $ persuasif = 1
+        show screen persuasif
+        jump caracteristique2
+    "Vous savez trouver les mots pour que l'on vous fasse confiance +5 mental."
+    hide screen positive
+    na "Vous avez choisi d'être persuasif, êtes vous sûr de ce choix?{a=jump:positif}Non{/a}"
+    na "Vous avez choisi d'être persuasif."
+    show screen persuasif
+    na "Vous arriverez a me persuader d'essayer de pas vous traiter comme un connard?"
+    na "Bon, vous êtes tellement persuasif que je vais vous traiter autrement…"
+    na "Comment allez vous mon {b}brave{/b} connard?"
+    na "Monsieur connard, votre pute est prête !"
+    na "Mon seigneur connard, des envahisseurs spatial vous défonce la raie!"
+    na "J'espère que cette forme de politesse vous convient maître connard !"
+    $ persuasif = 1
+    jump caracteristique2
+
+label charmeur:
+    if skip == 1:
+        $ charmeur = 1
+        show screen charmeur
+        jump caracteristique2
+    "Vous savez parler aux femmes et aux hommes, vous savez comment les séduire +5 à 10 mental."
+    hide screen positive
+    na "Vous avez choisi d'être charmeur, êtes vous sûr de ce choix?{a=jump:positif}Non{/a}"
+    na "Vous avez choisi d'être charmeur."
+    show screen charmeur
+    na "Vous êtes tellement séduisant!"
+    na "Ça vous dit de partir en soirée mondaine pour participer au harem?"
+    na "Vous, moi et vos 15 salopes d'autre mere…"
+    na "Toutes aussi grosse !"
+    na "Un vrai défilé d'hippopotame! pas besoin de safari avec autant de mère en obésité…"
+    $ charmeur = 1
+    jump caracteristique2
+
+label logique:
+    if skip == 1:
+        $ logique = 1
+        show screen logique
+        jump caracteristique2
+    "Vous êtes quelqu'un avec un bon raisonnement, rien ne vous échappe! +2 à +5 à +15 mental"
+    hide screen positive
+    na "Vous avez choisi d'être logique, êtes vous sûr de ce choix?{a=jump:positif}Non{/a}"
+    na "Vous avez choisi d'être logique !"
+    show screen logique
+    na "Je connais un gars qui connait un gars son pote et un autre gars proche d'un gars bah il est comme vous…"
+    na "Vous + vous = Connard."
+    na "Ca me semble aussi logique que vous en faite !"
+    na "Si on soustrait la somme de votre existence dans ce monde, vous croyez que vous aurez une espèce d'importance?"
+    na "Non, comme tous les autres humains de bas étage. Je suis même pas sur que quelqu'un esquisse 1 regard sur votre tombe…"
+    $ logique = 1
+    jump caracteristique2
+
+label econome:
+    if skip == 1:
+        $ econome = 1
+        show screen econome
+        jump caracteristique2
+    "Vous êtes quelqu'un de très minutieux avec votre argent, vous savez comment être efficace, vous savez marchander +10 gold +2 mental."
+    hide screen positive
+    na "Vous avez choisi d'être économe, êtes vous sûr de ce choix?{a=jump:positif}Non{/a}"
+    na "Vous avez choisi d'être économe !"
+    show screen econome
+    na "Vous avez bien raison de faire attention à votre argent"
+    na "Il faut prévoir l'achat d'un chien, il faut lui acheter des croquettes."
+    na "Les soins vétérinaire, sans oublier l'euthanasie…"
+    na "Il faut prévoir l'achat de la nourriture."
+    na "Vous êtes surement un gars qui aime les bananes!"
+    na "D'ailleur, quand vous faite vos achat aux putes,"
+    na "vous préférez les femmes avec ou sans couilles?"
+    na "Surement avec, on rajoute un supplément poils aussi?"
+    $ econome = 1
+    jump caracteristique2
+
+label courageux:
+    if skip == 1:
+        $ courageux = 1
+        show screen courageux
+        jump caracteristique2
+    "Vous n'avez pas peur du danger +2 à +5 mental +2 attaque"
+    hide screen positive
+    na "Vous avez choisi d'être courageux, êtes vous sûr de ce choix?{a=jump:positif}Non{/a}"
+    na "Vous avez choisi d'être courageux!"
+    show screen courageux
+    na "Il faut être courageux, après le décès de toute sa famille après un accident de motoculteur…"
+    na "Vous avez bien raison, accrochez vous à la vie!"
+    na "Même si j'espère vous voir mourir assez vite…"
+    na "Désolé joueur… mais je pense à mes vacances MOI!"
+    na "Tu crois que nous, narrateur de talent, on a du répit?"
+    na "Bah non!"
+    na "Faut rester courageux quand on est l'ultime sac à foutre!"
+    $ courageux = 1
+    jump caracteristique2
+
+label tenace:
+    if skip == 1:
+        $ tenace = 1
+        show screen tenace
+        jump caracteristique2
+    "Vous êtes quelqu'un de très tenace +5pv +2 à 5 mental."
+    hide screen positive
+    na "Vous avez choisi d'être tenace, êtes vous sûr de ce choix?{a=jump:positif}Non{/a}"
+    na "Vous avez choisi d'être tenace."
+    show screen tenace
+    na "Parce qu'en plus d'être précoce, vous choisissez d'être tenace?"
+    na "C'est pas de votre faute, c'est de la faute du gouvernement."
+    na "D'ailleur, si vous voyez des affiches avec un grand N comme Narrateur, votez pour moi!"
+    na "Je vous remercierais en vous nommant TrouDuQ d'Honneur des toilettes porte 6 allée 6 couloir n°6"
+    na "Vous êtes comme les taches de foutre..."
+    na "TENACE."
+    na "Vous êtes résistant aux aérosols, aux bombes anti-mite et aux cactus."
+    na "Même les déodorants ne vous résistent pas!"
+    na "Sûrement pour ça l'odeur fétide qui émane de vos bras."
+    $ tenace = 1
+    jump caracteristique2
+
+label agile:
+    if skip == 1:
+        $ agile = 1
+        show screen agile
+        jump caracteristique2
+    "Vous êtes quelqu'un de très agile +5 à +10 mental."
+    hide screen positive
+    na "Vous avez choisi d'être agile, êtes vous sûr de ce choix?{a=jump:positif}Non{/a}"
+    na "Vous avez choisi d'être agile."
+    show screen agile
+    na "Alors quoi? Vous êtes un genre de contorsionniste?"
+    na "Vous pouvez pratiquer la cuillère, le papillon et les autres positions du kamasutra?"
+    na "Vous pouvez vous masturber avec vos orteils?"
+    na "Vous faite quoi d'autre pour vous satisfaire le lotus?"
+    na "Je parle pas du papier toilette, quoique si tu te réincarné joueur… "
+    na "Je te vois bien en feuille de PQ!"
+    $ agile = 1
+    jump caracteristique2
+
+label mysterieux:
+    if skip == 1:
+        $ mysterieux = 1
+        show screen mysterieux
+        jump caracteristique2
+    "Vous êtes quelqu'un de mystérieux, on ne vous connait pas vraiment +10 à +20 mental."
+    hide screen positive
+    na "Vous avez choisi d'être mystérieux, êtes vous sûr de ce choix?{a=jump:positif}Non{/a}"
+    na "Vous avez choisi d'être mystérieux."
+    show screen mysterieux
+    na "Alors c'est pas parce que tu caches 69 sextoys dans ton tiroir que ça fait de toi quelqu'un de mystérieux…"
+    na "Ni le fait que t’as déjà participé a l'inceste avec ton pere, et ta mere, ta soeur et ta cousine…"
+    na "Tu caches bien ton jeu joueur!"
+    $ mysterieux = 1
+    jump caracteristique2
+
+label bulle:
+    if skip == 1:
+        $ bulle = 1
+        show screen bulle
+        jump caracteristique2
+    "Vous savez parler couramment le langage des bulles, pas sur de savoir à quoi ça sert… +20 mental."
+    hide screen positive
+    na "Vous avez choisi d'être amis des bulles, êtes vous sûr de ce choix?{a=jump:positif}Non{/a}"
+    na "Vous avez choisi amis des bulles."
+    show screen bulle
+    na "Vous aimez passer la savonnette?"
+    na "C'est quoi cette histoire de bulles? quand vous lâchez un pet y'en a 8 qui sortent!"
+    na "Glaglouglouglou."
+    $ bulle = 1
+    jump caracteristique2
+
+label bete:
+    if skip == 1:
+        $ bete = 1
+        show screen bete
+        jump caracteristique2
+    "Vous savez communiquer avec les animaux +5 mental."
+    hide screen positive
+    na "Vous avez choisi d'être amis des bêtes, êtes vous sûr de ce choix?{a=jump:positif}Non{/a}"
+    na "Vous avez choisi amis des bêtes."
+    show screen bete
+    na "Quoi? Vous murmurez à l'oreille des porcs? et vous vous roulez dans la boue?"
+    na "Vous injectez des insectes dans votre anus?"
+    na "Vous faites des bébés avec les hippocampes?"
+    na "Voilà ce que ça donnerait…"
+    show blobfish
+    with vpunch
+    na "Magnifique! pourquoi pas l'appeler timmy?"
+    hide blobfish
+    $ bete = 1
+    jump caracteristique2
+
+label magnifique:
+    if skip == 1:
+        $ magnifique = 1
+        show screen magnifique
+        jump caracteristique2
+    "Votre beauté est parfaite, vous avez un corps créé par le narrateur +10 mental."
+    hide screen positive
+    na "Vous avez choisi d'être magnifique, êtes vous sûr de ce choix?{a=jump:positif}Non{/a}"
+    na "Vous avez choisi d'être magnifique !"
+    show screen magnifique
+    na "Pour un mec sûrement né en Afrique, vous êtes assez beau…"
+    na "J'ai rien contre les Africain! ils ont juste un certain charme."
+    na "Avec une beauté comme la vôtre, vous devez en ramener des gazelles!"
+    na "Par contre, si ces gazelles ont de l'herpès, je vois pas à quoi cela vous sert d'être magnifique…"
+    $ magnifique = 1
+    jump caracteristique2
+
+label herboriste:
+    if skip == 1:
+        show screen herboriste
+        $ herboriste = 1
+        jump caracteristique2
+    "Vous aimez les plantes, les forêts, et tout le bazar +5 vie +5 mental."
+    hide screen positive
+    na "Vous avez choisi d'être herboriste, êtes vous sûr de ce choix?{a=jump:positif}Non{/a}"
+    na "Vous avez choisi d'être herboriste."
+    show screen herboriste
+    na "Vous êtes quoi vegan? Hippie? Jardinier? Dendrophile?"
+    na "D'ailleur, il serait temps d'utiliser vos dents pour tondre la pelouse de votre mère!"
+    na "Et avant de juter dans ma salade, faites un effort! utilisez du PQ ou un mouchoir!"
+    na "Ou mieux, si vous utilisez votre main de joueur pour vous essuyez!"
+    na "Ça vous correspondrait bien, c'est pas comme si les gens avaient envie de vous serrer la main de toute façon…"
+    na "Je pense qu'il préfère vous mettre un coup de boule!"
+    $ herboriste = 1
+    jump caracteristique2
+
+label farfouilleur:
+    if skip == 1:
+        $ farfouilleur = 1
+        show screen farfouilleur
+        jump caracteristique2
+    hide screen positive
+    "Vous aimez fouiller les endroits et ramasser le loot des créatures +2 mental."
+    na "Vous avez choisi d'être farfouilleur, êtes vous sûr de ce choix?{a=jump:positif}Non{/a}"
+    na "Vous avez choisi d'être farfouilleur."
+    show screen farfouilleur
+    na "Vous avez tendance à trouver des choses là où il y'en a pas."
+    na "tu peux me retrouver le DVD jacquie & michel?"
+    na "40 capote taille XXL."
+    na "Va farfouiller un peu mon cul pour voir ce que tu trouves!"
+    na "Si tu trouves la lumiere, évite, ton ame de joueur est mieux embourbé de merde"
+    $ farfouilleur = 1
+    jump caracteristique2
+
+label timide:
+    if skip == 1:
+        show screen timide
+        $ timide = 1
+        jump nom
+    hide screen negative
+    "Vous avez tendance à ne jamais parler et à bredouiller quelques mots -5 mental."
+    na "Vous avez choisi d'être timide, êtes vous sûr de ce choix?{a=jump:negatif}Non{/a}"
+    na "Vous avez choisi d'être timide."
+    show screen timide
+    na "Alors c'est vous, le genre de joueur qui bredouille des mots parce qu'il est timide?"
+    na "Ecoutez, c'est pas de votre faute si on vous a pas désiré…"
+    na "Vos parents ont oublié leur protection…"
+    $ timide = 1
+    jump nom
+
+label cleptoman:
+    if skip == 1:
+        show screen cleptoman
+        $ cleptoman = 1
+        jump nom
+    hide screen negative
+    na "Vous avez tendance à dépouiller tout ce que vous pouvez, vous perdez entre -10 et -30 mental."
+    na "Vous avez choisi d'être cleptoman, êtes vous sûr de ce choix?{a=jump:negatif}Non{/a}"
+    na "Vous avez choisi d'être cleptoman."
+    show screen cleptoman
+    na "Alors il parait qu'une fois, vous avez volé la voiture de vos parents?"
+    na "Que vous les avez écraser pour pouvoir les dépouiller!"
+    na "Que après cela, vous avez volé leur cercueil pour le revendre sur le darknet!"
+    na "Si vous y pensez, je cherche des cartes de timmy."
+    $ cleptoman = 1
+    jump nom
+
+label immature:
+    if skip == 1:
+        show screen immature
+        $ immature = 1
+        jump nom
+    hide screen negative
+    "Vous n'êtes pratiquement jamais d'accord avec les autres, vous perdez -5 mental."
+    na "Vous avez choisi d'être immature, êtes vous sûr de ce choix?{a=jump:negatif}Non{/a}"
+    na "Vous avez choisi d'être immature."
+    show screen immature
+    na "Je vois sur votre cv que vous avez réussi la maternel, après avoir violé la maîtresse."
+    na "Vous avez accusé timmy!"
+    $ immature = 1
+    jump nom
+
+label arrogant:
+    if skip == 1:
+        show screen arrogant
+        $ arrogant = 1
+        jump nom
+    hide screen negative
+    "Vous avez tendance à surestimer vos capacités, vous perdez entre -5 mental et -15 mental."
+    na "Vous avez choisi d'être arrogant, êtes vous sûr de ce choix?{a=jump:negatif}Non{/a}"
+    na "Vous avez choisi d'être arrogant."
+    show screen arrogant
+    na "Vous croisez le fer avec d'autres gars, pour savoir qui a la plus longue."
+    na "Celui qui pisse le plus loin!"
+    na "Et celui qui fini en pRemier de manger la merde de votre mamie Jaqueline."
+    na "Vous êtes un vrai compétiteur !"
+    $ arrogant = 1
+    jump nom
+
+label autoritaire:
+    if skip == 1:
+        show screen autoritaire
+        $ autoritaire = 1
+        jump nom
+    hide screen negative
+    "Vous avez tendance à vouloir tout contrôler -10 ou -20 mental."
+    na "Vous avez choisi d'être autoritaire, êtes vous sûr de ce choix?{a=jump:negatif}Non{/a}"
+    na "Vous êtes autoritaire."
+    show screen autoritaire
+    na "C’EST BON PAS LA PEINE DE CASSER LES COUILLES!"
+    na "Je vous entend me donner des ordres!"
+    na "*LE NARRATEUR DOIT ÊTRE PLUS GENTIL*"
+    na "*Le joueur est un parfait connard*"
+    na "Tu veux que je remette ton autorité en question?"
+    $ autoritaire = 1
+    jump nom
+
+label impulsif:
+    if skip == 1:
+        show screen impulsif
+        $ impulsif = 1
+        jump nom
+    hide screen negative
+    "Vous avez tendance à être un peu bourrin, vous n'hésitez pas à foncer dans le tas quand il le faut -5 mental."
+    na "Vous avez choisi d'être impulsif, êtes vous sûr de ce choix?{a=jump:negatif}Non{/a}"
+    na "Vous avez choisi d'être impulsif."
+    show screen impulsif
+    na "Tu fais des impulsions de pet pour sentir aussi mauvais?"
+    $ impulsif = 1
+    jump nom
+
+label influancable:
+    if skip == 1:
+        show screen influancable
+        $ influancable = 1
+        jump nom
+    hide screen negative
+    "Vous avez tendance à écouter n'importe qui, n'importe quoi. -10 mental."
+    na "Vous avez choisi d'être influençable, êtes vous sûr de ce choix?{a=jump:negatif}Non{/a}"
+    na "Vous avez choisi d'être influençable."
+    show screen influancable
+    na "Tien joueur, prend cette corde."
+    na "Met la autour du cou."
+    na "Et pend toi avec!"
+    na "Je prépare des jours de congé, donc si tu pouvais te magner…"
+    $ influancable = 1
+    jump nom
+
+label instable:
+    if skip == 1:
+        show screen instable
+        $ instable
+        jump nom
+    hide screen negative
+    na "Vous avez 5 personnalités dans votre tête, selon la voix, vous pouvez perdre plus ou moins de mental."
+    na "Votre personnalité “Louis Ou Tom” est un mythomane et médecin, il vous fera perdre 10 point de mental mais vous fera gagner de la vie."
+    na "Votre personnalité “Kevin Le Thug” est une racaille qui parle comme un gars des rues à Paris, il vous fera perdre entre 5 et 10 point de mental."
+    na "Votre personnalité “Alexa” est une femme robot qui a le don de trouver une solution à beaucoup de probleme, elle vous fera gagnez +5 mental."
+    na "Votre personnalité “Timmy” est un petit garçon qui a peur de tout et de n'importe quoi, il vous fera perdre 5 point de mental."
+    na "Votre personnalité “Narrateur” essaye de se prendre pour le narrateur de ce jeux, mais en jouant ce rôle il perd  20 mental."
+    na "Vous avez choisi d'être instable, êtes vous sûr de ce choix?{a=jump:negatif}Non{/a}"
+    na "Vous avez choisi d'être instable."
+    show screen instable
+    na "Alors, je vois que vous avez plusieurs personnalité."
+    na "Et que vous avez parfois tendance à vous prendre pour moi!"
+    na "C'est très flatteur! beaucoup de gens aimeraient être comme moi!"
+    na "C'est vrai, après tout, j'ai plein de qualités. Je suis une personne incroyable."
+    na "Mais il n'y a qu' un narrateur dans ce scénario, et c'est moi!"
+    na "Alors je te conseille de faire attention à ce que tu fais, parce que une fois j'ai réussi a faire brûler des pâtes!"
+    na "Alors c'est pas un pisseux de joueur qui va me faire peur!"
+    na "Voila, alors joueur voici le numéro de ma psy 06 69 69 666."
+    na "Donc vos crises de folie, je les ai vues de suite, vous êtes malade!"
+    na "Mon diagnostic, vous êtes con!"
+    na "Mais c'est pas un problème, j'ai un remède."
+    na "Essayer d'allez vous faire foutre !"
+    $ instable = 1
+    jump nom
+
+label mytho:
+    if skip == 1:
+        show screen mytho
+        $ mytho = 1
+        jump nom
+    hide screen negative
+    na "Vous avez tendance à mentir, cela peut vous attirer facilement des problèmes, entre -5 et -10 mental."
+    na "Vous avez choisi d'être mythomane, êtes vous sûr de ce choix?{a=jump:negatif}Non{/a}"
+    na "Vous avez choisi d'être mythomane."
+    show screen mytho
+    na "Alors, sur votre cv y’a marqué *Homme à tout faire* *Bac +21*"
+    na "Il y a aussi marqué que vous avez vue l'un de mes films préféré *Bifle dans le noir*"
+    na "Tout me semble en regle, vous pouvez retouner auprés du cadavre de votre femme."
+    $ mytho = 1
+    jump nom
+
+label colerique:
+    if skip == 1:
+        show screen colerique
+        $ colerique = 1
+        jump nom
+    hide screen negative
+    "Vous avez tendance à vous mettre en colère quand quelque chose vous tracasse. -20 mental à -25 mental +2 attaque."
+    na "Vous avez choisi d'être colérique, êtes vous sûr de ce choix?{a=jump:negatif}Non{/a}"
+    na "Vous avez choisi d'être colérique."
+    show screen colerique
+    na "Alors, pourquoi autant de rage en vous?"
+    na "Parce que votre copine vous trompe avec le livreur de pizza?"
+    na "Avec un trou dedans manque plus que la garniture…"
+    $ colerique = 1
+    jump nom
+
+label vulgaire:
+    if skip == 1:
+        show screen vulgaire
+        $ vulgaire = 1
+        jump nom
+    hide screen negative
+    "Vous avez tendance à insulter les gens autour de vous. Entre -5 et -20 de mental."
+    na "Vous avez choisi d'être vulgaire, êtes vous sûr de ce choix?{a=jump:negatif}Non{/a}"
+    na "Vous avez choisi d'être vulgaire."
+    show screen vulgaire
+    na "Pourquoi insulter vos mort?"
+    na "Quand vous pouvez insulter un putain de connard de joueur?"
+    na "Oui je parle de vous !"
+    na "Prenez un miroir et insultez vous!"
+    $ vulgaire = 1
+    jump nom
+
+label paresseux:
+    if skip == 1:
+        show screen paresseux
+        $ paresseux = 1
+        jump nom
+    hide screen negative
+    "Vous avez tendance à avoir la flemme de faire certaines actions. Vous perdez -5 mental -2 attaque."
+    na "Vous avez choisi d'être paresseux, êtes vous sûr de ce choix?{a=jump:negatif}Non{/a}"
+    na "Vous avez choisi d'être paresseux."
+    show screen paresseux
+    na "Bah alors quoi joueur, on est pas dans un centre de retraite!"
+    na "Réveille toi..."
+    na "RÉVEILLE TOI..."
+    na "RÉVEILLE TOI !!!"
+    na "{b}BON TU TE RÉVEILLE ENCULER!!{/b}"
+    na "Voila merci !"
+    $ paresseux = 1
+    jump nom
+
+label susceptible:
+    if skip == 1:
+        show screen susceptible
+        $ susceptible = 1
+        jump nom
+    hide screen negative
+    "Vous avez tendance à ne pas aimer la critique et à être un vrai pleurnichard. -15 mental."
+    na "Vous avez choisi d'être susceptible, êtes vous sûr de ce choix?{a=jump:negatif}Non{/a}"
+    na "Vous avez choisi d'être susceptible."
+    show screen susceptible
+    na "Pourquoi y'a marqué que tu fais pipi au lit?"
+    na "Alors, on pleure parce que timmy t’a volé la place au toboggan?"
+    na "Sacré timmy, fais attention à ne pas déplumer ces pigeons."
+    $ susceptible = 1
+    jump nom
+
+label debile:
+    if skip == 1:
+        show screen debile
+        $ debile = 1
+        jump nom
+    hide screen negative
+    "Vous avez tendance à faire des trucs idiot… vous parlez comme un teubé. -5 mental."
+    na "Vous avez choisi d'être débile, êtes vous sûr de ce choix?{a=jump:negatif}Non{/a}"
+    na "Vous avez choisi d'être débile."
+    show screen debile
+    na "Alors joueur, je suis étonné… j'aurais dit pareil de toi."
+    na "Je trouve que ça te correspond de ouf!"
+    na "Y’a un mot d'excuse de ta mère."
+    na "*Déso mon bâtard et débile il a redoublé, redoublé* le SP Bocoup de foie*"
+    na "Je comprends mieux, ta mère t’a accouché t’as fait le boulet de canon et a heurté un mur et un docteur!"
+    $ debile = 1
+    jump nom
+
+label parano:
+    if skip == 1:
+        show screen parano
+        $ parano = 1
+        jump nom
+    hide screen negative
+    "Vous avez tendance à voir des fantômes et des trucs bizarres et effrayants partout.  -10 mental."
+    na "Vous avez choisi d'être parano, êtes vous sûr de ce choix?{a=jump:negatif}Non{/a}"
+    na "Vous avez choisi d'être parano."
+    na "Un jour, vous avez eu peur du bruit de baise entre vos parents. Pensant que c'était un esprit du démon qui les avait possédés."
+    show screen parano
+    na "Alors comme ça le yaourt nous contrôle grâce aux aliens ?"
+    na "Le gouvernement étudie notre caca pour produire une espèce hybride."
+    na "Et vous avez déjà été violée par un fantôme?"
+    $ parano = 1
+    jump nom
+
+label pervert:
+    if skip == 1:
+        show screen pervert
+        $ pervert = 1
+        jump nom
+    hide screen negative
+    na "Vous avez des pulsions et des besoins sexuelles, parfois quand vous rencontrez quelqu'un, vous commencez à préparer votre zgeg. -10 mental à -30 mental."
+    na "Vous avez choisi d'être pervers, êtes vous sûr de ce choix?{a=jump:negatif}Non{/a}"
+    na "Vous avez choisi d'être pervers."
+    show screen pervert
+    na "A 2 ans, vous avez mis de la compote bébé dans votre anus."
+    na "A 4 ans, vous avez coincer votre penis dans une porte."
+    na "A 6 ans, vous avez commencé la branlette."
+    na "A 8 ans, vous regardiez vos parents sous la douche."
+    na "A 10 ans, vous demandiez à votre mère de vous masturber car c'était plus excitant."
+    na "A 12 ans, vous avez violé votre soeur."
+    na "A 14 ans vous avez violé votre mère."
+    na "A 16 ans, vous avez violé votre grand-mère."
+    na "A 18 ans, vous avez violé le cadavre de votre grand-mère…"
+    na "Vous aimez le travail d'équipe."
+    na "Surtout en gang bang…"
+    na "Vous aimez le jardinage."
+    na "Surtout sur ma mère…"
+    na "Vous aimez les profondeur."
+    na "Quand elle est dans ma gorge?"
+    na "Je vais pas rester plus longtemps moi !"
+    $ pervert = 1
+    jump nom
+
+label imprudent:
+    if skip == 1:
+        show screen imprudent
+        $ imprudent = 1
+        jump nom
+    hide screen negative
+    na "Vous ne faites pas attention là où vous mettez les pieds, cela peut engendrer des catastrophes. -5 pv -5 mental."
+    na "Vous avez choisi d'être imprudent, êtes vous sûr de ce choix?{a=jump:negatif}Non{/a}"
+    na "Vous avez choisi d'être imprudent."
+    show screen imprudent
+    na "Alors attention joueur!"
+    show peur
+    play sound scary
+    na "{b}BOUH!!!!{/b}"
+    na "Je vous avais prévenu…"
+    $ imprudent = 1
+    jump nom
+
+label egoiste:
+    if skip == 1:
+        show screen egoiste
+        $ egoiste = 1
+        jump nom
+    hide screen negative
+    "Vous avez tendance à ne pensez qu'à vous, il n'y a que vous qui compte de toute façon. -15 mental."
+    na "Vous avez choisi d'être égoïste, êtes vous sûr de ce choix?{a=jump:negatif}Non{/a}"
+    na "Vous avez choisi d'être égoïste."
+    show screen egoiste
+    na "Alors comme ça le nombril du monde c'est vous?"
+    na "J'aurais plutôt penser que vous étiez la déjection du monde…"
+    $ egoiste = 1
+    jump nom
+
+label moche:
+    if skip == 1:
+        show screen moche
+        $ moche = 1
+        jump nom
+    hide screen negative
+    na "Vous êtes née de la mauvaise façon, trop près d' un mur. Les gens ont tendance à exprimer du dégoût en vous voyant. -5 mental"
+    na "Vous avez choisi d'être moche, êtes vous sûr de ce choix?{a=jump:negatif}Non{/a}"
+    na "Vous avez choisi d'être moche."
+    show screen moche
+    na "Vous devriez porter une cagoule!"
+    na "Qu’est ce qui se passe avec votre visage?"
+    na "Découper à la tronçonneuse?"
+    na "Tu m'étonnes que tu sois puceau joueur !"
+    $ moche = 1
+    jump nom
+
+label deprime:
+    if skip == 1:
+        show screen deprime
+        $ deprime = 1
+        jump nom
+    hide screen negative
+    na "Vous avez tendance a voir la vie en noir. -15 mental."
+    na "Vous avez choisi d'être déprimé, êtes vous sûr de ce choix?{a=jump:negatif}Non{/a}"
+    na "Vous avez choisi d'être déprimé."
+    show screen deprime
+    na "Bon alors vous connaissez ma psy?"
+    na "C'est la psy bidule!"
+    na "C'est une connasse… mais elle est très bonne au lit!"
+    $ deprime = 1
+    jump nom
+
+label zoophile:
+    if skip == 1:
+        show screen zoophile
+        $ zoophile = 1
+        jump nom
+    hide screen negative
+    "Il vous arrive de vouloir faire l'amour à un animal tel qu'il soit. -20 mental."
+    na "Vous avez choisi d'être zoophile, êtes vous sûr de ce choix?{a=jump:negatif}Non{/a}"
+    na "Vous avez choisi d'être zoophile."
+    show screen zoophile
+    na "Vous avez commencé la branlette sur votre chien en autodidacte."
+    na "Alors comme ça vous batifoler avec les castors?"
+    na "Les raies dans la raie."
+    na "Comment ça fait d'avoir tenté le kamasutra avec une baleine?"
+    $ zoophile = 1
+    jump nom
+
+label sanguinaire:
+    if skip == 1:
+        show screen sanguinaire
+        $ sanguinaire = 1
+        jump narate
+    hide screen negative
+    na "Vous aimez vous scarifier et lécher votre sang. -10 de vie et entre -2 et -5 mental."
+    na "Vous avez choisi d'être sanguinaire, êtes vous sûr de ce choix?{a=jump:negatif}Non{/a}"
+    na "Vous avez choisi d'être sanguinaire."
+    show screen sanguinaire
+    na "Vous aimez le sang mais vous aimeriez que je vous prête ma soeur."
+    na "Car votre mère a la ménopause."
+    na "Vous aimez le sang des vierges lors de leur première règle."
+    na "Tenez, voilà un tampon usagé. Sucez le c'est comme une glace à l'eau."
+    $ sanguinaire = 1
+    jump nom
+
+label nom:
+    if skip == 1:
+        jump narate
+    if mathias == 1:
+        if eren == 1:
+            if armin == 1:
+                if erwin == 1:
+                    "Vous avez trouvez le Cinquième et dernier nom de votre frère."
+                    "Il s'appelle"
+                    "..."
+                    "Atanos !"
+                    "Placez son nom au début de l'histoire, et vous trouverez des réponses."
+    if fin == 18:
+        jump chapitrebonus
+    stop music
+    play music alchemist
+    scene decorscrevasse
+    if skip == 1:
+        jump prequel
+    show narrateur
+    na "Bon, tout est prêt, maintenant le RP commence!"
+    na "Bon jeu à toi joueur !"
+    hide narrateur
+    jump naro
+label naro:
+    play music elfique
+    show nara2
+    with vpunch
+    "???" "Stoooooooop !!!"
+    hide nara2
+    show narrateur
+    na "Quesque? QUOOIII?!!"
+    hide narrateur
+    show nara1
+    "Narrateur du futur" "Je suis le narrateur du futur enfin du présent ou du passé"
+    "Narrateur du futur" "Je suis venue ici car l'ancienne version était instable"
+    "Narrateur du futur" "Déjà commençon par les nouveauté !"
+    "Narrateur du futur" "Il nous manquer quelque chose a l'ancien enfin présent enfin du futur du passé de ce présent"
+    "Narrateur du futur" "Bref dans cette version vous pouvez choisir votre difficulté"
+    "Narrateur du futur" "Il ya 3 niveau de Difficulté"
+    "Narrateur du futur" "Facile, Normal , Difficile"
+    "Choisit ton Niveau de difficulté"
+    "Facile: Les Monstres on moin d'attaque,Les Monstres on moin de vie,vous gagnez du mental et de la vie,vous gagner + d'or"
+    "Normal : Les Monstres sont basique,Vous ne gagnez pas de truc supplémentaire"
+    "Difficile: Les Monstres sont 2x plus fort & costeau,vous perdez du mental et de la vie parfois, le gripsous apparait a chaque étape de votre aventure"
+    "Cauchemard: Vous commencer la parti avec 10 de vie,Vous perdez beaucoup de mental et de la vie, le gripsous vole tout votre or a chaque étape de votre aventure"
+    hide nara1
+    show nara
+    "Narrateur du futur" "Comment ça je ne tes pas parler du mode cauchemard?"
+    "Narrateur du futur" "Bon d'accord joueur je vais t'offrir une chance de réussir"
+    "Narrateur du futur" "On va parler de tes compétence?"
+    "Narrateur du futur" "Les Compétences vont te sauver les fesses"
+    "Narrateur du futur" "Chaque compétence et unique"
+    "Narrateur du futur" "parcontre les compétence sont soit bonne soit mauvaise"
+    "Narrateur du futur" "Exemple Chanceux & Malchanceux"
+    "Narrateur du futur" "c'est a double tranchant soit tu l'utilise et tu tombe sur ta compétence positive sinon tu tombera sur la négative"
+    "Narrateur du futur" "Tu crois que j'ai fait que ça?"
+    "Narrateur du futur" "J'ai inventé un autre nouveau concept..."
+    "Narrateur du futur" "Certaine tache vous demande de l'effort"
+    "Narrateur du futur" "Donc plus ton personnage sera en manque d'endurence plus il a de chance de mourrir"
+    "Narrateur du futur" "Si l'endurence tombe en dessous de 0"
+    "Narrateur du futur" "Votre attaque votre vie votre mental baissera de 10 a chaque label"
+    "Narrateur du futur" "Mais ne t'inquiète pas joueur j'ai caché des coin de repos dans le jeux"
+    "Narrateur du futur" "Quand vous trouver un coin de repos votre endurance remonte"
+    "Narrateur du futur" "En mode Facile votre endurance remonte a 100,
+    en mode Normal votre endurance remonte de 20point , en mode difficile 10point , en mode cauchemard 0 point"
+    "Narrateur du futur" "Mais j'ai pensez a toi joueur par le passé ta réussit a me battre sur le jeux"
+    "Narrateur du futur" "Mais avec ça tu va être gaté"
+    hide nara
+    "Voulez vous skip le combat des Narrateurs?"
+    "Attention si vous skipé le combat des Narrateurs vous n'aurais pas de Bonus"
+    "Mais aussi vous éviterai les malus"
+    "Voulez vous prendre le risque d'avoir un bonus et un malus?"
+    $ choixn1 = 0
+    $ choixn2 = 0
+    $ triomphe = 0
+    $ unite = 3
+    $ fun = 0
+    "Voulez vous lancer le combat des narrateurs?"
+    "{a=jump:nara}Oui{/a};{a=jump:narate}Non{/a}"
+    jump narate
+
+label nara:
+    scene risk
+    show narrateur
+    "Narrateur" "Bon cela suffit maintenant c'est mon rp"
+    "Narrateur" "puis c'est quoi cette tête bizarre !"
+    "Narrateur" "Tu vien du futur avec si peu d'idée que ça pour battre le joueur?"
+    show nara1
+    "Narrateur du Futur" "Ton rp était plein de faute d'ortographe"
+    "Narrateur du Futur" "Dans le futur du présent de maintenant j'ai téléphoner aux service technique"
+    "Narrateur du Futur" "Chui tomber sur un mec nommé Allan"
+    hide nara1
+    show narrateur
+    "Narrateur" "ça suffit j'aime pas ta tronche de cake retourne dans le futur est démerde toi !"
+    "Narrateur" "Personne na le droit de toucher aux commandes que j'ai crée !"
+    "Narrateur" "Joueur nous devont vaincre le Narrateur du Futur"
+    hide narrateur
+    show nara2
+    "Narrateur du Futur" "Non joueur vien le vaincre avec moi"
+    "Narrateur du Futur" "Ensemble nous vaincront"
+    "Narrateur du Futur" "t'aura plein de gold si tu me choisit !"
+    hide nara2
+    show narrateur
+    "Narrateur" "Ne l'écoute pas joueur regarde sa terre on dirait qu'il c'est pris un fer a repassé sur ça tête"
+    "Narrateur" "Puis tu sais joueur je ne te tortureré plus si tu me choisit"
+    hide narrateur
+    "Joueur" "ça n'est pas suffisent je veut quelque chose !"
+    show narrateur
+    "d'accord joueur et si je te disait que avec mais pouvoir de Narrateur je peut augmenté ton attaque"
+    "..."
+    "Un Silence s'installe"
+    show narrateur
+    "Narrateur" "Bon ça suffit joueur si tu ne me rejoint pas je te fait perdre 10point de mental"
+    hide narrateur
+    show nara
+    "Narrateur du Futur" "Allez choisit moi ta vue il te met un malus"
+    hide nara
+    "..."
+    "Vous n'avez pas l'aire convaincu"
+    show nara
+    "Narrateur du Futur" "Bon j'ai suffisament étais gentil avec toi joueur mais si tu ne me rejoint pas je t'enleve -10pv"
+    hide nara
+    show narrateur
+    "Narrateur" " avec moi tu gagnera un nouveau mode de jeu le mode FUN"
+    "Narrateur" "Gagne du mental pour chaque action ! + 2 mental !"
+    hide narrateur
+    show nara1
+    "Narrateur du Futur" "Avec moi tu découvrira le mode Triomphe"
+    "Narrateur du Futur" "Le jeu sera plus difficile que le mode cauchemard cepandant vous gagnerais 10gold supplémentaire"
+    hide nara1
+    show narrat2
+    with vpunch
+    "STOOOOOOOOOOOOP !!!"
+    "???" "Arrêter de vous batté !"
+    "???" "Je suis le Narrateur du passé !"
+    "Narrateur du Passé" "J'ai pris le premier train direction le present du passé"
+    "Narrateur du Passé" "Vos décision alterne le passé !"
+    "Narrateur du Passé" "Si vous arrêter pas on court a la catastrophe"
+    hide narrat2
+    show narrateur
+    "Narrateur" "Pas le temp de niaisé vous me faite chier vous 2 !"
+    "Narrateur" "Venez la que je vous botte le FIAK"
+    menu naration:
+        "Choisir le Narrateur?":
+            $ choixn1 = 1
+            jump naration1
+
+        "Choisir le Narrateur du Futur?":
+            $ choixn2 = 1
+            jump naration2
+
+        "Choisir le Narrateur du Passé?":
+            $ choixn3 = 1
+            jump naration3
+        "Ne pas choisir, repartir a l'aventure?":
+            "Une fois le combat terminer nos 2 narrateur sont épuiser"
+            jump narate
+
+
+
+label naration1:
+    $ precision = 0
+    $ combat = 0
+    $ strategie = 0
+    scene risk
+    show narrateur
+    "Narrateur" "Merci joueur maintenant attaque le !"
+    hide narrateur
+    show nara2
+    "Narrateur du Futur" "tu ne m'aura pas si facilement Joueur"
+    hide nara2
+    show risk
+    "..."
+    hide risk
+    show narrateur
+    "Narrateur" "Ah NON !"
+    "Narrateur" "Joueur il faut retrouver le Narrateur du Futur"
+    "Narrateur" "Il a du utiliser c'est pouvoir de narrateur"
+    "Narrateur" "Bon joueur il faut le vaincre il ya que toi qui peut s'imerger dans le jeu"
+    "Narrateur" "Mais ne t'inquiéte pas je vais te donné des unité pour le vaincre !"
+    "Désolé vous n'avez pas accés a la bataille naval du narrateur"
+    jump narate
+
+
+
+label narate:
+    if skip == 1:
+        $ endurance = 100
+        call screen nefaste
+    "Narrateur du futur" "Bon commençon par ton endurance a chaque fois que une épreuve de talent et proposer cela utilisera 10point d'endurance"
+    show screen endurance
+    $ endurance = 100
+    "Narrateur du futur" "Voilà maintenant que ta une jauge d'endurance on peut passez a la suite"
+    "Narrateur du Futur" "Je vais te parler du double tranchant quand un dialogue a choix multiple apparait et que vous n'avez pas de caracteristique positive ou négative ou que vous ne souhaiter pas activé votre talent"
+    "Narrateur du futur" "Vous allez devoir cliquer sur le choix  de continuer le dialogue c'est a ce moment la que votre double tranchant s'activera soit il vous sera bénéfique soit négatif"
+    "Narrateur du futur" "Si la difficulté augmente durant la parti le choix de continuer un dialogue activera des pertes de mental et le double tranchant"
+    call screen nefaste
+
+
+label polivalent:
+    if skip == 1:
+        $ polivalent = 1
+        $ competance = 1
+        $ incapable = 1
+        jump niveau
+    show screen polivalent
+    "Vous avez choisit (Polivalent ; Incapable)"
+    "Si votre jet de dée et inférieur a 10 vous serait polivalent"
+    "Si vous êtes polivalent vous gagnerais 1d20 d'Endurance"
+    "Si vous êtes incapable vous perdez 20 d'Endurance"
+    show screen polivalent
+    "Tu et sur de toi?{a=jump:narate}Non{/a}"
+    $ polivalent = 1
+    $ competance = 1
+    $ incapable = 1
+    jump niveau
+
+label riche:
+    if skip == 1:
+        $ riche = 1
+        $ pauvrete = 1
+        $ competance = 1
+        show screen riche
+        jump niveau
+    "Si votre jet de dée et inférieur a 10 vous serait riche"
+    "Sinon si votre jet fait un score egal ou suppérieur a 10 vous serait pauvre"
+    "Si vous êtes riche vous gagnez 1d50 gold"
+    "Sinon si vous êtes pauvre vous perdez 20 gold si vous n'avez pas d'argent
+    le prix sera en mental"
+    "Tu et sur de toi?{a=jump:narate}Non{/a}"
+    show screen riche
+    $ riche = 1
+    $ pauvrete = 1
+    $ competance = 1
+    jump niveau
+
+label ideaste:
+    if skip == 1:
+        $ ideaste = 1
+        $ inconscient = 1
+        $ competance = 1
+        show screen ideaste
+        jump niveau
+    "Vous avez choisit ideaste - inconscient"
+    "Ideaste si vous faite un score parfait de 20 sur 1d20 vous
+    gagner un lot soit de potion de mental,gold,vie,talent,objet"
+    "Si vous faite pas 20 mais que le score et au dessus de dix
+    vous serait ideaste vous ne gagner rien enfin pas vraiment
+    vous obtenner un coupon si vous avez 3 coupon vous pouvez choisir un lot"
+    "Si vous faite en dessous de 10 vous perdez tout vos coupon"
+    "Si vous faite un dée 1d20 et que le score et de 1 choisisser votre punition"
+    "Baisse de mental,vie,attaque,talent,endurance attention parce que la baisse
+    et de 50 pour celui que vous choisissez"
+    "Tu et sur de toi?{a=jump:narate}Non{/a}"
+    show screen ideaste
+    $ ideaste = 1
+    $ inconscient = 1
+    $ competance = 1
+    jump niveau
+label motive:
+    if skip == 1:
+        $ motive = 1
+        $ flemmard = 1
+        $ competance = 1
+        show screen motive
+        jump niveau
+    "Vous avez choisit Motivé et flemmard"
+    "Si vous faite un score inferieur a 10 vous serait motivé"
+    "Ce qui vous donnera un bonus d'attaque"
+    "Vous avez aussi un combo"
+    "Si la prochaine fois vous ne pouvez pas avancer dans le dialogue"
+    "Vous ajouter 1d10 de combot cumulable a 10 maximum"
+    "si vous arrivé a faire un combo de 10 votre mental ce regenaire completement"
+    "flemmard vous ne sortez pas beaucoup"
+    "Vous avez des prise de poid des idée morbide et vous n'avez pas la force
+    de levée le petit doigt"
+    "Alors la aussi vous avez un combo seulement il sera doublé au lieu de faire 1d10
+    vous ferais 1d20"
+    show screen motive
+    $ motive = 1
+    $ flemmard = 1
+    $ competance = 1
+    jump niveau
+label famous:
+    if skip == 1:
+        $ famous = 1
+        $ inconnue = 1
+        $ competance = 1
+        show screen famous
+        jump niveau
+    "Vous avez choisit famous et inconnue"
+    "Si votre jet de dée si votre score et inférieur a 10 vous serait famous"
+    "Sinon si votre jet de dée et suppérieur ou égal a 10 vous serait inconnue"
+    "Famous a chaque ticket que vous récupéré vous évoluer "
+    "2 ticket (Noob) 5 ticket (Standart) 8ticket (professionel) 15ticket (expert) 20 ticket (Rock Star) 30 ticket (Famous) 50ticket(God Star)"
+    "vous gagner l'équivalent de vos ticket additioner a votre mental"
+    "Au bout de 5 badge VIP votre mental,vie,endurance revient a 100"
+    "Inconnue on dit de vous que on ne vous a jamais rencontré"
+    "Personne ne vous voie parcontre tout le monde vous devisage"
+    "Annule tout les ticket cumulé le score des ticket sera votre perte de mental"
+    "(Exemple +15 de mental = -30mental, -10mental = -20mental)"
+    "Tu et sur de toi?{a=jump:narate}Non{/a}"
+    show screen famous
+    $ famous = 1
+    $ inconnue = 1
+    $ competance = 1
+    jump niveau
+
+label genereux:
+    if skip == 1:
+        $ famous = 1
+        $ inconnue = 1
+        $ competance = 1
+        show screen genereux
+        jump niveau
+    "Vous avez choisit d'être généreux"
+    "Si votre jet et inferieur à 10 vous serait généreux"
+    "Sinon votre jet et supérieur ou égal a 10 vous serait Avide"
+    "Si votre scrore et inferieur a 10 vous serait généreux"
+    "Votre gold sera converti en mental"
+    "Si vous n'avez pas de gold gripsou vous en donnera 10 en volant 10 de votre vie"
+    show screen genereux
+    $ genereux = 1
+    $ avide = 1
+    $ competance = 1
+    jump niveau
+
+label passif:
+    if skip == 1:
+        $ passif = 1
+        $ competence = 1
+        $ violent = 1
+        show screen passif
+        jump niveau
+    "Tu et sur de toi?{a=jump:narate}Non{/a}"
+    "Si votre jet et inférieur a 10 vous serait Passif"
+    "Sinon votre jet et supérieur a 10 vous serait violent"
+    "Si votre score et inferieur a 10 vous serait passif"
+    "Vous gagnez du mental votre vie va au dela de 100 seulement pour une courte durée"
+    "Violent perd 30point de vie a chaque fois que l'on tombe dessus"
+    show screen passif
+    $ passif = 1
+    $ competence = 1
+    $ violent = 1
+    jump niveau
+
+label detendu:
+    if skip == 1:
+        $ detendu = 1
+        $ competence = 1
+        $ obsede = 1
+        show screen detendu
+        jump niveau
+    "Vous avez prix Détendu et Obsédé"
+    "Détendu vous fait reprendre de l'endurance si votre endurance et a 100"
+    "Vous gagner 20pv"
+    "Sinon si vous êtes obsédé vous faite 1d100 d'endurance que vous perdez"
+    "Tu et sur de toi?{a=jump:narate}Non{/a}"
+    show screen detendu
+    $ detendu = 1
+    $ competance = 1
+    $ obsede = 1
+    jump niveau
+label chanceux:
+    if skip == 1:
+        $ chanceux = 1
+        $ malchanceux = 1
+        $ competance = 1
+        show screen chanceux
+        jump niveau
+    "Vous avez choisit Chanceux & Malchanceux"
+    "Si vous êtes chanceux attraper donc le 7 dans un jet de dée 20"
+    "Si vous faite aux dessus de 7 vous perdez tout votre or"
+    "sinon si vous faite en dessous de 7 vous gagné 50 gold"
+    "Sinon si vous faite 7 vous gagnez 500gold"
+    "Si vous êtes malchanceux faite 1d20 si votré jet et inférieur a 15 vous perdez 15mental"
+    "Tu et sur de toi?{a=jump:narate}Non{/a}"
+    $ chanceux = 1
+    $ malchanceux = 1
+    $ competance = 1
+    show screen chanceux
+    jump niveau
+
+label niveau:
+    $ facile = 0
+    $ standart = 0
+    $ normal = 0
+    $ difficile = 0
+    $ cauchemard = 0
+    "Narrateur du Futur" "Ah vous revoila !"
+    "Narrateur du Futur" "vous devez choisir une difficulté"
+    menu facile:
+        "Noob":
+            $ noob = 1
+            jump commencement
+        "Facile":
+            $ facile = 1
+            jump commencement
+
+        "Standart":
+            $ standart = 1
+            jump commencement
+
+        "Difficile ":
+            $ difficile = 1
+            jump commencement
+
+        "Cauchemard":
+            $ cauchemard = 1
+            jump commencement
+label kaka1:
+    "code 0000"
+    "bip bop bip bip"
+    jump aka001
+label aka001:
+    menu kaka001:
+        "Souhaitez vous changer votre personnage":
+            jump start
+        "Continuez la partie":
+            jump commencement
+        "Parlez aux robot":
+            jump kaka1
+
+label commencement:
+    if noob == 1:
+        show screen kaka1
+        show screen kaka001
+        show screen talent
+        "En mode Noob vous bénéficier de beaucoup d'avantage"
+        "Vous disposé d'un bonus de gold et d'attaque a chaque chapitre"
+        "Vous disposé aussi d'une *Barre de Talent* vous permetant d'avoir tout le nécessaire pour jouer tranquillement"
+        "Le *Talent* vous permettra de continuer l'histoire sans perdre quoi que ce soit en mental ou en vie"
+        "Le Talent et plus fort que vos caracteristique de base (Charisme,Force,Intelligence)"
+        "Le Talent vous avez 100 point de talent utilise 10 point a chaque utilisation"
+        $ talent = 100
+        show screen endurance
+        $ charisme = 100
+        $ intelligence = 100
+        $ force == 100
+        $ forcebestial = 1
+        $ endurance = 100
+        "Sachant que dans le mode Noob votre Charisme votre Force et votre Intelligence sera a 100 pour les 3"
+        "Ce qui veut dire que vous serait charismatique , fort et intelligent"
+        "Vous avez aussi un guide nommé Kaka-0826 qui vous aidera a choisir les bon chemin"
+        "Vous pouvez aussi récupéré des coffre dans certain lieu qui vous donneron des armes et de l'or"
+        "Puis quand vous perdez du mental au lieu de payer 10,20,40mental il sera divisé par 2"
+        "Vous gagnerais des point de vie des points d'endurance pour toute la partie"
+    if facile == 1:
+        "Vous avez choisit Facile"
+        "Le jeu peut commencer"
+        "En mode Facile vous bénificier d'une barre de Talent supplémentaire"
+        "Le *Talent* vous permettra de continuer l'histoire sans perdre quoi que ce soit en mental ou en vie"
+        "Le Talent et plus fort que vos caracteristique de base (Charisme,Force,Intelligence)"
+        "Le Talent vous avez 50 point de talent utilise 10 point a chaque utilisation"
+        "Vous avez aussi un guide nommé Kaka-0826 qui vous aidera a choisir les bon chemin"
+        "Vous aurez le droit de trouver des bonus supplémentaire (gold(pakupaku),mental,attaque,vie)"
+        show screen kaka1
+    if normal == 1:
+        "Vous avez choisit le mode normal, la difficulté et standart les réglages de base sont présent"
+        "En mode normal vous pouvez pleinement profité d'une difficulté résonnable"
+        "Malgré tout pour vous aider vous serait guider par Kaka-0826"
+        show screen kaka1
+        jump prequel
+
+    if difficile == 1:
+        "Vous avez choisit Difficile"
+        "Les monstre ou personnage que vous affronter sera plus puissant"
+        "En mode difficile vous avez 80 de mental et 80 de vie"
+        "Votre attaque et diminué de moitié de moitié"
+        $ mental = 80
+        $ vie = 80
+        if guerrier = 1:
+            $ attaque = 10
+        if rodeur = 1:
+            $ attaque = 20
+        if assassin = 1:
+            $ attaque = 30
+        if mage = 1:
+            $ attaque = 25
+        $ endurance = 50
+        "Votre endurance et réduit a 50"
+        "les effort mental sont compliquer pour vous a chaque choix que vous faite mentalement et augmenter de 5"
+        "Vous pouvez utilisez le Kaka-0826 seulement il vous coutera 10 or"
+        show screen kaka1
+        jump prequel
+    if cauchemard == 1:
+        "Vous avez choisit Cauchemard"
+        "Comment vous dire proprement que je vais vous faire souffrir?"
+        "Vous allez devoir partir avec un caractere positif et négatif aléatoire"
+        "Au lieux d'avoir 1 seul trait négatif vous en avez 3"
+        "Votre jauge de votre talent (Charisme,Intelligence,Force) et réduit a 50"
+        "les effort mental sont compliquer vous perdez 10point de mental a chaque choix que vous faite"
+        "Les Objets de Bunda sont 2fois plus chers"
+        "Les combats sont plus dure pour vous a chaque fin de combat vous perdez 10 de vie"
+        "Votre attaque et réduit de moitié"
+        "Votre endurance et réduit a 50 pareillement pour votre mental et votre vie"
+        "Votre Double tranchant a 80% de chance de tomber sur le négatif"
+        "Cepandant le mode cauchemard vous réserve bien des surprise"
+        "Fouillez bien les endroit mysterieux et peut être vous trouverais quelque chose de bien ou pas"
+        "Vous n'avez pas le droit d'utiliser le bot Kaka-0826"
+        "Bonne chance"
+        if intelligence == 100:
+            "Votre intelligence baisse a 50"
+            $ intelligence = 50
+        if charisme == 100:
+            "Votre Charisme baisse a 50"
+            $ charisme = 50
+        if force == 100:
+            "Votre force baisse a 50"
+        $ mental = 50
+        $ vie = 50
+        $ endurance = 50
+        "Le Jeu peut commencer"
+        jump prequel

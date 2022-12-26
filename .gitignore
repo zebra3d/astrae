@@ -1,0 +1,13 @@
+*.rar
+*.mp4
+*.mp3
+audio/
+cache/
+*.png
+*.jpg
+*.jpeg
+*.svg
+images/
+saves/
+tl/
+

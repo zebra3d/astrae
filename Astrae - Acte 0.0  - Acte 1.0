@@ -1,0 +1,1334 @@
+label connard:
+    if connard == 3:
+        "C’est bon t’as déjà assez fait ton job de sac à merde!"
+        jump nom
+    $ quetej = 0
+    $ imagej = 0
+    $ choixj = 0
+    na "Alors comme ça tu veux être comme moi? Bon bah d'accord vas y crée ton action !"
+    "{a=jump:connard1}Créer une Action{/a} ; {a=jump:nom}retournez Choisir un Nom{/a}"
+    jump nom
+
+label connard1:
+    if connard == 3:
+        "Vous avez gagné le succès {b}*Le Narrateur c'est MOI !*{/b}"
+        $ succes += 1
+        jump nom
+    "Vous créez une Action."
+    "{a=jump:connard2}Créer un Choix{/a} ; {a=jump:connard3}Créer Une Image{/a} ; {a=jump:connard4}Créer une Quête{/a} ; {a=jump:nom}RevEnir en arrière{/a}"
+    jump connard1
+
+label connard2:
+    "Vous avez créé un Choix"
+    "{a=jump:connard5}Je veux être un Joueur FORT{/a} ; {a=jump:connard6}Je veux faire Chier le Narrateur{/a} ; {a=jump:connard7}Je suis un connard de joueur j'ai créé un choix{/a}"
+    jump connard1
+
+
+label atanos:
+    play music atanos
+    scene atanos2
+    show yae
+    "Yae" "Qu'est ce que.."
+    "Yae" "Le sortilège n’a pas marché?"
+    hide yae
+    show atanos
+    "Atanos" "Si Yae, c'est bien moi…"
+    "Atanos" "Enfin je veux dire que j'ai pris le contrôle de son esprit l'espace de quelques temps."
+    "Atanos" "J'avais besoin de me souvenir…"
+    hide atanos
+    show yae
+    "Yae" "Très bien Atanos, je vais te raconter.."
+    "Yae" "Tu est l'un des cadets de 4 frères."
+    "Yae" "Tu étais quelqu'un de froid et maléfique."
+    hide yae
+    "Yae" "Pour chaques frères, cet arbre représente un autre paysage."
+    "Yae" "Tu m’a dit que pour toi, cet endroit reflétait le chaos, les ténèbres."
+    show yae
+    "Yae" "Tu m'as vu embrasser ton autre frère."
+    "Yae" "Tu m’as vu avoir une aventure avec l'un d'entre eux…"
+    "Yae" "Tu étais qu'un sale vicelard, un goujat !"
+    "Yae" "Tu étais tellement jaloux… tu me voulais pour toi tout seul, c'est pour ça que j'ai fui mon royaume!"
+    "Yae" "Avant que tu me violes…"
+    "Yae" "Tu m’as supplié d'être avec toi, tu me harcelais pour être avec toi, tu m’as frappé pour être avec toi…"
+    "Yae" "Heureusement que mon véritable amour m’a protégé!"
+    "Yae" "Jusqu'au jour où tu as massacré tes quatres frères."
+    "Yae" "Jusqu'au jour où tu as volé tout ce qui restait de ma vie…"
+    "Yae" "Après ça tu t'es enfui dans ton petit royaume, pensant que j'allais ignorer l'innommable être de foutre que tu es…"
+    "Yae" "J'ai donc utilisé un sortilège pour que les 4 frères reviennent à la vie."
+    "Yae" "Mais malheureusement, ils étaient piégés dans une sorte de malédiction."
+    "Yae" "Tu te rappelles du jour où tu m’as violée?..."
+    "Yae" "Je t'avais dit que l'enfant était d'un autre homme…"
+    "Yae" "La vérité tu la connais."
+    "Yae" "La vérité !"
+    "Yae" "C'est que c'est !"
+    "Yae" "Ton enfant!"
+    "Yae" "Je l’ai appelé Grey…"
+    "Yae" "Alors dégage de ce corps! tu n’as pas ta place ici!"
+    return
+label mathias:
+    play music mathias
+    scene mathias
+    show yae
+    $ mathias = 1
+    "Yae" "Donc tu te souviens…"
+    "Yae" "Mathias… ça me bouleverse toujours autant de te voir…"
+    "Yae" "Des Cinq frères tu es le plus fort…"
+    "Yae" "Tu faisais toujours des trucs pour te faire remarquer."
+    "Yae" "Tu voulais absolument que je te regarde faire tes truc…"
+    "Yae" "Tu cassais des rochers…"
+    "Yae" "Tu broyais des Arbres…"
+    "Yae" "Tu oscillait chaque monstre qui était sur notre route…"
+    "Yae" "Tu faisais tout pour que je te remarque!"
+    "Yae" "Et je t’ai remarqué…"
+    hide yae
+    "Yae" "Pour chacun de tes frères, cet arbre, ce paysage est différent."
+    "Yae" "Tu m’as toujours dit que pour toi, cela représente la robustesse et le courage…"
+    show yae
+    "Yae" "Le courage d'affronter ces peurs."
+    "Yae" "Le jour où le drame est arrivé…"
+    "Yae" "Tu as gardé le mental et la force de surmonter."
+    "Yae" "J'avoue que j'ai été impressionné…"
+    "Yae" "Le jour ou on a eu notre petite aventure,"
+    "Yae" "J'ai faibli… tu as ce quelque chose chez toi… mais je pense que c'est juste physique…"
+    "Yae" "Tu savais que j'aimais ton autre frère, et pourtant… on a tous les deux dérapé…"
+    "Yae" "Mais j'étais fière de te compter dans ma vie…"
+    "Yae" "Tu était mon bras gauche"
+    "Yae" "Et je sais que quoi que je dise tu l'encaisserai…"
+    "Yae" "Alors Mathias, même si tu es fort mentalement, reste accroché…"
+    "Yae" "Après notre aventure j'étais enceinte…"
+    "Yae" "J'ai un enfant Mathias…"
+    "Yae" "..."
+    "Yae" "Je savais que tu l'encaisserai…"
+    "Yae" "Alors tu dois te demander pourquoi tu es ici…"
+    "Yae" "A cet endroit…"
+    "Yae" "Ton frère avez pris ses précautions et t'avais appelé…"
+    "Yae" "Car un terrible conflit allait vEnir…"
+    "Yae" "Ce conflit c'est ... votre mort…"
+    "Yae" "Alors tu dois te demander pourquoi tu reviens sans cesse au même endroit…"
+    "Yae" "Écoute, je préfère que tu récupères le souvenir de tes frères tout seul…"
+    "Yae" "Autre chose, j'ai fait mon choix…"
+    "Yae" "Mais tu sais que je t'apprécie énormément, alors ne le prends pas mal…"
+    "Yae" "Et il fallait que je te le dise…"
+    "Yae" "Mais la vérité c'est que…"
+    "Yae" "Je ne t'aime pas."
+    jump nom
+
+label erwin:
+    play music erwin
+    scene erwin
+    show yae
+    $ erwin = 1
+    "Yae" "Donc tu te souviens…"
+    "Yae" "Erwin ! ça me fait tellement plaisir!"
+    "Yae devient toute rouge et t'embrasse sur la bouche."
+    "Yae" "Excuse moi… je me suis laissée emporter…"
+    "Yae" "J'ai tellement attendu ce moment!"
+    "Yae" "Tu étais l'un des frères cadet…"
+    "Yae" "Pour tout te dire, tu avais 4 frères."
+    "Yae" "Tu étais de loin le plus charismatique…"
+    hide yae
+    "Yae" "Pour chacun de tes frères, cet arbre est différent, et représente une chose différente."
+    "Yae" "Pour toi, il représente l'amour et l'amitié."
+    show yae
+    "Yae" "C'est ici que l'on a échangé notre pRemier baiser…"
+    "Yae" "Tes deux frères étaient fous de jalousie…"
+    "Yae" "On peut dire que c'était un vrai triangle amoureux… voir un carré…"
+    "Yae" "Ça n'avait pas était simple de choisir l'un d'entre vous 3…"
+    "Yae" "Mais j'ai fini par succomber à ton charme…"
+    "Yae" "Tu étais un bon séducteur… tu me réchauffait le coeur à chaque fois."
+    "Yae" "Nous avons passé tellement de bons moments…"
+    "Yae" "A la base, tu étais ma main droite…"
+    "Yae" "Tu étais une personne en qui j'avais confiance…"
+    "Yae" "Un beau jour, un terrible malheur a frappé ta famille…"
+    "Yae" "Tu n'étais pas toujours présent pour tes autres frères."
+    "Yae" "Tu faisais toujours tout pour faire plaisir!"
+    "Yae" "Mais tu avais ta priorité…"
+    "Yae" "Et cette priorité… c'était moi…"
+    "Yae" "Tu te demandes pourquoi tu atterri là à chaque fois?"
+    "Yae" "Te rappel tu du secret que je t'avais confié?..."
+    "Yae" "Je pouvais ramener les morts à la vie dans un seul et même corps…"
+    "Yae" "Mais il y avait des failles dans ce sortilège…"
+    "Yae" "Vous reveniez dans le passé, toujours au même endroit…"
+    "Yae" "Avec un truc différent."
+    "Yae" "Il n'y a que l'un de tes frères qui avait compris de quoi ce sort était impliqué."
+    "Yae" "Le seul truc qu’il ne savait pas, c'était le fait que vous reveniez dans le passé toujours au même endroit…"
+    "Yae" "Ça… c'est notre secret…"
+    "Yae" "Un beau jour, l'autre frère aîné m'a provoqué en duel."
+    "Yae" "Ici! à cet endroit que tu affectionnes tant…"
+    "Yae" "Mais tu n'es pas le seul à être venu… tous tes autres frères sont venus…"
+    "Yae" "C'est ici que vous avez tous connu la mort…"
+    "Yae" "Mais grâce à mon sort, vous avez survécu…"
+    "Yae" "Enfin, du moins en quelque sorte…"
+    "Yae" "Tu sais quoi, je t'aime Erwin…"
+    "Yae" "Et j'ai tout fait pour ne pas te perdre…"
+    "Yae" "Y’a autre chose que j'aurais dû te dire, depuis bien longtemps…"
+    "Yae" "Tu le découvriras en retrouvant le nom de tes autres frères…"
+    "Yae" "Quoi? tu ne peux pas attendre? très bien… je te le dis alors…"
+    "sourit elle"
+    "Yae" "J'ai..."
+    hide yae
+    "Narrateur" "Quoi? j'ai coupé le dialogue à ce moment-là? qu’est ce que je suis sadique!"
+    "Narrateur" "Tu découvriras le reste en trouvant le nom de tes autres frères !"
+    jump nom
+
+label armin:
+    play music armin
+    scene armin
+    show yae
+    $ armin = 1
+    "Yae" "Donc tu te souviens…"
+    "Yae" "Ah! Armin! ça me fait plaisir de te revoir!"
+    "lâche tel un immense soupir de joie."
+    "Yae" "Tu étais le plus intelligent!"
+    "Yae" "Pour chacun de tes frères, ce lieu est différent…"
+    hide yae
+    "Yae" "Ils y voient tous un arbre différent."
+    "Yae" "Tu m’a un jour dit que cet arbre était le mystère et l'inconnu."
+    show yae
+    "Yae" "Tu étais toujours en train de bouquiner à la recherche de savoir…"
+    "Yae" "Pour toi, il était inconcevable d'ignorer des choses!"
+    "Yae" "Mais la tristesse de ton frère aîné, toi seul l'avait remarqué…"
+    "Yae" "Tu as toujours essayé de l'empêcher de faire des bêtises!"
+    "Yae" "Mais tu ne pouvais pas tout empêcher…"
+    "Yae" "Jusqu'au jour tragique…"
+    "Yae" "Les actes que ton frère aîné a commis étaient inconcevables…"
+    "Yae" "Tu t'es réfugié ici, chaque jour, au pied de cet arbre, en réfléchissant au passé. Comment pouvais tu sauver ton frère…"
+    "Yae" "Un beau jour, on s'est rencontré."
+    "Yae" "Tu étais adorable, pas autant que ton frère cadet…"
+    "Yae" "Enfin… je parle du bon frère cadet pas du mauvais!"
+    "Yae" "Tu te souviens de ton autre frère cadet?"
+    "Yae" "Celui qui était maléfique dirais-je?"
+    "Yae" "Tu ne le comprenais pas…"
+    "Yae" "Et il y a très peu de choses qui t'échappent…"
+    "Yae" "Jusqu'au jour où vous êtes tous venus ici vous rassembler…"
+    "Yae" "Et que vous avez trouvé la mort…"
+    "Yae" "Toi seul savais qu'il y avait un piège, toi seul pouvais anticiper les événements!"
+    "Yae" "Mais tu n’a pas pu empêcher l'inévitable…"
+    "Yae" "Tu avais beau être un grand parleur; tu n'étais pas aussi charismatique que ton frère cadet…"
+    "Yae" "Mais tu avais compris autre chose…"
+    "Yae" "Cette autre chose que personne n'avait prévue…"
+    "Yae" "Tu savais que quoi qu'il arrive, je trouverai un moyen de vous sauver!"
+    "Yae" "Et ce fut le cas."
+    "Yae" "J'ai trouvé un sortilège qui vous lie tous les 4, mais à chaque fois que tu revenais à la vie,"
+    "Yae" "Tu avais un caractère différent… tu avais le charisme de ton frère cadet mais la tête de ton frère aîné…"
+    "Yae" "Je n'arrivais jamais à savoir… c'est pourquoi à chaque fois, tu te réveille ici et je te demande ton nom…"
+    "Yae" "C'est la seule manière que j'ai trouvé pour vous différencier…"
+    "Yae" "Tu dois te demander pourquoi tu n’as fait que revEnir ici après plusieurs fin, plus ou moins chaotiques…"
+    "Yae" "C'est bizarrement le seul truc que j'ai plus ou moins gardé secret…"
+    "Yae" "Pour le savoir, il faudra retrouver dans ta mémoire le nom de tes autres frères pour en découvrir d'avantage…"
+    hide yae
+    jump nom
+
+label eren:
+    play music eren
+    scene eren
+    show yae
+    $ eren = 1
+    "Yae" "Donc tu te souviens…"
+    "Yae" "J'imagine qu'à force de refaire l'histoire, tu as fini par te rappeler?"
+    "Yae" "Eren, tu étais quelqu'un d'Agile et d'Impulsif."
+    "Yae" "Contrairement à tes frères cadet, tu étais le plus jeune,l'aîné."
+    "Yae" "Tu n'abandonnez jamais… quitte à faire des sacrifices…"
+    "Yae" "C'est bizarre, comme chaque frère se représente cet endroit."
+    hide yae
+    "Yae" "Chaque frères voit un arbre différent…"
+    "Yae" "Tu m’a dit un jour qu'il représentait la vengeance… la tristesse…"
+    show yae
+    "Yae" "Mais tes parents ne t'ont pas gâtés d'une belle vie…"
+    "Yae" "Pour eux, tu étais l'enfant de trop…"
+    "Yae" "Ta mère, Bia, était la seule à t'élever…"
+    "Yae" "Tes frères étaient tous des prodiges, quant à toi, tu avais tes propres objectifs."
+    "Yae" "Ton père voyant que tu étais un incapable, te frappait…"
+    "Yae" "Tu étais maltraité par lui… heureusement, ou malheureusement, tu avais ta mère…"
+    "Yae" "Elle te protégeait tout le temps, jusqu'à ce que les coups de ton père l'atteigne…"
+    "Yae" "Et l’a tue…"
+    "Yae" "Ton seul objectif après ces événements, c'était de venger ta mère."
+    "Yae" "Et tu as réussi."
+    "Yae" "A force de ruminer ta colère, tu deviens un garçon incontrôlable et sombre."
+    "Yae" "Tes frères t'ont rejeté pour ce que tu étais devenu…"
+    "Yae" "L'un de vos frères était encore plus maléfique que toi, mais tu ne l'avais jamais vue…"
+    "Yae" "Un jour, tu m’as rencontré."
+    "Yae" "On peut pas dire que tu m'aimais vraiment…"
+    "Yae" "Pourtant, je pensais te reconduire dans la bonne voie…"
+    "Yae" "Un beau jour, tes frères sont morts au pied de cet arbre… à côté de toi…"
+    "Yae" "Alors, tu as voulu te venger de l'assassin de tes frères."
+    "Yae" "Toi, tu ne connaissais que la vengeance…"
+    "Yae" "Tu es venu pour terrasser cet ennemi…"
+    "Yae" "Qui n'était autre que votre dernier frère vivant…"
+    "Yae" "Il t'a tué à son tour."
+    "Yae" "Mais je suis arrivée juste après. Je t’ai trouvé là… jaillissant sur le sol à côté de tes autres frères…"
+    "Yae" "J'étais si triste… tellement… tu ne peux imaginer…"
+    "Yae" "Alors, j'ai jeté une sorte de sortilège pour vous faire revEnir à la vie."
+    "Yae" "Je ne te dirais pas tous les détails, mais si tu arrives à te rappeller le nom de l'un de tes frères…"
+    "Yae" "Alors tu auras plus de détails."
+    hide yae
+    show assassin
+    "Eren" "Et ma mère, elle ressemblait à quoi?"
+    hide assassin
+    if agile == 1:
+        if impulsif == 1:
+            show screen tome4
+            "..."
+            hide screen tome4
+    show yae
+    "Yae" "C'était une grande guerrière !"
+    "Yae" "Peut-être que pendant cette discussion, tu te souviendras de sa silhouette…"
+    hide yae
+    show bia
+    "..."
+    hide bia
+    "Yae" "Enfin bref, je te laisse retournez à ton aventure, Eren."
+    "Yae" "Tu trouveras d’avantage de réponse en explorant la piste de tes autres frères."
+    "Yae" "Bon courage!"
+    jump nom
+
+label tome4:
+    hide screen tome4
+    "Vous avez trouvé un livre."
+    "*Histoire de Bia*"
+    "Si vous revenez au début du jeu, vous en saurez d'avantage sur la mère d'Eren!"
+    "Vous gagnez un bonus."
+    $ attaque += 100
+    $ gold += 500
+    jump nom
+
+label connard3:
+    if imagej == 1:
+        "Vous avez déjà choisi une image."
+        jump connard1
+    "Vous avez créé une image."
+    "Voici l'image"
+    show chiendrole
+    na "Une photo d'un chien plutôt pas mal joueur, j'apprécie."
+    hide chiendrole
+    "Vous avez créé une autre image…"
+    show narrateurgrenouille
+    na "Ou tu as trouvé cette image de moi en grenouille ?!"
+    na "TOI! T’AS PARLÉ A MA MERE!!!"
+    hide narrateurgrenouille
+    "Vous avez créé encore une autre image..."
+    show femmefontaine
+    $ connard += 1
+    $ imagej = 1
+    na "Bravo joueur ..Très intelligent ...on vois que t’as l'esprit bien placé…"
+    hide femmefontaine
+    "{a=jump:connard1}Créer une autre action{/a} ; {a=jump:nom}Arrêter la..{/a}"
+    jump connard1
+
+label connard4:
+    if quetej == 1:
+        "Vous avez déjà choisi une quête."
+        jump connard1
+    "Vous créez une quête."
+    "Le Héro s'appelle *Narrateur*"
+    na "OH Joueur! finalement tu es gentil! t’as pensé à moi !"
+    "Le Narrateur vit au pays des couilles poilus."
+    "Il s'apprête à se faire bouffer le cul par sa mère."
+    na "HEY JOUEUR POURQUOI TU FAIS CA!?"
+    na "Arrête tes bêtises… t'es méchant!"
+    "Le Narrateur croise une araignée, il se la fout dans le cul…"
+    "Le Narrateur perd -69 en mental."
+    "Le Narrateur s'apprête à prendre une corde pour mourir."
+    na "Non joueur, j'ai encore plein de belles choses à vivre !"
+    $ quetej = 1
+    $ connard += 1
+    play sound gorge
+    "Le NARRATEUR SE PEND ET MEURT."
+    "LE JOUEUR A GAGNÉ LA PARTIE."
+    "{a=jump:connard2}Créer une autre action{/a} ; {a=jump:nom}Arrêter la..{/a}"
+    jump connard1
+
+label connard5:
+    "Vous êtes désormais un joueur fort."
+    na "Bravo joueur, quel choix original…"
+    "Le Joueur démoli la gueule du narrateur!"
+    na "C’est bon j'ai rien dit…"
+    na "Très bon choix!"
+    jump connard1
+
+label connard6:
+    if choixj == 1:
+        "Vous avez déjà fait cette action."
+        jump connard1
+    "Vous avez envie de faire chier le narrateur."
+    "Vous lui jetez des tomates."
+    na "Woah! je suis une tomate farcie!"
+    "Vous aspergez le narrateur avec du lait maternel."
+    na "Putain joueur, maintenant arrête !"
+    "Vous pissez sur la tête du narrateur."
+    "Le narrateur vous prend par les couilles."
+    "Vous lui faites bouffer vos BONNE GROSSES COUILLES."
+    $ connard += 1
+    $ choixj = 1
+    jump connard1
+
+label connard7:
+    show narrateur
+    with vpunch
+    na "AH, T’AS CLIQUÉ SUR MON BOUTON!"
+    na "Alors on voulait me la faire à l'envers !?"
+    na "Espèce de Sac à foutre…"
+    na "Suggare mio uovo in ciocolate"
+    na "Suce mon oeuf au chocolat en italien."
+    na "Tien, maintenant va choisir un nom!"
+    na "CHEH!"
+    hide narrateur
+    jump nom
+
+label trouduq:
+    if trouduq == 1:
+        "Très bien, tu as choisi de t'appeler TrouDuQ."
+        $ trouduq += 1
+        "Tu es certain de ton choix?"
+        "{a=jump:trouduq}Oui{/a} ; {a=jump:trouduq1}Non{/a}"
+        jump trouduq
+    if trouduq == 2:
+        "Bien TrouDuQ, tu t'appelles désormais TrouDuQ."
+        "Tu es vraiment sur TrouDuQ?"
+        $ trouduq += 1
+        "{a=jump:trouduq1}Non je suis sur{/a} ; {a=jump:trouduq}Non je suis pas sur{/a}"
+        jump trouduq
+    if trouduq == 3:
+        "BON TU VEUX BIEN ? Oui ou Non?"
+        $ trouduq += 1
+        "{a=jump:trouduq}Oui{/a} ; {a=jump:trouduq1}Non{/a}"
+        jump trouduq
+    if trouduq == 4:
+        "Donc tu veux pas t'appeller TrouDuQ? "
+        $ trouduq += 1
+        "{a=jump:trouduq1}Si{/a} ; {a=jump:trouduq}Non{/a}"
+        jump trouduq
+    if trouduq == 5:
+        "Bon, vas te trouver un nom… pour moi tu sera toujours mon petit TrouduQ!"
+        "Vous avez gagnez le succès *Je m'appelle TrouDuQ*"
+        $ succes += 1
+        $ trouduq = 6
+        "Changer de Nom{a=jump:nom}Oui{/a} ; {a=jump:trouduq1}Non{/a}"
+        jump nom
+    if trouduq == 6:
+        "C’est bon t’as déjà choisi, va taper TrouDuQ toi même !"
+        "J'ai plus la force de te persuader !"
+        jump nom
+    "Tu es certain de pas vouloir t'appeller TrouDuQ?"
+    "Je trouve que ça va mieux, sinon on peut t'appeller sac à foutre?"
+    "Toutes les insultes te vont si bien!"
+    $ trouduq = 1
+    "C'est comme si tu étais né pour être insulté…"
+    "Bon tu veux vraiment t'appeller autrement ? {a=jump:trouduq}Oui{/a} ; {a=jump:trouduq1}Non{/a}"
+    jump trouduq1
+
+label trouduq1:
+    $ player_name = "TrouduQ"
+    na "Donc tu vas t'appeller [player_name]"
+    "Je Trouve que ça te va bien."
+    "Bon choix!"
+    jump prenom
+
+label aka01:
+    play music robot
+    show kaka
+    $ boulon = 0
+    "kaka" "code 0000"
+    "kaka" "Ah Bonjours joueurs, je suis ravi de te rencontré"
+    "kaka" "Missa être kaka-0826 mais appel moi kaka ravi de te rencontré"
+    "kaka" "Je serais la tout au long de l'aventure si tu souhaite  un raffraichissement"
+    "kaka" "Ou si tu a envi de revenir en arriere"
+    "kaka" "je vend aussi des boulons il ne sont plus d'aucunne utilité"
+    "kaka" "parce que personne ne veut me réparé je les vend et sans clé a molette je ne peut rien faire "
+    "kaka" "Donc je t'écoute de quoi a  tu besoin"
+    hide kaka
+    menu kakabot1:
+        "Demander un raffraichissement":
+            jump raffraichissement1
+
+        "Demander de revenir en arriere":
+            jump prequel
+
+        "Demander des Conseils":
+            jump conseil1
+
+        "Acheter des boulons":
+            jump boulon1
+
+        "Revenir a la discution avec yae":
+            jump prenom
+
+label raffraichissement1:
+    "Le robot vous propose de boire sa boisson préféré"
+    "Vous buvez de l'huile de vidange"
+    "Ce n'est pas très bon"
+    "Vous perdez 10 de mental"
+    "mais vous gagner 20pv"
+    $ mental -= 10
+    $ vie += 20
+    if vie >= 100:
+        $ vie = 100
+    jump aka01
+
+label conseil1:
+    if guerrier == 1:
+        "Tu n'a pas choisit une classe facile"
+        "Mais bon..Grace a ta compétence *Vigoureux*"
+        "Tu va pouvoir augmenter tes dégat celon la vie que ta perdu"
+        "Plus tu perd de vie plus tu gagne en attaque"
+    if rodeur == 1:
+        "Avec ta capacité de visé tu lance 1d20 supplémentaire qui sera doublé"
+        "Engros tu fera plus de dégat si tu a de la chance de bien viser"
+        "Si tu tire sur un point faible de la créature elle perd 1d20supplémentaire"
+    if mage == 1:
+        "En tant que mage tu devra être patient tu a du mana"
+        "une fois arrivé a 100 tu pourra lancer plusieur type de sortillege"
+        "Tu a un sortillege *Grand Froid* qui ralenti l'ennemis"
+        "Tu a le sortillege *Malediction* qui divise par 2 la vie du monstre"
+        "Tu a le sortillege *Magie suppérieur* qui te permet de gagner en attaque"
+        "Et pour finir ton ulti *Souffle de feu* qui fait 1d100 de dégat"
+    if assassin == 1:
+        "En tant que assassin tu a une competance de poison"
+        "l'ennemi perd 10pv par tour"
+        "Avec ceci tu a le tranchant de double lame"
+        "Tu a une chance sur 100 de faire 1 coup ultra critique qui mettra l'ennemi au sol a coup sur"
+    "Voilà j'espere t'avoir aider !fait attention il y'a beaucoup de truc caché"
+    "votre robot personnel en promotion dans tout les supermarché"
+    "En parlant de conseils j'en et encore 1 a divulgé"
+    "Quand vous choisissez votre nom il et possible de tomber sur des petite parti d'histoire sur nos personnage"
+    "Mais pour devinez toute les possibilité de prénom il faut les débloquer pour par la suite les mettre a yae"
+    "Et vous aurais le droit a une parti d'histoire des personnages"
+    jump prenom
+
+label boulon1:
+    if gold <= 1:
+        "Vous n'avez plus d'argent a la prochaine"
+        jump prenom
+    "Voulez vous achetez mais boulon?"
+    "Il coute 10 d'or l'unité"
+    "Voulez vous en achetez {a=jump:aka01}Non{/a}?"
+    "Voila votre boulon !"
+    if gold <= 0:
+        "vous n'avez pas assez de gold"
+        jump aka01
+    $ boulon += 1
+    $ gold -= 10
+    "Vous avez [boulon] boulons"
+    jump aka01
+label prenom:
+    play music celtic
+    show yae
+    "Yae" "Bonjour à toi [player_name], Je suis Yae."
+    "Yae" "Que fais- tu ici [player_name]?"
+    hide yae
+    "Tu te souviens d'avoir été assommé par un ogre?"
+    $ ogre = 0
+    "{a=jump:yae1}Mytho{/a} ; {a=jump:yae3}Vulgaire{/a} ; {a=jump:yae7}Magnifique{/a} ;
+     {a=jump:yae2}Amical{/a} ; {a=jump:yae4}Charmeur{/a} ; {a=jump:yae5}Charisme{/a} ; {a=jump:yae6}Rien de tout ça{/a}"
+    jump prenom
+
+label yae1:
+    if mytho == 1:
+        show mage
+        h "Je suis un grand héro."
+        h "Je me reposais tranquillement."
+        h "Justement, je venais de terrasser un ogre !"
+        h "..."
+        hide mage
+        "Yae" "Tu veux dire cet ogre juste là?"
+        "Tu aperçois l'ogre gigantesque."
+        "Yae" "Je voulais te réveiller avant qu'il t'attaque…"
+        "Yae" "Au moins, tu n’as rien…"
+        $ mental -= 5
+        if mental <= 100:
+            jump crise
+        if vie <= 0:
+            jump mort
+        if mental >= 100:
+            $ mental = 100
+        "[vie]vie ; [mental] mental ; [gold] gold ; [attaque] attaque."
+        "*[mental] vous avez perdu 5 de mental*"
+        "Yae" "Bon, allons combattre cet ogre!"
+        jump ogre
+        if assassin == 1:
+            show assassin
+            h "Je suis un grand héro."
+            h "Je me reposais tranquillement."
+            h "Justement, je venais de terrasser un ogre !"
+            h "..."
+            hide assassin
+            "Yae" "Tu veux dire cet ogre juste là?"
+            "Tu aperçois l'ogre gigantesque."
+            "Yae" "Je voulais te réveiller avant qu'il t'attaque…"
+            "Yae" "Au moins, tu n’as rien."
+            if mental <= 100:
+                jump crise
+            if vie <= 0:
+                jump mort
+            if mental >= 100:
+                $ mental = 100
+            "[vie]vie ; [mental] mental ; [gold] gold ; [attaque] attaque."
+            "*[mental] vous avez perdu 5 de mental*"
+            "Yae" "Bon allons combattre cet ogre."
+            jump ogre
+        if rodeur == 1:
+            show archer
+            h "Je suis un grand héro."
+            h "Je me reposais tranquillement."
+            h "Justement, je venais de terrasser un ogre !"
+            h "..."
+            hide mage
+            "Yae" "Tu veux dire cet ogre juste là?"
+            "Tu aperçois l'ogre gigantesque."
+            "Yae" "Je voulais te réveiller avant qu'il t'attaque…"
+            "Yae" "Au moins, tu n’as rien…"
+            "Vous avez gloupser en voyant le gigantesque ogre"
+            $ mental -= 5
+            if mental <= 100:
+                jump crise
+            if vie <= 0:
+                jump mort
+            if mental >= 100:
+                $ mental = 100
+            "[vie]vie ; [mental] mental ; [gold] gold ; [attaque] attaque."
+            "*[mental] vous avez perdu 5 de mental*"
+            "Yae" "Bon, allons combattre cet ogre!"
+            jump ogre
+        if guerrier == 1:
+            show guerrier
+            h "Je suis un grand héro."
+            h "Je me reposais tranquillement."
+            h "Justement, je venais de terrasser un ogre !"
+            h "..."
+            hide mage
+            "Yae" "Tu veux dire cet ogre juste là?"
+            "Tu aperçois l'ogre gigantesque."
+            "Yae" "Je voulais te réveiller avant qu'il t'attaque…"
+            "Yae" "Au moins, tu n’as rien…"
+            $ mental -= 5
+            if mental <= 100:
+                jump crise
+            if vie <= 0:
+                jump mort
+            if mental >= 100:
+                $ mental = 100
+            "[vie]vie ; [mental] mental ; [gold] gold ; [attaque] attaque."
+            "*[mental] vous avez perdu 5 de mental*"
+            "Yae" "Bon, allons combattre cet ogre!"
+            jump ogre
+    h "Je je .."
+    h "Je suis une GIRAFE!"
+    "Yae" "QUOI !!!"
+    "Yae" "Bon ça suffit, arrête! tu ne sais pas mentir!"
+    "Yae" "Dit moi la vérité!"
+    h "Je me suis fait assommer par cet ogre."
+    h "Voila contente !"
+    $ mental -= 20
+    if mental <= 100:
+        jump crise
+    if vie <= 0:
+        jump mort
+    if mental >= 100:
+        $ mental = 100
+    "[vie]vie ; [mental] mental ; [gold] gold ; [attaque] attaque."
+    "Vous avez menti au narrateur, par conséquent, vous perdez - 20 de mental."
+    "[mental] mental"
+    jump ogre
+
+label yae2:
+    if amical == 1:
+        show yae
+        "Yae" "Vous n'avez pas l'air en forme, tout va bien?"
+        "Yae" "Tenez, prenez ma main."
+        "Yae" "Relevez vous en douceur…"
+        "Yae" "Voila.."
+        "Yae" "Vous avez une bosse sur la tête."
+        "Yae" "Tenez, une herbe médicinale."
+        $ vie += 5
+        "Yae" "Bon, c'est pas super efficace, mais j'ai fais de mon mieux."
+        "Yae" "Bon, je veux pas vous alarmer… mais on va devoir se débarrasser de cet ogre!"
+        hide yae
+        $ mental += 2
+        if mental <= 100:
+            jump crise
+        if vie <= 0:
+            jump mort
+        if mental >= 100:
+            $ mental = 100
+        "[vie]vie ; [mental] mental ; [gold] gold ; [attaque] attaque."
+        jump ogre
+    if magnifique == 1:
+        "Votre visage plein de splendeur"
+        "Que Yae vous dévisage du regard"
+        "Elle a l'aire ébloui"
+        "C'est yeux brille c'est joue sont rouge et sont rytme cardiaque augmente"
+        $ mental += 10
+        if mental <= 100:
+            jump crise
+        if vie <= 0:
+            jump mort
+        if mental >= 100:
+            $ mental = 100
+        "[vie]vie ; [mental] mental ; [gold] gold ; [attaque] attaque."
+        jump ogres
+    h "Je… euh… me suis fait assommer…"
+    show yae
+    "Yae" "Vous l'avez bien cherché!"
+    "Yae" "Je sais pas pourquoi, mais vous m'inspirez guère confiance…"
+    "Yae" "Bref, il y’a un ogre qui nous barre la route."
+    hide yae
+    "Vous avez menti au narrateur, par conséquent, vous allez perdre 20 de mental."
+    $ mental -= 20
+    if mental <= 100:
+        jump crise
+    if vie <= 0:
+        jump mort
+    if mental >= 100:
+        $ mental = 100
+    "[vie]vie ; [mental] mental ; [gold] gold ; [attaque] attaque."
+    jump ogre
+
+label yae3:
+    if vulgaire == 1:
+        h "Salut, vous êtes quoi? une pute des bois?"
+        "Yae" "Non mais… je ne vous permet pas de me parler ainsi!"
+        "Yae" "Allez donc vous faire foutre pour voir!"
+        h "Avec vous? avec joie! vous faites payer combien?"
+        "Yae" "Arrêtez tout de suite !"
+        h "Sale tchoin !"
+        $ mental -= 10
+        if mental <= 100:
+            jump crise
+        if vie <= 0:
+            jump mort
+        if mental >= 100:
+            $ mental = 100
+        "[vie]vie ; [mental] mental ; [gold] gold ; [attaque] attaque."
+        jump ogre
+    h "Je… euh… me suis fait assommer."
+    show yae
+    "Yae" "Vous l'avez bien cherché!"
+    "Yae" "Je sais pas pourquoi, mais vous m'inspirez guère confiance!"
+    "Yae" "Bref, il y a un ogre qui nous barre la route."
+    hide yae
+    "Vous avez menti au narrateur, par conséquent, vous allez perdre 20 de mental."
+    $ mental -= 20
+    if mental <= 100:
+        jump crise
+    if vie <= 0:
+        jump mort
+    if mental >= 100:
+        $ mental = 100
+    "[vie]vie ; [mental] mental ; [gold] gold ; [attaque] attaque."
+    jump ogre
+
+label yae4:
+    if charmeur == 1:
+        h "Salut, vous êtes un ange tombé du ciel?"
+        "Yae" "Vous êtes un beau parleur dites moi, qu’est ce qui vous est arrivé?"
+        h "Oh ça ! rien de grave! je me suis fait assommer par votre beauté…"
+        "Yae" "Vous êtes mignon…"
+        h "Et si on s'éloignait loin de cet ogre…"
+        "Yae" "Bonne idée! mais comment détourner son attention?"
+        "{a=jump:ogre}Intelligence{/a} ; {a=jump:ogre3}Impulsif{/a} ; {a=jump:ogre2}Force{/a} ;{a=jump:ogre}Aucune idée{/a} "
+        jump ogre
+    h "Je… euh… me suis fait assommer."
+    show yae
+    "Yae" "Vous l'avez bien cherché!"
+    "Yae" "Je sais pas pourquoi, mais vous m'inspirez guère confiance!"
+    "Yae" "Bref, il y a un ogre qui nous barre la route."
+    hide yae
+    "Vous avez menti au narrateur, par conséquent, vous allez perdre 20 de mental."
+    $ mental -= 20
+    if mental <= 100:
+        jump crise
+    if vie <= 0:
+        jump mort
+    if mental >= 100:
+        $ mental = 100
+    "[vie]vie ; [mental] mental ; [gold] gold ; [attaque] attaque."
+    "[mental] mental"
+    jump ogre
+
+label yae5:
+    if charisme >= 2:
+        h "Ne vous inquiétez pas pour moi Yae."
+        h "Je crois qu' on a d'autres problèmes."
+        h "l'Ogre qui m’a attaqué et toujours la…"
+        "Yae" " pour ma mère et pour mon père"
+        "Je te chatie !"
+        "Une puissante aura magique ce faisait entendre de Yae"
+        "Leur puissace du combat que l'on sentais dans tout astrae un énorme pression"
+        $ charisme -= 10
+        $ endurance -= 10
+        "[charisme] charisme"
+        "{a=jump:yae7}Prudent{/a} ; {a=jump:yae7}Enthousiaste{/a} ; {a=jump:yae7}Logique{/a} ; {a=jump:ogre}Continuer{/a}"
+        jump ogre
+    h "Je… euh… me suis fait assommer."
+    show yae
+    "Yae" "Vous l'avez bien cherché!"
+    "Yae" "Je sais pas pourquoi, mais vous m'inspirez guère confiance!"
+    "Yae" "Bref, il y a un ogre qui nous barre la route."
+    hide yae
+    "Vous avez menti au narrateur, par conséquent, vous allez perdre 40 de mental."
+    $ mental -= 40
+    if mental <= 100:
+        jump crise
+    if vie <= 0:
+        jump mort
+    if mental >= 100:
+        $ mental = 100
+    "[vie]vie ; [mental] mental ; [gold] gold ; [attaque] attaque."
+    "[mental] mental"
+    jump ogre
+
+label yae6:
+    if mage == 1:
+        show mage
+        h "Je me suis fait assommer par cette ogre là bas."
+        h "J'ai eu de la chance de survivre."
+        h "Heureusement, vous êtes là!"
+        h "Merci de m'avoir réveillé, Yae."
+        h "Je suis désolé, je n'ai rien pour vous remercier…"
+        hide mage
+
+    if rodeur == 1:
+        show archer
+        h "Je me suis fait assommer par cette ogre là bas."
+        h "J'ai eu de la chance de survivre."
+        h "Heureusement, vous êtes là!"
+        h "Merci de m'avoir réveillé, Yae."
+        h "Je suis désolé, je n'ai rien pour vous remercier…"
+        hide archer
+
+    if guerrier == 1:
+        show guerrier
+        h "Je me suis fait assommer par cette ogre là bas."
+        h "J'ai eu de la chance de survivre."
+        h "Heureusement, vous êtes là!"
+        h "Merci de m'avoir réveillé, Yae."
+        h "Je suis désolé, je n'ai rien pour vous remercier…"
+        hide guerrier
+
+    if assassin == 1:
+        show assassin
+        h "Je me suis fait assommer par cette ogre là bas."
+        h "J'ai eu de la chance de survivre."
+        h "Heureusement, vous êtes là!"
+        h "Merci de m'avoir réveillé, Yae."
+        h "Je suis désolé, je n'ai rien pour vous remercier…"
+        hide assassin
+    show yae
+    with dissolve
+    "Yae" "Commençons par vaincre cet ogre, c'est un bon début?"
+    "Yae" "Il est toujours assez proche de nous…"
+    "Yae" "Heureusement, les ogres sont débile…"
+    hide yae
+    "{a=jump:yae7}Débile{/a} ; {a=jump:yae7}Parano{/a} ; {a=jump:yae8}Courageux{/a} ; {a=jump:yae8}Déterminé{/a}
+     ; {a=jump:yae8}Optimiste{/a} ; {a=jump:ogre2}Force{/a}; {a=jump:compo1}Compétence{/a}; {a=jump:ogre}Allons y{/a}"
+    jump ogre
+
+
+
+
+label yae7:
+    if parano == 1:
+        h "Attendez !!!"
+        h " ET SI L'OGRE VOULAIT ME MANGER?"
+        h "JE VEUX PAS FINIR DANS SON ESTOMAC!"
+        h "J'AI TROP PEUR… ALLEZ Y TOUTE SEULE!"
+        $ mental -= 10
+        if mental <= 100:
+            jump crise
+        if vie <= 0:
+            jump mort
+        if mental >= 100:
+            $ mental = 100
+        "[vie]vie ; [mental] mental ; [gold] gold ; [attaque] attaque."
+        jump ogre
+    if debile == 1:
+        h "GAGAGA BOUBOU."
+        h "Moi savoir bien être débile"
+        h "Moi allez parler à l'ogre !"
+        h "l'Ogre tente de vous parler"
+        "Ogre" "moi ogre moi vouloir manger"
+        $ mental -= 10
+        if mental <= 100:
+            jump crise
+        if vie <= 0:
+            jump mort
+        if mental >= 100:
+            $ mental = 100
+        "[vie]vie ; [mental] mental ; [gold] gold ; [attaque] attaque."
+        if farfouilleur == 1:
+            "Vous scruté les environ"
+            "Vous trouver un pommier"
+            "Vous cueiller quelque pomme et les donne a l'Ogre"
+            "Vous avez gagner une histoire de personnage"
+            "l'Histoire de Naos"
+            "Pour voir l'Histoire de Naos vous devrez vous appellé Naos lors du
+            choix de votre prénom"
+            "Vous récupéré aussi du mental"
+            $ mental += 2
+            if mental <= 100:
+                jump crise
+            if vie <= 0:
+                jump mort
+            if mental >= 100:
+                $ mental = 100
+            "[vie]vie ; [mental] mental ; [gold] gold ; [attaque] attaque."
+            jump crevassev1
+        $ mental -= 5
+        if mental <= 100:
+            jump crise
+        if vie <= 0:
+            jump mort
+        if mental >= 100:
+            $ mental = 100
+        "[vie]vie ; [mental] mental ; [gold] gold ; [attaque] attaque."
+        jump ogre3
+    h "Bon… bah euh… d'accord.."
+    na "Vous avez triché.."
+    na "Bon ba,h tu connais peut être déjà la sanction?"
+    $ mental -= 20
+    na "Ne recommence pas !"
+    "[mental] mental"
+    jump ogre
+
+label yae8:
+    if courageux == 1:
+        h "Ne vous inquiétez pas, je vais m'en charger !"
+        h "Je n'ai pas peur !"
+        h "Vous êtes entre de bonnes mains!"
+        "Votre courage à affronter l'Ogre stupéfait Yae"
+        "Vous foncer droit dessus"
+        "Vous faite peur a l'Ogre et il s'enfuit"
+        $ mental += 10
+        $ attaque += 2
+        if mental <= 100:
+            jump crise
+        if vie <= 0:
+            jump mort
+        if mental >= 100:
+            $ mental = 100
+        "[vie]vie ; [mental] mental ; [gold] gold ; [attaque] attaque."
+        jump crevassev1
+    if determine == 1:
+        "Grace a votre détermination sans faille"
+        "Vous foncez brusquement vers l'Ogre"
+        "Vous gagner 10mental"
+        "[vie]vie ; [mental] mental ; [gold] gold ; [attaque] attaque."
+        jump crevassev1
+    if optimiste == 1:
+        h "J'ai confiance en moi…"
+        h "Je vais l'affronter !"
+        h "Ne vous inquiétez pas!"
+        $ mental += 10
+        if mental <= 100:
+            jump crise
+        if vie <= 0:
+            jump mort
+        if mental >= 100:
+            $ mental = 100
+        "[vie]vie ; [mental] mental ; [gold] gold ; [attaque] attaque."
+        "[mental] mental"
+        jump ogre
+    if prudent == 1:
+        "Grace a votre prudence vous faite aucun geste brusque"
+        "Vous avancer discrétement"
+        "l'Ogre ne vous remarque pas"
+        $ mental += 10
+        if mental <= 100:
+            jump crise
+        if vie <= 0:
+            jump mort
+        if mental >= 100:
+            $ mental = 100
+        "[vie]vie ; [mental] mental ; [gold] gold ; [attaque] attaque."
+        jump crevassev1
+    if enthousiaste == 1:
+        "Yae" "Pourquoi semblez vous si joyeux?"
+        h "C'est la pRemière fois que quelqu'un vient m'aider…"
+        h "Et je suis toujours d'humeur joviale!"
+        h "Allons affronter ce gros plein de soupe."
+        $ mental + 10
+        if mental <= 100:
+            jump crise
+        if vie <= 0:
+            jump mort
+        if mental >= 100:
+            $ mental = 100
+        "[vie]vie ; [mental] mental ; [gold] gold ; [attaque] attaque."
+        jump ogre
+    if logique == 1:
+        h "Bon, d'après sa trajectoire, il se dirige dans cette crevasse."
+        $ mental += 15
+        if mental <= 100:
+            jump crise
+        if vie <= 0:
+            jump mort
+        if mental >= 100:
+            $ mental = 100
+        "[vie]vie ; [mental] mental ; [gold] gold ; [attaque] attaque."
+        jump ogre
+    h "Allons y"
+    na "Vous avez triché.."
+    na "Bon bah, tu connais peut-être déjà la sanction?"
+    $ mental -= 20
+    na "Ne recommence pas !"
+    "[mental] mental"
+    jump ogre
+
+label ogre:
+    stop music
+    play music fight
+    if ogre >= 100:
+        if imprudent == 1:
+            "En rentrant dans la grotte"
+            "Votre personnage fait une chute"
+            "Votre personnage trebuche sur yae"
+            "Il tombe par terre et s'écroule"
+            "il ce fracasse le crane sur le sol.."
+            $ vie -= 10
+            $ gold += 10
+            $ mental += 2
+            if mental <= 100:
+                jump crise
+            if vie <= 0:
+                jump mort
+            if mental >= 100:
+                $ mental = 100
+            "[vie]vie ; [mental] mental ; [gold] gold ; [attaque] attaque."
+        if sanguinaire == 1:
+            "Durant le combat vous vous êtes gravement blesser"
+            "Le gout du sang dans vos bras dans votre main"
+            "La plai saigne abondament et cela vous exite"
+            "A cause de votre talent sanguinaire vous perdez 15 PV"
+            $ vie -= 15
+            $ mental += 5
+            if mental <= 100:
+                jump crise
+            if vie <= 0:
+                jump mort
+            if mental >= 100:
+                $ mental = 100
+            "[vie]vie ; [mental] mental ; [gold] gold ; [attaque] attaque."
+        if cleptoman == 1:
+            "En fouillant le cadavre de l'ogre vous trouver un pagne"
+            $ pagne += 1
+            "Dans la poche du pagne vous trouver quelque gold"
+            "A cause de votre cleptomanie vous perdez 20 mental mais gagnez 10 gold"
+            $ mental -= 20
+            $ gold += 10
+            if mental <= 100:
+                jump crise
+            if vie <= 0:
+                jump mort
+            if mental >= 100:
+                $ mental = 100
+            "[vie]vie ; [mental] mental ; [gold] gold ; [attaque] attaque."
+        if tenace ==  1:
+            "Votre résistance a prendre des coup et très élevé"
+            "Vous serré vos abdos et vous vous concentré sur votre respiration"
+            "Inspiration..."
+            "Expiration..."
+            "Grace a votre ténacité vous récupéré 5pv et 2 mental"
+            $ mental += 2
+            if mental <= 100:
+                jump crise
+            if vie <= 0:
+                jump mort
+            if mental >= 100:
+                $ mental = 100
+            "[vie]vie ; [mental] mental ; [gold] gold ; [Attaque] attaque."
+            jump ogre6
+            $ vie += 5
+            $ mental += 2
+            jump ogre6
+        if efficace == 1:
+            "Votre efficacité en combat vous réussit bien"
+            "Yae a étais stupéfaite de votre efficacité"
+            "Votre efficacité vous a permis de réfrainer vos pulsion"
+            $ gold += 10
+            $ mental += 2
+            if mental <= 100:
+                jump crise
+            if vie <= 0:
+                jump mort
+            if mental >= 100:
+                $ mental = 100
+            "[vie]vie ; [mental] mental ; [gold] gold ; [attaque] attaque."
+            jump ogre6
+        if farfouilleur == 1:
+            "Vous fouiller partout sur le cadavre de l'ogre"
+            "Vous regarder même dans c'est entraille"
+            "Vous ramasser sont pagne"
+            "Grace a vos talent de pick poket vous ramasser une potion de vie"
+            $ gold += 10
+            $ mental += 2
+            if mental <= 100:
+                jump crise
+            if vie <= 0:
+                jump mort
+            if mental >= 100:
+                $ mental = 100
+            "[vie]vie ; [mental] mental [gold] gold ; [attaque] attaque."
+            jump ogre6
+        if econome == 1:
+            "Grace a votre dons pour faire des economie"
+            "Vous arriver a trouver 10gold supplémentaire"
+            "Grace a vos talent d'econome vous ramassé 10gold"
+            $ gold += 10
+            $ mental += 2
+            if mental <= 100:
+                jump crise
+            if vie <= 0:
+                jump mort
+            if mental >= 100:
+                $ mental = 100
+            "[vie]vie ; [mental] mental [gold] gold ; [attaque] attaque."
+        "Vous portez le coup fatal."
+        "L'ogre est vaincu !"
+        scene black
+        show yae
+        "Yae" "Bravo, tu as réussi !"
+        "Yae" "Voilà, 30 gold pour te remercier."
+        hide yae
+        $ gold += 30
+        "[vie]vie ; [mental] mental [gold] gold ; [attaque] attaque."
+        "{a=jump:ogre4}Sanguinaire{/a} ; {a=jump:ogre4}cleptoman{/a} ; ;  {a=jump:ogre5}Econome{/a} ; {a=jump:ogre5}Tenace{/a} ; {a=jump:ogre6}Continuon{/a}"
+        jump ogre6
+    if rodeur == 1:
+        show screen cible
+        "..."
+        hide screen cible
+    show combatogre
+    "l'Ogre se dresse devant vous."
+    "Le combat s'engage."
+    $ ogre += renpy.random.randint(1,20)
+    $ ogre += attaque
+    "Vous portez un coup d'attaque de [ogre]"
+    scene decorscrevasse
+    "Vous tenter d'esquiver l'attaque"
+    $ esquive += renpy.random.randint(1,20)
+    if esquive <= 10:
+        if agile == 1:
+            "Grace a votre agilité vous esquiver le coup"
+            "Vous gagner 10 mental"
+            $ mental += 10
+            "[vie]vie ; [mental] mental [gold] gold ; [attaque] attaque."
+            jump combatogre
+    $ vie -= renpy.random.randint(1,10)
+    "L'ogre vous porte un énorme coup."
+    "Il vous reste [vie] vie.."
+    "{a=jump:ogre}frapper encore.{/a}"
+    jump ogre
+
+label ogre2:
+    if force >= 2:
+        "Vous avancez sans hésiter."
+        "Vous foncez droit sur l'ogre."
+        "Pris de panique, il prend la fuite !"
+        "Yae" "Woaw! comment vous avez fait pour le faire fuir?"
+        "Yae" "J'en reviens pas !"
+        "allons explorer cette crevasse."
+        $ force -= 10
+        "[force] force"
+        "{a=jump:crevasse1}Parano{/a} ; {a=jump:crevasse2}Enthousiaste{/a} ; {a=jump:crevasse}Allons y !{/a}"
+        jump crevasse
+    "Vous avez triché, vous perdez -40 mental."
+    jump crevasse
+    jump ogre5
+
+
+label ogrex:
+    "A cause de vos probleme vous perdez -20mental"
+    $ mental -= 20
+    if mental <= 0:
+        jump crise
+    if vie <= 0:
+        jump mort
+    "[vie]vie ; [mental] mental."
+    jump ogre
+
+label ogre3:
+    if impulsif == 1:
+        h "JE VAIS ATTAQUER! "
+        "Yae" "NON FAITES ATTENTION!"
+        $ mental -= 5
+        "[mental] = mental"
+        jump ogre
+    if debile == 1:
+        "Vous vous approchez de l'ogre."
+        h "DA DA BOU!"
+        "Ogre" "Bwark."
+        h "bwark?..."
+        "Vous faite copain copain avec l'Ogre"
+        "Il vous offre un Livre"
+        "{a=jump:dragou}Histoire de Dragou{/a},{a=jump:ogrex}Manger le Livre{/a}"
+        $ mental -= 5
+        if mental <= 0:
+            jump crise
+        if vie <= 0:
+            jump mort
+        "L'ogre vous laisse passer."
+        "Yae" "Il y a une crevasse là, allons l'explorer."
+        jump crevasse
+    show combat ogre
+    with vpunch
+    "l'Ogre vous regarde."
+    "l'Ogre frappe d'une puissance."
+    hide combatogre
+    $ vie -= 20
+    "Vous avez triché, et par conséquant, vous voila dans la merde."
+    $ mental -= 20
+    if mental <= 0:
+        jump crise
+    if vie <= 0:
+        jump mort
+    "[vie]vie ; [mental] mental."
+    jump ogre
+
+label ogre4:
+    if sanguinaire == 1:
+        "Vous saignez."
+        "Vous aimez ça, vous laissez le sang couler…"
+        "Vous lècher votre plaie"
+        "Et vous adoré ça,"
+        "Votre blessure augmente votre état sanguinaire"
+        "Vous gagner 5 d'Attaque"
+        $ vie -= 10
+        $ mental -= 2
+        $ attaque += 5
+        "Yae" "Faite attention à vos blessures voyons…"
+        "Yae" "Regardez la, une crevasse !"
+        jump crevasse
+    if cleptoman == 1:
+        "Votre Obsession pour l'argent et autre babiole"
+        "Vous fouillez le cadavre de l'Ogre"
+        "Quitte a regarder dans c'est entraille"
+        "Vous avez volé un pagne."
+        "Pas sur que ce soit très utile…"
+        $ pagne = 1
+        $ mental -= 10
+        "Yae" "Regardez la, une crevasse !"
+        jump crevasse
+    if mental <= 0:
+        "Vous avez perdu la tête."
+        h "GAGA BLOU."
+        "Recommencer? {a=jump:classe}Oui{/a} ; {a=jump:crise}Non/a}"
+        jump classe
+    "Vous avez triché !"
+    $ mental -= 20
+    "[mental] mental."
+    jump crevasse
+
+label ogre5:
+    if tenace == 1:
+        "Vous êtes tenace !"
+        "Vous avez réussi à survivre!"
+        $ vie += 5
+        $ mental += 2
+        "[mental] mental ; [vie] vie"
+        jump crevasse
+    if econome == 1:
+        "Vous êtes économe."
+        "Vous gagnez 10 gold supplémentaires."
+        "Vous gagnez un pagne."
+        "Pas sur que ça serve à grand chose…"
+        $ pagne = 1
+        $ gold += 10
+        $ mental += 2
+        "[mental]mental ; [gold] gold"
+        jump crevasse
+    "Vous avez triché !"
+    $ mental -= 20
+    "[mental] mental."
+    jump crevasse
+
+label ogre6:
+    stop music
+    play music age
+    "Vous avez fini le combat heureusement… "
+    "Quelqu'un vous interpelle."
+    show enir
+    "???" "Enfin, vous avez vaincu l'ogre…"
+    "???" "C'est pas trop tôt…"
+    "???" "Je m'appelle Enir."
+    "Enir" "J'aurais besoin de votre aide. Vous pouvez me rejoindre au royaume des shacrows."
+    hide enir
+    show yae
+    "Yae" "Je ne lui fais pas confiance… on dirait un magiry."
+    hide yae
+    show enir
+    "Enir" "Mais, j'en suis une…"
+    hide enir
+    show yae
+    "Yae" "Qu’est ce que vous voulez ?!"
+    show enir
+    hide yae
+    "Enir" "Rien… j'ai juste un problème."
+    hide enir
+    show yae
+    "Yae" "Bon [player_name], soit tu m'aides à explorer la crevasse, soit tu vas avec elle…"
+    hide yae
+    "{a=jump:crevasse}Choisir Yae{/a} ; {a=jump:enir}Choisir Enir{/a}"
+    jump ogre6
+
+label crevasse:
+    show text "Astrae - Acte 1 Chapitre 1.1\n *Le Tombeau Maudit*"
+    "Yae se rejouit que vous venez avec elle !"
+    hide text
+    show screen kaka5
+    show screen kaka001
+    stop music
+    play music cave
+    show yae
+    "Yae" "..."
+    "Yae" "Vous venez avec moi? "
+    hide yae
+    hide kaka001
+    "{a=jump:cre}Suivre Yae{/a} ; {a=jump:map1}Partir{/a}"
+    jump cre
+
+label aka05:
+    show kaka
+    play music robot
+    "Kaka-0826" "code 1234"
+    "kaka-0826" "Chemin choisit, erreur systeme number height"
+    "kaka-0826" "Venez ici en étant économe serait utile"
+    "kaka-0826" "Venez ici en étant intelligent ! parcontre les caracteristique déconseiller sont cleptoman "
+    "kaka-0826" "Si vous avez besoin de retourner dans le passé appuyer sur mon bipbop"
+    "kaka-0826" "Mon bipbop et si chaud si toride touche le joueur..pardon je m'égarre"
+    "kaka-0826" "A mon humble avis joueur il faudrait prendre des objet utile pour traverser cette crevasse"
+    hide kaka
+    stop music
+    menu kaka5:
+        "Revenir en arriere ?":
+            jump crevasse
+
+        "acheté des boulon?":
+            jump boulon5
+
+        "Continuer le jeu":
+            jump cre
+
+label boulon5:
+    "Vous voulez acheté des boulon?{a=jump:aka05}Non{/a}"
+    "1 boulon pour 10gold"
+    if gold <= 0:
+        "Vous n'avez pas assez d'argent"
+        jump cre
+    "voila 1 boulon pour vous"
+    $ boulon += 1
+    jump cre
+
+
+label cre:
+    show screen kaka5
+    show screen kaka001
+    "{a=jump:crevasse1}Imprudent{/a} ; {a=jump:crevasse1}Paresseux{/a} ; {a=jump:crevasse3}Intelligence{/a} ; {a=jump:crevasse2}Enthousiaste{/a};
+     {a=jump:crevasse4}Avancer le premier{/a} "
+    jump cre
+
+label map1:
+    show screen kaka5
+    show screen kaka01
+    "Où aller alors?"
+    "Etes vous sûr de ne pas retrouver Yae finalement?{a=jump:cre}Revoir Yae{/a} Sinon continuer ce dialogue"
+    call screen imagemap1

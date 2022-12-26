@@ -1,0 +1,1577 @@
+label commencement:
+    if noob == 1:
+        show screen kaka1
+        show screen kaka001
+        show screen talent
+        "En mode Noob vous bénéficier de beaucoup d'avantage"
+        "Vous disposé d'un bonus de gold et d'attaque a chaque chapitre"
+        "Vous disposé aussi d'une *Barre de Talent* vous permetant d'avoir tout le nécessaire pour jouer tranquillement"
+        "Le *Talent* vous permettra de continuer l'histoire sans perdre quoi que ce soit en mental ou en vie"
+        "Le Talent et plus fort que vos caracteristique de base (Charisme,Force,Intelligence)"
+        "Le Talent vous avez 100 point de talent utilise 10 point a chaque utilisation"
+        $ talent = 100
+        show screen endurance
+        $ charisme = 100
+        $ intelligence = 100
+        $ force == 100
+        $ forcebestial = 1
+        $ endurance = 100
+        "Sachant que dans le mode Noob votre Charisme votre Force et votre Intelligence sera a 100 pour les 3"
+        "Ce qui veut dire que vous serait charismatique , fort et intelligent"
+        "Vous avez aussi un guide nommé Kaka-0826 qui vous aidera a choisir les bon chemin"
+        "Vous pouvez aussi récupéré des coffre dans certain lieu qui vous donneron des armes et de l'or"
+        "Puis quand vous perdez du mental au lieu de payer 10,20,40mental il sera divisé par 2"
+        "Vous gagnerais des point de vie des points d'endurance pour toute la partie"
+    if facile == 1:
+        "Vous avez choisit Facile"
+        "Le jeu peut commencer"
+        "En mode Facile vous bénificier d'une barre de Talent supplémentaire"
+        "Le *Talent* vous permettra de continuer l'histoire sans perdre quoi que ce soit en mental ou en vie"
+        "Le Talent et plus fort que vos caracteristique de base (Charisme,Force,Intelligence)"
+        "Le Talent vous avez 50 point de talent utilise 10 point a chaque utilisation"
+        "Vous avez aussi un guide nommé Kaka-0826 qui vous aidera a choisir les bon chemin"
+        "Vous aurez le droit de trouver des bonus supplémentaire (gold(pakupaku),mental,attaque,vie)"
+        show screen kaka1
+    if normal == 1:
+        "Vous avez choisit le mode normal, la difficulté et standart les réglages de base sont présent"
+        "En mode normal vous pouvez pleinement profité d'une difficulté résonnable"
+        "Malgré tout pour vous aider vous serait guider par Kaka-0826"
+        show screen kaka1
+        jump prequel
+
+    if difficile == 1:
+        "Vous avez choisit Difficile"
+        "Les monstre ou personnage que vous affronter sera plus puissant"
+        "En mode difficile vous avez 80 de mental et 80 de vie"
+        "Votre attaque et diminué de moitié de moitié"
+        $ mental = 80
+        $ vie = 80
+        if guerrier = 1:
+            $ attaque = 10
+        if rodeur = 1:
+            $ attaque = 20
+        if assassin = 1:
+            $ attaque = 30
+        if mage = 1:
+            $ attaque = 25
+        $ endurance = 50
+        "Votre endurance et réduit a 50"
+        "les effort mental sont compliquer pour vous a chaque choix que vous faite mentalement et augmenter de 5"
+        "Vous pouvez utilisez le Kaka-0826 seulement il vous coutera 10 or"
+        show screen kaka1
+        jump prequel
+    if cauchemard == 1:
+        "Désolé vous n'avez pas accès a cette contre partit"
+        return
+        "Vous avez choisit Cauchemard"
+        "Comment vous dire proprement que je vais vous faire souffrir?"
+        "Vous allez devoir partir avec un caractere positif et négatif aléatoire"
+        "Au lieux d'avoir 1 seul trait négatif vous en avez 3"
+        "Votre jauge de votre talent (Charisme,Intelligence,Force) et réduit a 50"
+        "les effort mental sont compliquer vous perdez 10point de mental a chaque choix que vous faite"
+        "Les Objets de Bunda sont 2fois plus chers"
+        "Les combats sont plus dure pour vous a chaque fin de combat vous perdez 10 de vie"
+        "Votre attaque et réduit de moitié"
+        "Votre endurance et réduit a 50 pareillement pour votre mental et votre vie"
+        "Votre Double tranchant a 80% de chance de tomber sur le négatif"
+        "Cepandant le mode cauchemard vous réserve bien des surprise"
+        "Fouillez bien les endroit mysterieux et peut être vous trouverais quelque chose de bien ou pas"
+        "Vous n'avez pas le droit d'utiliser le bot Kaka-0826"
+        "Bonne chance"
+        if intelligence == 100:
+            "Votre intelligence baisse a 50"
+            $ intelligence = 50
+        if charisme == 100:
+            "Votre Charisme baisse a 50"
+            $ charisme = 50
+        if force == 100:
+            "Votre force baisse a 50"
+        $ mental = 50
+        $ vie = 50
+        $ endurance = 50
+        "Le Jeu peut commencer"
+        jump prequel
+
+label skip:
+    $ bronze = 0
+    $ argent = 0
+    $ igold = 0
+    $ platine = 0
+    $ diamant = 0
+    jump prequel
+label prequel:
+    $ medaille = 0
+    if noob >= 1:
+        $ mental += 10
+        $ vie += 10
+        $ endurance += 10
+        $ gold += 10
+        "Les gens autour de vous et vous regarde d'un air béa"
+        "Mais sans pluss en faisant le saltinbanque vous gagnez +10pakupaku"
+    if facile >= 10:
+        $ mental += 5
+        $ vie += 5
+        "Une salve d'applaudissement par les gens autour de vous"
+    if normal >= 12:
+        "Des applaudissement d'une simplicité déconcertente"
+        $ endurance -= 10
+    if difficile >= 15:
+        "Vous êtes Huer pas la foule cela vous démoralise"
+        $ mental - 10
+        $ endurance -= 20
+    if cauchemard >= 20:
+        "Chaque personne autour de vous renifle vos odeurs"
+        show narrateurbouda
+        "Diantre quesque cette vileni vous pousse a faire cela"
+        "Le narrateur du passé et très faché"
+        "Il vous jette une tomate a la figure et claque la porte derriere lui"
+        hide narrateurbouda
+
+    show text "Astrae - Acte 1-Chapitre 1.0\n *La Boucle de la Vie.*"
+    "Tu te réveilles dans un vaste territoire."
+    "Quelqu'un l'interpelle."
+    show screen kaka1
+    show screen kaka01
+    hide text
+    show yae
+    "???" "HEY .."
+    $ orbe = 0
+    "???" "Réveille toi!"
+    "Tu commences à ouvrir les yeux et tu appercoit une jeune et jolie femme."
+    "A côté de toi, un majestueux,mais imperceptible grand arbre"
+    "???" "Tout va bien?"
+    hide screen kaka01
+    hide yae
+    if medaille == 5:
+        "Vous avez une médaille de Platine"
+    if medaille == 4:
+        "Vous avez une médaille d'Or"
+    if medaille == 6:
+        "Vous avez  une médaille celeste"
+    if medaille == 3:
+        "Vous avez une médaille de bronze"
+    if medaille  == 2:
+        "Vous avez une médaille de cuivre"
+    if medaille == 1:
+        "Vous avez une médaille en bois !"
+    $ player_name = renpy.input("Comment tu t'appelle?")
+    $ player_name = player_name.strip()
+    if player_name == "Le Voile de l'Univers":
+        if esprit == 1:
+            jump nom
+        $ esprit = 1
+        $ fin += 1
+        "Vous avez débloqué [fin] fin ! Bravo !"
+        jump nom
+    if player_name == "Le Jeu de la Corde":
+        if corde == 1:
+            jump nom
+        $ corde = 1
+        $ fin += 1
+        "Vous avez débloqué [fin] fin ! Bravo !"
+        jump nom
+    if player_name == "Astre de la Vie":
+        if officiel == 1:
+            jump nom
+        $ officiel = 1
+        $ fin += 1
+        "Vous avez débloqué [fin] fin ! Bravo !"
+        jump nom
+    if player_name == "Champion de l'Arene":
+        if desert == 1:
+            jump nom
+        $ desert = 1
+        $ fin += 1
+        "Vous avez débloqué [fin] fin ! Bravo !"
+        jump nom
+    if player_name == "Fleur d'Etoile":
+        if monolyte == 1:
+            jump nom
+        $ monolyte = 1
+        $ fin += 1
+        "Vous avez débloqué [fin] fin ! Bravo !"
+        jump nom
+    if player_name == "Le Cerceuil de la Mort":
+        if cerceuil == 1:
+            jump nom
+        $ cerceuil = 1
+        $ fin += 1
+        "Vous avez débloqué [fin] fin ! Bravo !"
+        jump nom
+    if player_name == "Dans les Bras de la Mort":
+        if mort == 1:
+            jump nom
+        $ mort = 1
+        $ fin += 1
+        "Vous avez débloqué [fin] fin ! Bravo !"
+        jump nom
+    if player_name == "Sous les Croc du Serpent":
+        if serpent == 1:
+            jump nom
+        $ serpent = 1
+        $ fin += 1
+        "Vous avez débloqué [fin] fin ! Bravo !"
+        jump nom
+    if player_name == "Squelette Décomposer":
+        if squelette == 1:
+            jump nom
+        $ squelette = 1
+        $ fin += 1
+        "Vous avez débloqué [fin] fin ! Bravo !"
+        jump nom
+    if player_name == "Tentacule de la Mort":
+        if tentacule == 1:
+            jump nom
+        $ tentacule = 1
+        $ fin += 1
+        "Vous avez débloqué [fin] fin ! Bravo !"
+        jump nom
+    if player_name == "La Cité Perdu":
+        if cite == 1:
+            jump nom
+        $ cite = 1
+        $ fin += 1
+        "Vous avez débloqué [fin] fin ! Bravo !"
+        jump nom
+    if player_name == "Croisiere d'Enfer":
+        if croisiere == 1:
+            jump nom
+        $ croisiere = 1
+        $ fin += 1
+        "Vous avez débloqué [fin] fin ! Bravo !"
+        jump nom
+    if player_name == "Puce Robotique":
+        if robot == 1:
+            jump nom
+        $ robot = 1
+        $ fin += 1
+        "Vous avez débloqué [fin] fin ! Bravo !"
+        jump nom
+    if player_name == "Froid Polaire":
+        if glacier == 1:
+            jump nom
+        $ glacier = 1
+        $ fin += 1
+        "Vous avez débloqué [fin] fin ! Bravo !"
+        jump nom
+    if player_name == "Les Richesses de l'Univers":
+        if elephant == 1:
+            jump nom
+        $ elephant = 1
+        $ fin += 1
+        "Vous avez débloqué [fin] fin ! Bravo !"
+        jump nom
+    if player_name == "Bulle des Cieux":
+        if kraken == 1:
+            jump nom
+        $ kraken = 1
+        $ fin += 1
+        "Vous avez débloqué [fin] fin ! Bravo !"
+        jump nom
+    if player_name == "Le Joueur devient Narrateur":
+        if narrateur1 == 1:
+            jump nom
+        $ narrateur1 = 1
+        $ fin += 1
+        "Vous avez débloqué [fin] fin ! Bravo !"
+        jump nom
+    if player_name == "Le Disciple de l'Ombre":
+        if disciple == 1:
+            jump nom
+        $ disciple = 1
+        $ fin += 1
+        "Vous avez débloqué [fin] fin ! Bravo !"
+        jump nom
+    if player_name == "Mathias":
+        jump mathias
+    if player_name == "Eren":
+        jump eren
+    if player_name == "Armin":
+        jump armin
+    if player_name == "Erwin":
+        jump erwin
+    if player_name == "Atanos":
+        jump atanos
+    if player_name == "Histoire de Altamis":
+        "Voici l'Histoire de Altamis"
+        "Dans le monde de Astrae, sur le continent de Wingdhel"
+        "Un enfant bien particulier est né."
+        "Son nom… Altamis."
+        "On dit de lui que depuis tout petit, il souffrait d'une douleur qui le prenait dans l'abdomen, et dans toute les partie de sont corps."
+        "La douleur était telle que sa peau était rongée de l'intérieur, son corps était un monticule de chair mouvant."
+        "Il avait tellement honte de son visage qui le cacha derrière un masque, accompagné d’une longue capuche teintée de noire."
+        "A un certain âge, il commença à entendre des voix dans sa tête, d'une langue qui ne voulait rien dire…"
+        "Une langue inconnue."
+        "Un beau jour, il fut abandonné par ses parents pour le revendre en tant qu’esclave."
+        "C'est là qu'il fit la connaissance d'une elfe sombre nommée Elkia."
+        "Elkia ne le voyez pas comme une simple chose…"
+        "Elle le voyait pour ce qu'il était réellement, un enfant rempli de haine et de colère…"
+        "Elle baptisa cet enfant sous le crépuscule d'une nuit rouge écarlate."
+        "C'est à ce moment la que Altanos réussit à entendre les voix."
+        "Il entendait les voix d'un soi-disant dieu demeurant derrière un voile obscur."
+        "Ce dieu réclamait des choses à Atanos."
+        "Il lui demandait de rassembler des adeptes pour créer une sorte de culte."
+        "Altanos en parla à Elkia qui était ravie. Elle savait que Altanos était un garçon exceptionnel."
+        "Alors elle se chargera de recruter bon nombre d'adeptes tout en restant secret."
+        "Elkia et Altanos créa donc le culte des ombres."
+        "Quiconque aurait l'outrecuidance de parler du culte serait abattu sur le champ!"
+        "Altanos avait trouver un moyen de voler les âmes pour nourrir le dieu."
+        "Il suffisait de faire un cercle avec un symbole bien particulier."
+        "Une fois la personne dans ce cercle, on pouvait extraire son âme grâce à une orbe magique."
+        "Ensuite, quand l'âme sortait du corps du défunt, une sorte de bulle noire se dirigeait dans les cieux vers l'espace."
+        "On dit qu'il appatait leurs victimes avec une récompense, de l'or."
+        "C'était le meilleur moyen d'attirer les faibles d'esprits…"
+        "Le dieu du voile obscur réclamait sans cesse des âmes, sans jamais être repu."
+        "On ne connaît pas la suite de l'histoire de Altamis…"
+        "La légende raconte qu'il serait parti en pèlerinage dans une montagne."
+        jump nom
+    if player_name == "Histoire de Yae":
+        show yae
+        "Yae jeune fille de Midrael et de Grégoire."
+        "Sa mère a perdu toute fortune en cédant son royaume."
+        "Elle l’a fait pour protéger sa famille…"
+        "Midrael était prête à tout pour sa fille…"
+        "Yae était une prodige de la magie, elle était capable de faire de puissant sortilège."
+        "Mais Mydrael fut tuée par son fils qui voulait le trône."
+        "Il n'était pas d'accord avec la façon de faire de sa mère."
+        "Alors il la tua…"
+        "Yae la surprise, fou de rage, elle fut remplie d'une puissance magique incontrôlable."
+        "Elle tua son frère."
+        "Son père n’a pas supporté toute cette pression, alors il partit en mer."
+        "Le seul souvenir de Mydrael était une émeraude donnée à Yae depuis son plus jeune âge."
+        "Après tous ces événements, Yae devient reine."
+        "Mais elle était épiée et follement désirée par Atanos."
+        "Atanos était prêt à tout pour la conquérir!"
+        "Il a tué des amis chers à Yae."
+        "Et il l'a violée."
+        "Elle ne pouvait supporter son attitude. Elle s'enfuit le plus loin possible."
+        "C'est là qu'elle arriva au pied d'un arbre à côté d'un aventurier."
+        "Elle se sentait prête à vivre de nouvelles aventures."
+        hide yae
+        jump nom
+    if player_name == "Histoire de Mobos":
+        show mobos
+        "Mobos était un fils de roturier."
+        "Mais Mobos voulait devenir un grand guerrier."
+        "Il s'acharnait à faire de gros efforts pour que l'on voit sa valeur."
+        "Un jour, le roi des humains du centre était épris d'une violente maladie."
+        "Sa dernière volontée était de trouver un roi digne de ce nom."
+        "Alors il organisa un tournoi de guerrier."
+        "Mobos fut le grand vainqueur et devint le roi."
+        "Mais il ne s'arrêta pas là, en fin négociateur et stratège."
+        "Il proposa un traité d'union des Humains."
+        "En faisant cela, Mobos est devenu le Roi des Roi, le premier Empereur."
+        "Un jour, Mobos entendit une voix dans sa tête…"
+        "Elle se présenta, c'était Aelia."
+        "A force de bavardage et partageant les mêmes valeurs, ils tombèrent amoureux."
+        "C'est ainsi que se finit son histoire."
+        hide mobos
+        jump nom
+    if player_name == "Histoire de Bia":
+        show bia
+        "Bia était une valeureuse guerrière."
+        "Ancienne main droite de Midrael."
+        "Elle eu 5 enfants."
+        "Bia voulait les élever."
+        "Et renonça à ses fonctions pour s'occuper de ses enfants."
+        "Elle était mariée à un pochtron."
+        "Qui un beau jour la tua…"
+        hide bia
+        "C'est ainsi que se finit l'histoire de Bia."
+        jump nom
+
+    if player_name == "Histoire de Akame":
+        show akame
+        "On dit que les anges naissent d'une étoile…"
+        "C'est le cas de Akame!"
+        "Akame était l'un des plus faibles ange."
+        "C'est l'une des raisons de pourquoi l'insurrection ne cessait de batailler contre elle!"
+        "Les Humains pensaient pouvoir triompher de la vie."
+        "Les guerres non jamais cessées, Helios voulait à tout pris faiblir l'équilibre."
+        "Mais l'ange fut toujours vainqueur."
+        "Jusqu'au jour où elle fut tuée par la suite de cette histoire."
+        "Mais elle avait un plan de secours…"
+        "Elle avait demandé à Aelia de créer un autre ange au cas où sa mort viendrait."
+        "Cristal le futur nouvel ange de la vie était prêt."
+        "Akame, une fois tuée, transporta son âme dans un esprit."
+        "Elle resta un ange et toute personne trouvant la mort,"
+        "Se retrouver matérialiser en un esprit."
+        "Elle nomma son peuple *Les Spirit*"
+        "C'était pour elle une seconde chance à la vie."
+        "La mort n'était pas une fin, mais un renouvellement!"
+        hide akame
+        jump nom
+    if player_name == "Narrateur":
+        show narrateur
+        with vpunch
+        na "COMMENT CA, MAIS TU T'APPELLE PAS NARRATEUR!"
+        na "C’pas toi le narrateur! arrête de voler mon nom!"
+        na "Tu veux pas te trouver un nom qui va mieux avec ton image?"
+        na "Genre TrouDuQ? Connard, GrasDuBide , Gueule de Raie , Sac a Foutre!"
+        na "J'ai plein d'idées pour toi !"
+        hide narrateur
+        "{a=jump:connard}Je veux m'appeller Narrateur !{/a} ; {a=jump:trouduq}TrouduQ{/a} ; {a=jump:nom}Trouver un autre Prénom{/a} "
+        jump nom
+    if player_name == "Dragou":
+        jump dragou
+    if player_name == "":
+        show narrateur
+        na "T’as choisi de ne pas mettre de prénom alors je vais en choisir un pour toi !"
+        na "Ne t'inquiète pas, ça va t'aller comme un gant!"
+        na "Alors t’as une tronche de cake…"
+        na "Une odeur de crotte de cheval…"
+        na "Tu bousilles mon RP !"
+        na "Et je t'aime pas !"
+        hide narrateur
+
+        $ player_name = "TrouduQ"
+        na "Donc tu vas t'appeler [player_name]"
+        na "cela te convient? {a=jump:prenom}Oui{/a} ; {a=jump:trouduq}Non{/a}"
+        jump nom
+    jump prenom
+
+label chapitrebonus:
+    "Avant de commencer le chapitre bonus, nous avons décidé de vous offrir un petit jeu d'enquête et de détective."
+    "Amusez-vous bien !"
+    scene village
+    "Souvenez vous, dans le village quelqu'un avait tué Kurake."
+    show kurake
+    "..."
+    hide kurake
+    "Mais une enquête a été menée par de très bon enquêteurs, l'auteur n'était peut être pas un loup garou."
+    "Peut-être s'agissait t'il d'autre chose, quelles sont les causes de la mort de Kurake?"
+    "Qui peut bien l'avoir tué? un Loup ou un simple Villageois?"
+    "Vous allez le découvrir en menant cette enquête"
+    "Tout d'abord, revenons un peu après les meurtres du village."
+    "Et interrogez les esprits des villageois."
+    "Pour cela, il va vous falloir l'aide de 2 grands détectives!"
+    "Voici Shawn et Guss."
+    "Dans une nouvelle enquête !"
+    show shawn
+    "Shawn" "Bonjour TCHOU TCHOU!"
+    "Shawn" "Mais dis donc, ta vraiment une tête d'ananas!"
+    "Shawn" "GUSSSS, regarde le! il a vraiment une tête d'ananas ce gars là!"
+    "Il vous regarde fixement"
+    hide shawn
+    show guss
+    "Guss" "Voyons Shawn, c'est pas une façon de parler!"
+    "Guss" "C'est un aventurier digne de nom et de respect."
+    "Guss" "Par contre, c'est vrai que vous avez une tête d'ananas…"
+    "Guss" "J'ai des remèdes contre tout type de maladie."
+    "Guss" "En tant que représentant pharmaceutique et jeune sorcier, je peux vous aider!"
+    "Guss" "N'hésitez pas à m'appeler."
+    hide guss
+    show shawn
+    "Shawn" "N'écoutez pas ce malotru!"
+    hide shawn
+    show guss
+    "Guss" "Dis donc! c'est toi le malotru!"
+    hide guss
+    show shawn
+    "Shawn" "Non toi !"
+    hide shawn
+    show guss
+    "Guss" "NOOOOOOONNNNNNNNNN TOI !!!!"
+    "Guss" "Veuillez nous excuser, on en a pas pour longtemps…"
+    hide guss
+    "Vous attendez."
+    "Vous patientez."
+    "Pendant que Shawn et Guss on l'air de se chamailler…"
+    "Vous finissez par vous endormir."
+    "Vous entendez un fracas et vous vous réveillez avec sursaut."
+    "Un miroir s'est brisé."
+    show shawn
+    "Shawn" "Bravo! t’as cassé un miroir! 7ans de malheur à cause de toi!"
+    hide shawn
+    show guss
+    "Guss" "Nan, j'ai pas envie d'être frappé par une malédiction !"
+    "Guss" "L'esprit du mal est gravé sur ma face !"
+    hide guss
+    show shawn
+    "Shawn" "Ne t'inquiète pas, il ne va rien se passer…"
+    hide shawn
+    "Un bruit se fait entendre."
+    show guss
+    "Guss" "Shawn c'est pas très drôle !"
+    hide guss
+    show shawn
+    "Shawn" "J'ai rien fait moi !"
+    hide shawn
+    show kurake
+    "???" "Retrouver celui qui m'a tué !"
+    "???" "RETROUVER LE!"
+    hide kurake
+    show shawn
+    "Shawn" "On se tire Guss!"
+    hide shawn
+    show guss
+    "Guss" "T’as raison, ne restons pas une minute de plus ici."
+    hide guss
+    show kurake
+    "???" "PAS BOUGER!"
+    "???" "WHO LES GARS TROUVEZ MON MEURTRIER LA!!"
+    "???" "Du Nerf !"
+    hide kurake
+    "Shawn soupir"
+    show shawn
+    "Shawn" "C'est d'accord, mais ne nous faites pas de mal…"
+    "Shawn" "Ou faite juste du mal à Guss!"
+    hide shawn
+    show guss
+    "Guss" "On peut pas faire confiance à un fantôme!"
+    "Guss" "JE SUIS PAS D'accord."
+    hide guss
+    "Dit il en pleurant"
+    show shawn
+    "Shawn" "Guss, le fantôme a besoin de retrouver la paix!"
+    "Shawn" "Il faut trouver son meurtrier!"
+    hide shawn
+    show guss
+    "Guss" "D'accord mais il ne nous a donné aucune piste…"
+    hide guss
+    show kurake
+    "???" "Je m'appelle Kurake."
+    "???" "J'ai étais tué un soir de pleine lune."
+    "???" "Pendant que je faisais des travaux dans ma bâtisse."
+    "???" "Le meurtrier est sorti de nul par avant de me tuer. Il a poussé un hurlement…"
+    "???" "On aurait dit un loup!"
+    "???" "Mais je n'ai pas la certitude que ça en était un…"
+    "???" "Donc suite à cela, je suis mort."
+    "???" "Je ne me souviens de rien d'autre…"
+    "Kurake" "Réveillez les autres fantômes et trouvez mon meurtrier!"
+    "Kurake" "Trouvez-le! Dès que vous avez la réponse revenez me voir."
+    "Kurake" "S'il vous plait, je compte sur vous…"
+    hide kurake
+    with dissolve
+    show guss
+    "Guss" "Bah génial! Maintenant on doit invoquer des fantômes… bravo Shawn !"
+    hide guss
+    show shawn
+    "Shawn" "Ne t'inquiète pas, avec un médium comme moi tout va bien se passer!"
+    hide shawn
+    show shawn
+    with dissolve
+    "Shawn" "Tient Tête d'Ananas ! j'ai besoin de toi! prend ma main."
+    "Shawn" "Maintenant, formons un cercle."
+    "Shawn" "Je vais réciter une formule pour appeler les morts."
+    "Shawn" "DISSOLVANT DE MACHINE A LAVER!"
+    "Shawn" "100pourcentcoton"
+    "Shawn" "Ma Chemise je doit repasser"
+    "Shawn" "Guss est un champignon."
+    "Shawn" "Oh ciel d'Astrae pourquoi est tu si cruel?"
+    hide shawn
+    show guss
+    "Guss" "Shawn! ce n'est pas la bonne formule! la t’as fait une formule pour tacher ma chemise!"
+    hide guss
+    show shawn
+    "Shawn" "Désolé partenaire, il fallait que cette chemise dégueulasse face l'office d'un sacrifice…"
+    "Shawn" "Reprenons."
+    "Shawn" "Oh esprits défunts."
+    "Shawn" "Reprenez du début à la fin."
+    "Shawn" "Racontez-nous tous du soir au matin."
+    "Shawn" "Dites moi pourquoi Guss prend du shampoing."
+    "Shawn" "Ici et maintenant je vous invoque!"
+    hide shawn
+    show elayna
+    "Elayna" "Putain! qui c'est qui m’a réveillé BORDEL!"
+    hide elayna
+    show dimitri
+    "Dimitri" "C'est ce mec là !"
+    hide dimitri
+    show seikyo
+    "Seikyo" "Ta gueule Dimitri."
+    hide seikyo
+    show mioru
+    "Mioki" "J'ai la flemme de vous répondre."
+    hide mioru
+    show scara
+    "Scara" "Qu'est ce qui ce passe encore?"
+    hide scara
+    show jinks
+    "Jinks" "PALAPAPA."
+    hide jinks
+    show soraya
+    "Soraya" "Vous me dérangez! j'étais plongé dans mon hentai!"
+    hide soraya
+    show rubie
+    "Rubie" "Dans mon rêve, j'étais une cigarette! pourquoi m'avoir réveiller bande d'enfoiré !"
+    hide rubie
+    show yui
+    "Yui" "VOUS SAVEZ QUI FAUT JAMAIS, JE DIS BIEN JAMAIS! RÉVEILLER CHRIS LE SANG??"
+    hide yui
+    show guss
+    "Guss" "Ces fantômes me font peur Guss…"
+    hide guss
+    show shawn
+    "Shawn" "On aimerait juste en savoir plus sur la mort de Kurake."
+    hide shawn
+    show yui
+    "Yui" "MÊLE TOI DE TES AFFAIRES!"
+    hide yui
+    show shawn
+    "Shawn" "Bon, tête d'ananas, j'ai confiance en toi! va les interroger, moi je dois faire pipi…"
+    hide shawn
+    "Bon, Shawn s’est enfermé dans les toilettes avec Guss..."
+    "Il faut interroger les fantômes et trouver des indices.."
+    "Attention, pour certaines inspections, il faut aller voir Shawn pour l'augmenter."
+    "Cependant, certains indices se trouveront avec de la déduction, pour cela allez voir Guss."
+    "Si vous allez voir Shawn, votre déduction baissera."
+    "Si vous allez voir Guss, votre inspection baissera."
+    "A vous de trouver le juste équilibre pour votre enquête!"
+    "Vous pouvez à tout moment allez voir Azure qui fera un bilan de vos preuves récoltées"
+    $ mioru = 0
+    $ jinks = 0
+    $ scara = 0
+    $ yui = 0
+    $ soraya = 0
+    $ elayna = 0
+    $ rubie = 0
+    $ dimitri = 0
+    $ cle = 0
+    $ mirroir = 0
+    $ guss = 0
+    $ shawn = 0
+    $ corde = 0
+    $ hentai = 0
+    $ primo = 0
+    $ mensonge = 0
+    $ dormir = 0
+    $ zenitsu = 0
+    $ inspection = 0
+    $ deduction = 0
+    $ ningguang = 0
+    $ admiration1 = 0
+    $ admiration2 = 0
+    $ admiration3 = 0
+    $ admiration4 = 0
+    $ admiration5 = 0
+    $ admiration6 = 0
+    $ admiration7 = 0
+    $ admiration8 = 0
+    $ admiration9 = 0
+    $ affection = 0
+    $ affection1 = 0
+    $ allumette = 0
+    $ lettre1 = 0
+    $ lettre2 = 0
+    $ livre1 = 0
+    $ livre2 = 0
+    $ livre3 = 0
+    $ preuve = 0
+    $ moras = 0
+    $ preuve1 = 0
+    $ preuve2 = 0
+    $ papier = 0
+    $ preuve3 = 0
+    $ preuve4 = 0
+    $ preuve5 = 0
+    $ indice1 = 0
+    $ indice2 = 0
+    $ indice3 = 0
+    $ indice4 = 0
+    $ indice5 = 0
+    $ couteau = 0
+    $ reconfort = 0
+    jump enquete
+
+label enquete:
+    if inspection >= 4:
+        $ inspection = 3
+    if deduction >= 4:
+        $ deduction = 3
+    if inspection <= 0:
+        $ inspection = 0
+    if deduction <= 0:
+        $ deduction = 0
+    "Qui allez vous voir?"
+    "Votre niveau d'inspection est de [inspection]."
+    "Votre niveau de déduction est de [deduction]."
+    call screen enquete
+
+label guss20:
+    show guss
+    "Guss" "Quoi? je suis un peu occupé la!"
+    hide guss
+    "{a=jump:guss21}Interroger{/a};{a=jump:guss22}Faire monter votre niveau de Déduction{/a};{a=jump:enquete}Rien{/a} ;"
+    jump enquete
+
+label guss21:
+    show guss
+    "Guss" "On sait qu'il y a des liens entre les villageois."
+    "Guss" "A vous de trouver leur lien, pour trouver un maximum de choses."
+    if indice1 == 1:
+        "Le premier indice c'est que Chris le Sang Alias Yui aurait brûlé la maison de Kurake."
+    if indice2 == 1:
+        "Le Deuxième indice, c'est une lettre dépressive de Kurake."
+    if indice3 == 1:
+        "Le Troisième indice c'est que Rubie avait la clé de la maison de Kurake."
+    if indice4 == 1:
+        "Le quatrième indice c'est qu'un hurlement de loup garou aurait été entendu proche du village."
+    if indice5 == 1:
+        "Le cinquième indice c'est que Soraya se rendait souvent aux toilettes de Kurake."
+    if livre1 == 1:
+        "Le Premier livre dit que Kurake apercevait une silhouette par sa fenêtre."
+    if livre2 == 1:
+        "Le Deuxieme Livre dit que Kurake envisageait le suicide, mais qu'il ni parvennait pas."
+    if livre3 == 1:
+        "Le Troisième Livre dit que une puissante odeur se dégageait, qu’il allait mourir."
+    hide guss
+    jump enquete
+
+label guss22:
+    show guss
+    "Guss" "Préparez vous, un beau gosse nommé Guss va traverser les ondes pour vous aider."
+    "Guss" "Patte de Velour entre parmi les ondes."
+    hide guss
+    "Vous avez gagnez 1 point de déduction et perdu 1 point d'inspection"
+    $ deduction += 1
+    $ inspection -= 1
+    jump enquete
+
+label shawn20:
+    show shawn
+    "Shawn" "Les toilettes sont bouchées, on peut se parler à travers la porte."
+    "Shawn" "De quoi avez-vous besoin?"
+    hide shawn
+    "{a=jump:shawn21}Interroger{/a} ;{a=jump:shawn22}Clore l'enquete{/a} ;{a=jump:shawn23}Abandonner l'enquête{/a} ;{a=jump:shawn24}Faire monter votre niveau d'Inspection{/a} ;{a=jump:enquete}Rien{/a} ;"
+    jump shawn20
+
+label kurake20:
+    show kurake
+    "Kurake" "Que me voulez vous donc?"
+    hide kurake
+    "{a=jump:kurake21}Interoger{/a} ;{a=jump:enquete}Partir{/a} "
+    jump enquete
+
+label kurake21:
+    show kurake
+    "Kurake" "On avait formé un groupe les Warcrew."
+    "Kurake" "Avec certaines personnes du village."
+    "Kurake" "Mais la mort m’a fait perdre la mémoire…"
+    "Kurake" "Je sais juste que je ne partirai pas en paix."
+    "Kurake" "Tant que le crime ne sera pas résolu."
+    hide kurake
+    jump enquete
+
+label shawn21:
+    show shawn
+    "Shawn" "On ne connait pas trop les causes de la mort."
+    if allumette == 1:
+        "Vous montrez les allumettes à Shawn."
+        "Shawn" "Cette allumette a dû servir à mettre le feu à la maison. Celui ou celle qui l’a fait est peut être le ou la coupable!"
+    if couteau == 1:
+        "Vous montrez le couteau à Shawn."
+        "Shawn" "Ce couteau est très suspect, il y'a du sang dessus, à voir à qui il appartient."
+    if lettre1 == 1:
+        "Vous montrez la pRemière lettre a Shawn."
+        "Shawn" "A priori, on aurait volé quelque chose à Kurake, mais quoi?"
+    if lettre2 == 1:
+        "Vous montrez la deuxième lettre à Shawn."
+        "Shawn" "Sur cette lettre certaine case forme des mots!"
+    if livre1 == 1:
+        "Shawn" "Je n'arrive pas à lire le latin, demande plutôt à Guss."
+    if corde == 1:
+        "Vous montrez la corde à Shawn."
+        "D'aprés cette corde, on peut envisager le suicide, mais à ce stade on est sure de rien…"
+    jump enquete
+
+label shawn22:
+    "Vous avez donc trouvé le coupable?"
+    "Lequel d'entre eux d'après vous?"
+    "{a=jump:enquete2}Mioru{/a};{a=jump:enquete2}Jinks{/a};{a=jump:enquete2}Scara{/a};{a=jump:enquete2}Yui{/a};"
+    "{a=jump:enquete2}Elayna{/a};{a=jump:enquete1}Soraya{/a};{a=jump:enquete2}Seikyo{/a};{a=jump:enquete2}Rubie{/a};"
+    "{a=jump:enquete2}Dimitri{/a};{a=jump:enquete2}Kurake{/a};"
+
+label enquete2:
+    "Non ce n'est pas cette personne !"
+    jump enquete
+
+label enquete1:
+    if livre1 == 1:
+        if livre2 == 1:
+            if livre3 == 1:
+                show shawn
+                "Shawn" "On te tient sale fantôme! c'est toi qui a fait le coup !"
+                "Shawn" "Tu frappais chaque jour à la porte de Kurake pour aller aux toilettes!"
+                "Shawn" "Il en dégageait une odeur infecte!"
+                "Shawn" "Il s'est retrouvé enfermé dans sa maison."
+                "Shawn" "Il a voulu mettre fin à ses jours mais l'odeur a eu raison de lui."
+                "Shawn" "Ensuite, quelqu'un a brûlé la maison."
+                "Shawn" "Y'avait très peu de chance que l'on te retrouve mais on t’a trouvé!"
+                hide shawn
+                jump finenquete
+    "Vous n'avez pas suffisamment de preuves!"
+    jump enquete
+
+label shawn23:
+    "Vous êtes sur le point d'abandonner"
+    "{a=jump:chapitrebonus2}Abandonner{/a};{a=jump:enquete}Continuer{/a};"
+    jump enquete
+
+label shawn24:
+    show shawn
+    "Shawn" "Concentre toi !"
+    "Shawn" "Ressent moi en toi !"
+    "Shawn" "Par le pouvoir des ondes je te transmet mon pouvoir!"
+    "Shawn" "Puissance Ananas JAUNEEEEEEEEE!"
+    "Shawn" "YATAAAAAAAAAAAAAAAAA"
+    hide shawn
+    $ inspection += 1
+    $ deduction -= 1
+    jump enquete
+
+label mioki20:
+    $ dormir = 0
+    $ dormir += renpy.random.randint(1,20)
+    if dormir >= 15:
+        "Mioru dort pour le moment, essayez de lui parler plus tard."
+        $ dormir = 0
+        jump enquete
+    show mioru
+    "Mioru" "Ah! salut c'est toi.."
+    "Mioru" "Tu viens m'interroger sur la mort de Kurake?"
+    hide mioru
+    "{a=jump:mioki21}Interroger{/a} ; {a=jump:mioki22}Inspecter{/a};{a=jump:mioki25}Déduction{/a}; {a=jump:mioki23}Réconforter{/a}; {a=jump:mioki24}Preuve{/a} ;{a=jump:enquete}Rien{/a} ;"
+    jump enquete
+
+label mioki21:
+    if admiration1 == 1:
+        show mioru
+        "Mioru" "Alors comme ça vous avez parlé à Jinks?"
+        "Mioru" "Cela force le respect et mon admiration pour vous."
+        hide mioru
+        $ admiration2 = 1
+        jump enquete
+    show mioru
+    "Mioru" "Pour tout vous dire, je ne connais que très peu Kurake…"
+    "Mioru" "Évidemment sa mort a fait de la peine…"
+    "Mioru" "Mais néanmoin, je connais quelqu'un de proche de Kurake!"
+    "Mioru" "Je ne peux divulguer son nom."
+    "Mioru" "Veuillez m'excuser.."
+    hide mioru
+    jump enquete
+
+label mioki25:
+    if deduction == 2:
+        "Grâce à votre déduction, vous remarquez que Mioru cache une profonde amitié avec Seikyo."
+        "Seikyo sera peut être plus en mesure de vous parler désormais…"
+        $ affection1 = 1
+        jump enquete
+
+label mioki22:
+    "Vous inspectez Mioru..."
+    "Il y a une carte d'Ayato mais rien d'autre…"
+    jump enquete
+
+label mioki23:
+    if mioki == 3:
+        "Vous avez suffisamment réconforté Mioru."
+        show mioru
+        "Mioru" "Tu devrais aller voir Seikyo, elle en sait plus sur les causes de la mort de Kurake."
+        hide mioru
+        jump enquete
+    "Vous réconfortez Mioki, elle semble ravie."
+    $ mioki += 1
+    jump enquete
+
+label mioki24:
+    if zenitsu == 1:
+        "Mioru" "Vous avez retrouvé ma photo de Zenitsu, merci!"
+        "Mioru" "Tenez j'ai trouvé ça prêt de la porte de la maison de Kurake."
+        show lettre
+        "..."
+        "Vous inspectez la lettre.."
+        $ lettre1 = 1
+        hide lettre
+        jump enquete
+    "Vous n'avez aucune preuve à apporter à Mioki."
+    jump enquete
+
+label jinks20:
+    show jinks
+    "Jinks" "Salut, viens-tu me poser des questions?"
+    hide jinks
+    "{a=jump:jinks21}Interroger{/a} ; {a=jump:jinks22}Inspecter{/a};{a=jump:jinks25}Déduction{/a}; {a=jump:jinks23}Réconforter{/a}; {a=jump:jinks24}Preuve{/a} ;{a=jump:enquete}Rien{/a} ;"
+    jump enquete
+
+label jinks21:
+    show jinks
+    "Jinks" "Je ne connais pas du tout Kurake."
+    "Jinks" "Mais je l’ai déjà aperçu dans le village."
+    "Jinks" "Il fumait souvent un bon cigare…"
+    "Jinks" "C'est tout ce que je peux vous dire, je n’ai pas d'autre info…"
+    hide jinks
+    jump enquete
+
+label jinks25:
+    "Vous n'avez rien à déduire de Jinks."
+    "Elle ne vous cache rien."
+    jump enquete
+
+label jinks22:
+    "Jinks cache quelque chose de suspect."
+    "C'est une photo d'un personnage d'anime *Zenitsu*."
+    "Peut être que cela pourrait vous servir..."
+    $ zenitsu = 1
+    jump enquete
+
+label jinks23:
+    if jinks == 3:
+        "Vous avez suffisamment réconforté Jinks."
+        $ admiration1 = 1
+        jump enquete
+    "Vous réconfortez Jinks."
+    "Elle gigote."
+    show jinks
+    "Jinks" "C’est bon gars, j'ai compris lâche moi maintenant !"
+    hide jinks
+    $ jinks += 1
+    jump enquete
+
+label jinks24:
+    "Vous n'avez aucune preuve à apporter à Jinks"
+    jump enquete
+
+label scara20:
+    show scara
+    "Scara" "Bien alors que me veux tu?"
+    hide scara
+    "{a=jump:scara21}Interroger{/a} ; {a=jump:scara22}Inspecter{/a};{a=jump:scara23}Déduction{/a}; {a=jump:scara24}Réconforter{/a}; {a=jump:scara25}Preuve{/a} ;{a=jump:enquete}Rien{/a} ;"
+    jump scara20
+
+label scara21:
+    show scara
+    "Scara" "Je suis celui qui connait surement le mieux Kurake."
+    "Scara" "On était très proche."
+    "Scara" "Sa mort est une source de peine dans mon coeur!"
+    "Scara" "J'espère que vous trouverez rapidement son meurtrier!"
+    "Scara" "En tout cas merci de votre dévouement"
+    hide scara
+    jump enquete
+
+label scara22:
+    if inspection == 3:
+        "Vous trouvez un couteau taché de sang."
+        $ couteau = 1
+        jump enquete
+    "Vous inspectez Scara mais vous ne trouvez rien de spécial sur lui."
+    jump enquete
+
+label scara23:
+    if deduction == 3:
+        "Vous vous apercevez que Scara dévoue une haine contre Seikyo."
+        $ admiration3 = 1
+        jump enquete
+    "Vous n'arrivez pas à déduire les intentions de Scara."
+    jump enquete
+
+label scara24:
+    "Cela ne sert a rien, Scara ne semble pas être en état pour être réconforté."
+    jump enquete
+
+
+label scara25:
+    if couteau == 1:
+        "Vous présentez le couteau à Scara."
+        show scara
+        "Scara" "Ça ce n'est rien c'est juste euhhh…"
+        "Scara" "Bon d'accord, c'est un couteau! que j'ai utilisé sur Seikyo."
+        "Scara" "Mais vous voyez elle va bien !"
+        "Scara" "C'est le plus important non?"
+        "Scara" "Bon n'en faite pas tout un fromage, tout va bien non?"
+        hide scara
+        jump enquete
+    "Vous n'avez aucune preuve à présenter à Scara"
+    jump enquete
+
+label yui20:
+    $ dormir = 0
+    $ dormir += renpy.random.randint(1,20)
+    if dormir >= 15:
+        "Yui et en mode Chris le Sang, vaut mieux pas la déranger tout de suite…"
+        $ dormir = 0
+        jump enquete
+    show yui
+    "Yui" "Salut comment tu vas?"
+    hide yui
+    "{a=jump:yui21}Interroger{/a} ; {a=jump:yui22}Inspecter{/a};{a=jump:yui23}Déduction{/a}; {a=jump:yui24}Réconforter{/a}; {a=jump:yui25}Preuve{/a} ;{a=jump:enquete}Rien{/a} ;"
+    jump yui10
+
+label yui21:
+    if indice1 == 1:
+        if allumette == 1:
+            show yui
+            "Chris le Sang" "{color=#ff360b}JE SUIS CHRIS LE SANG !!{/couleur}"
+            "Chris le Sang" "{color=#ff360b}Ne Dérange pas CHRIS LE SANG!!{/couleur}"
+            "Chris le Sang" "{color=#ff360b}J'ai brûlé nombres de choses avec cette allumette!!{/couleur}"
+            "Chris le Sang" "{color=#ff360b}J'ai brûlé la maison de Kurake!{/couleur}"
+            "Chris le Sang" "{color=#ff360b}Mais je pense qu'il était déjà mort avant que je fasse brûler l'enfer.{/couleur}"
+            hide yui
+            $ reconfort = 1
+            "Maintenant que tu a parlé à Chris le sang, tu devrais réconforter Yui…"
+            jump enquete
+    show yui
+    "Yui" "Je connaissais bien Kurake."
+    "Yui" "Je l'appréciais beaucoup, il me manque…"
+    "Yui" "C'est triste à dire…"
+    "Yui" "Faire ses adieux à son ami…"
+    "Yui" "Après tous les bons moments passés…"
+    "Yui" "Ne plus lui parler…"
+    "Yui" "ça fait souffrir…"
+    hide yui
+    "Yui verse une larme."
+    jump enquete
+
+label yui22:
+    if inspection == 1:
+        "Vous avez trouvé une allumette."
+        $ allumette = 1
+        jump enquete
+    "Vous inspectez Yui, vous ne trouvez rien."
+    jump enquete
+
+label yui23:
+    if deduction == 1:
+        "Grâce à votre déduction."
+        "Vous déduisez qu’elle n'était pas elle même le soir après le meurtre."
+        "Chris le sang aurait t'il fait quelque chose?"
+        "Bizarrement, il sent le brûlé."
+        "Si tu as rassemblé une preuve plus cet indice, vous pouvez parler à Yui."
+        $ indice1 = 1
+        jump enquete
+    "Vous ne déduisez rien de Yui."
+    jump enquete
+
+label yui24:
+    if reconfort == 1:
+        "Vous réconfortez Yui, vous réussissez à atténuer sa peine."
+        $ admiration4 = 1
+        jump enquete
+    "Vous réconfortez Yui."
+    "Elle semble indifférente."
+    jump enquete
+
+label yui25:
+    if allumette == 1:
+        show yui
+        "Yui" "Je ne me souviens pas de cette allumette, c'est bizarre.."
+        hide yui
+        "Elle a l'air sincère."
+        jump enquete
+    "Vous n'avez pas de preuve à présenter à Yui…"
+    jump enquete
+
+label dimitri20:
+    $ dormir = 0
+    $ dormir += renpy.random.randint(1,20)
+    if dormir >= 15:
+        "Dimitri est actuellement entrain de déprimer, revenez plus tard."
+        $ dormir = 0
+        jump enquete
+    show dimitri
+    "Dimitri" "Laisse moi mourir !!!"
+    hide dimitri
+    "{a=jump:dimitri21}Interroger{/a} ; {a=jump:dimitri22}Inspecter{/a};{a=jump:dimitri23}Déduction{/a}; {a=jump:dimitri24}Réconforter{/a}; {a=jump:dimitri25}Preuve{/a} ;{a=jump:enquete}Rien{/a} ;"
+    jump enquete
+
+label dimitri21:
+    show dimitri
+    "Dimitri" "La vie est tellement cruelle !!!"
+    "Dimitri" "Pourquoi la vie est si cruelle !!"
+    "Dimitri" "Pauvre kurake !"
+    "Dimitri" "Je suis tellement triste !"
+    "Dimitri" "Je vais me pendre pour toi !"
+    "Dimitri" "Si seulement la mort voulait de moi."
+    hide dimitri
+    jump enquete
+
+label dimitri22:
+    if inspection == 2:
+        "Vous trouvez une feuille suspecte."
+        $ lettre2 = 1
+        show lettre2
+        "..."
+        "Vous inspectez la lettre à la recherche d'indices."
+        hide lettre2
+        jump enquete
+    "Vous ne trouvez rien sur Dimitri."
+    jump enquete
+
+label dimitri23:
+    if deduction == 1:
+        show dimitri
+        "Dimitri" "Il me semble que j'avais trouvé une lettre."
+        "Dimitri" "Qui appartenait à Kurake."
+        "Dimitri" "Mais pas moyen de remettre la main dessus!"
+        "Dimitri" "Si vous examinez la lettre, on peut voir des mots macabres."
+        $ indice2 = 2
+        hide dimitri
+        "Vous rajoutez un indice dans votre liste d'indice."
+        "Essayez de monter votre inspection, pour voir si vous trouvez quelque chose avec Dimitri."
+        jump enquete
+    "Vous ne trouvez rien à déduire de Dimitri."
+    jump enquete
+
+label dimitri24:
+    if dimitri == 3:
+        "Vous avez réussi à vous attirer les foudres de Dimitri, il vous déteste maintenant."
+        $ admiration5 = 1
+        jump enquete
+    "Vous avez beau réconforter Dimitri, son état empire. Il commence à devEnir violent!"
+    $ dimitri += 1
+    jump enquete
+
+label dimitri25:
+    if feuille2 == 1:
+        "Vous montrez la feuille que vous avez trouvé à Dimitri."
+        show dimitri
+        "Dimitri" "Ah! tu l'as retrouvée!"
+        "Dimitri" "C'est la feuille de Kurake que j'ai trouvé."
+        "Dimitri" "Je ne sais pas du tout ce que cela signifie…"
+        hide dimitri
+        jump enquete
+    "Vous n'avez aucune preuve à montrer à Dimitri."
+    jump enquete
+
+label seikyo20:
+    show seikyo
+    "Seikyo" "Qu’est ce que tu me veux wesh?"
+    hide seikyo
+    "{a=jump:seikyo21}Interroger{/a} ; {a=jump:seikyo22}Inspecter{/a};{a=jump:seikyo23}Déduction{/a}; {a=jump:seikyo24}Réconforter{/a}; {a=jump:seikyo25}Preuve{/a} ;{a=jump:enquete}Rien{/a} ;"
+    jump seikyo20
+
+label seikyo21:
+    if admiration2 == 1:
+        if admiration3 == 1:
+            if admiration4 == 1:
+                if admiration5 == 1:
+                    if affection1 == 1:
+                        show seikyo
+                        "Seikyo" "Tu forces le respect."
+                        "Seikyo" "Je pensais pas que tu t'intégrerai aussi vite!"
+                        "Seikyo" "Bien, je vais te donner ceci."
+                        "Seikyo" "Kurake me l'avait donné avant de mourir…"
+                        "Seikyo" "On dirait qu'il y a une suite mais je vois pas..."
+                        hide seikyo
+                        $ livre1 = 1
+                        "Elle vous montre un livre."
+                        show livre1
+                        "Qu’est ce que ça veut bien vouloir dire..."
+                        "..."
+                        "On dirait du latin!"
+                        hide livre1
+                        jump enquete
+    show seikyo
+    "Seikyo" "Je connaissais bien Kurake…"
+    "Seikyo" "Mais tu crois vraiment que je vais te dire ce que je sais?"
+    "Seikyo" "On se connait pas gars!"
+    "Seikyo" "Tout ce que je peux te dire c'est que Scara est suspect"
+    "Seikyo" "Essaye de sympathiser avec mes amis, tu verras."
+    "Seikyo" "Peut- être qu'à ce moment- là je t'en dirais plus…"
+    hide seikyo
+    jump enquete
+
+label seikyo22:
+    if inspection == 2:
+        "Vous trouvez une photo de Ningguang."
+        $ ningguang = 1
+        jump enquete
+    "Vous ne trouvez rien sur Seikyo."
+    jump enquete
+
+label seikyo23:
+    if deduction == 3:
+        "Vous trouvez un indice..."
+        "Scara était le leader du Warkrew, un groupe ou Kurake,Seikyo et Yui étaient membres."
+        $ indice3 = 1
+        "La porte de la maison de Kurake semblait fermer à clé."
+        jump enquete
+    "Vous ne trouvez rien à déduire de Seikyo…"
+    jump enquete
+
+label seikyo24:
+    "Cela ne sert à rien de réconforter Seikyo."
+    jump enquete
+
+label seikyo25:
+    if moras == 1:
+        "Vous donnez des Moras à Seikyo. Elle semble extrêmement ravie."
+        "Vous gagnez l'affection de Seikyo."
+        $ admiration6 = 1
+        jump enquete
+    if ningguang == 1:
+        show seikyo
+        "Seikyo" "Oh génial! tu as retrouvé ma photo de Ningguang!"
+        "Seikyo" "Je la cherchait partout."
+        "Seikyo" "Tien, apporte ça à Azure."
+        "Elle te donne un prospectus."
+        $ papier = 1
+        hide seikyo
+        jump enquete
+    "Vous n'avez aucune preuve à montrer à Ningguang."
+    jump enquete
+
+label azure20:
+    show azure
+    "Azure" "Bonjour, que puis- je faire pour vous?"
+    hide azure
+    "{a=jump:azure21}Interroger{/a} ; {a=jump:azure22}Voir votre inventaire{/a};{a=jump:azure23}Voir l'affection{/a}; {a=jump:azure24}Voir les Indices{/a};
+     {a=jump:azure25}Preuve{/a} ;{a=jump:enquete}Rien{/a} ;"
+    jump enquete
+
+label azure21:
+    show azure
+    "Azure" "J'étais une ancienne personne du village."
+    "Azure" "Je sais que on avait un groupe, le Warcrew."
+    "Azure" "Mais je suis parti depuis un certain temps…"
+    "Azure" "Pour devEnir marchande d'objet divers."
+    hide azure
+    jump enquete
+
+label azure22:
+    "Vous avez.."
+    if allumette == 1:
+        "Vous avez des allumettes."
+    if ningguang == 1:
+        "Vous avez une photo de Ningguang."
+    if cle == 1:
+        "Vous avez une clé en or."
+    if couteau == 1:
+        "Vous avez un couteau."
+    if lettre1 == 1:
+        show lettre
+        "Vous avez une lettre."
+        hide lettre
+    if lettre2 == 1:
+        show lettre2
+        "Vous avez une lettre."
+        hide lettre2
+    if zenitsu == 1:
+        "Vous avez une photo de Zenitsu."
+    if livre1 == 1:
+        show livre1
+        "Vous avez un livre."
+        hide livre1
+    if livre2 == 1:
+        show livre2
+        "Vous avez un livre."
+        hide livre2
+    if livre3 == 1:
+        show livre3
+        "Vous avez un livre."
+        hide livre
+    if moras == 1:
+        "Vous avez des moras."
+    jump enquete
+
+label azure23:
+    "Vous examinez l'affection que vous avez avec les villageois."
+    if admiration1 == 1:
+        "Vous avez l'affection de Jinks."
+    if admiration2 == 1:
+        "Vous avez l'affection de Mioru."
+    if admiration3 == 1:
+        "Vous avez l'affection de Scara."
+    if admiration4 == 1:
+        "Vous avez l'affection de Yui."
+    if admiration5 == 1:
+        "Vous avez l'affection de Dimitri."
+    if admiration6 == 1:
+        "Vous avez l'affection de Seikyo."
+    if admiration7 == 1:
+        "Vous avez l'affection de Rubie."
+    if admiration8 == 1:
+        "Vous avez l'affection de Elayna."
+    if admiration9 == 1:
+        "Vous avez l'affection de Soraya."
+    jump enquete
+
+label azure24:
+    "Vous examinez vos indices."
+    if indice1 == 1:
+        "Vous avez le premier indice."
+    if indice2 == 1:
+        "Vous avez le deuxième indice."
+    if indice3 == 1:
+        "Vous avez le troisième indice."
+    if indice4 == 1:
+        "Vous avez le quatrième indice."
+    if indice5 == 1:
+        "Vous avez le cinquième indice."
+    "Au total, il y'a 5 indices à trouver."
+    jump enquete
+
+label azure25:
+    if papier == 1:
+        "Vous donnez le prospectus pour Azure."
+        show azure
+        "Azure" "Merci! ce prospectus va me permettre de me faire une superbe publicité!"
+        "Azure" "Les affaires vont être super bien avec vous!"
+        "Azure" "Tenez, donnez donc cela à Seikyo!"
+        hide azure
+        "Elle vous donne des moras."
+        $ moras = 1
+        jump enquete
+    "Vous n'avez rien à montrer à Azure."
+    jump enquete
+
+label rubie20:
+    show rubie
+    "Rubie" "Pfff.. j'en ai marre! qu’est ce qui se passe encore!?"
+    hide rubie
+    "{a=jump:rubie21}Interroger{/a} ; {a=jump:rubie22}Inspecter{/a};{a=jump:rubie23}Déduction{/a}; {a=jump:rubie24}Réconforter{/a}; {a=jump:rubie25}Preuve{/a} ;{a=jump:enquete}Rien{/a} ;"
+    jump Rubie20
+
+label rubie21:
+    if admiration6 == 1:
+        show rubie
+        "Rubie" "Alors vous avez l'affection de Seikyo, je suis impressionnée!"
+        "Rubie" "Vous avez mon affection."
+        hide rubie
+        $ admiration7 = 1
+        jump enquete
+    show rubie
+    "Rubie" "Moi je ne parle à personne."
+    "Rubie" "Tu m'as pris pour quelqu'un de sociable?"
+    "Rubie" "T’as vraiment craqué dans ta tête!"
+    "Rubie" "Bon bref, laisse-moi tranquille maintenant!"
+    hide rubie
+    jump enquete
+
+label rubie22:
+    if inspection == 3:
+        if rubie == 1:
+            "Vous trouvez une clé en or."
+            $ cle = 1
+            jump enquete
+    "Vous ne trouvez vraiment rien sur Rubie…"
+    jump enquete
+
+label rubie23:
+    if deduction == 2:
+        "Vous savez que Rubie est une femme curieuse."
+        "Elle a sûrement une rumeur à vous raconter."
+        show rubie
+        "Rubie" "Bon d'accord, si tu veux tout savoir…"
+        "Rubie" "J'ai eu vent d'une rumeur…"
+        "Rubie" "Parait t'il qu'il était enfermé chez lui."
+        "Rubie" "Je crois que quelqu'un lui avait volé sa clé, mais qui?"
+        "*sifflote*"
+        $ rubie = 1
+        hide rubie
+        jump enquete
+    "Vous savez que Rubie est une femme curieuse."
+    "Elle a sûrement une rumeur à vous raconter."
+    "Mais elle n’a pas l'air de vouloir vous parler."
+    jump enquete
+
+label rubie24:
+    "Vous réconfortez Rubie mais elle n’a pas l'air triste."
+    jump enquete
+
+label rubie25:
+    if cle == 1:
+        "Vous avez trouvé cette clé sur Rubie."
+        "Cela vous permet de récolter un indice."
+        $ indice4 = 1
+        "Un hurlement de loup s'est fait entendre dans le village."
+        jump enquete
+    "Vous ne trouvez rien. Rubie a l'air de bien cacher ses secrets…"
+    jump enquete
+
+label elayna20:
+    show elayna
+    "Elayna" "Qu’est ce que tu veux que je te dise de nouveau?"
+    hide elayna
+    "{a=jump:elayna21}Interoger{/a} ; {a=jump:elayna22}Inspecter{/a};{a=jump:elayna23}Déduction{/a}; {a=jump:elayna24}Réconforter{/a}; {a=jump:elayna25}Preuve{/a} ;{a=jump:enquete}Rien{/a} ;"
+    jump enquete
+
+label elayna21:
+    show elayna
+    "Elayna" "Je connais ptet des choses qui sais?"
+    "Elayna" "Mais je tiens bien les secrets."
+    "Elayna" "Donc aucune chance que je balance des trucs!"
+    hide elayna
+    jump enquete
+
+label elayna22:
+    "Vous ne trouvez rien sur Elayna."
+    jump enquete
+
+label elayna23:
+    if deduction == 3:
+        if admiration7 == 1:
+            "Grâce à votre déduction."
+            "Vous avez bien compris qu’elle cache quelque chose…"
+            "Grâce à votre réduction vous comprenez qu'il s'agit d'un livre."
+            $ livre2 = 1
+            jump enquete
+    "Vous ne trouvez rien à déduire de Elayna."
+    jump enquete
+
+label elayna24:
+    if elayna >= 3:
+        if admiration7 == 1:
+            "Grâce à votre pouvoir de réconfort, vous gagnez l'admiration de Elayna."
+            $ admiration8 = 1
+            jump enquete
+    "Vous réconfortez Elayna, mais cela semble inutile. Il faut savoir persévérer."
+    $ elayna += 1
+    jump enquete
+
+label elayna25:
+    if livre2 == 1:
+        "Vous inspectez le livre de Elayna."
+        show livre2
+        "..."
+        "Vous inspectez le livre."
+        $ livre2 = 1
+        hide livre2
+        jump enquete
+    "Vous n'avez rien à donner à Elayna."
+    jump enquete
+
+label soraya20:
+    show soraya
+    "Humm, comment ça va gars?"
+    hide soraya
+    "{a=jump:soraya21}Interroger{/a} ; {a=jump:soraya22}Inspecter{/a};{a=jump:soraya23}Déduction{/a}; {a=jump:soraya24}Réconforter{/a}; {a=jump:soraya25}Preuve{/a} ;{a=jump:enquete}Rien{/a} ;"
+    jump enquete
+
+label soraya21:
+    show soraya
+    "Soraya" "Je connaissais très peu Kurake…"
+    "Soraya" "Je ne connais pas grand chose de lui."
+    "Soraya" "J'allais le voir souvent."
+    "Soraya" "Mais on a jamais vraiment parlé…"
+    hide soraya
+    jump enquete
+
+label soraya22:
+    if inspection == 2:
+        if admiration9 == 1:
+            "Vous trouvez un livre de hentai bien caché."
+            $ hentai = 1
+            jump enquete
+    "Vous ne trouvez rien."
+    jump enquete
+
+
+label soraya23:
+    if deduction == 2:
+        if indice5 == 1:
+            "Vous trouvez un livre."
+            show livre3
+            "..."
+            "Vous inspectez le livre."
+            hide livre3
+            $ livre3 = 1
+            jump enquete
+    "Vous ne trouvez rien à déduire de Soraya."
+    jump enquete
+
+label soraya24:
+    if soraya == 3:
+        if admiration8 == 1:
+            "Vous gagnez l'admiration de Soraya."
+            $ admiration9 = 1
+            jump enquete
+    "Soraya vous prend dans ses bras."
+    $ soraya += 1
+    jump enquete
+
+label soraya25:
+    if hentai == 1:
+        "Vous donnez le livre de hentai à Soraya."
+        $ indice5 = 1
+        "Vous trouvez un indice, une odeur nauséabonde se dégage de la maison de Kurake."
+        jump enquete
+    "Vous n'avez rien de Soraya."
+    jump enquete
+
+label chapitrebonus2:
+    show text "Astrae - Acte Bonus\n *Un enfant corrompu*"
+    "Acte Bonus : *Un Enfant Corrompu*"
+    "Bien avant la destruction de l'astre,"
+    show atanos
+    "Atanos" "Mobos Yae s'est enfui."
+    hide atanos
+    show mobos
+    "Mobos" "Il faut que tu arrêtes de la martyriser, après tout le mal que tu lui a fait…"
+    hide mobos
+    show atanos
+    "Atanos" "Tu ne comprends jamais rien !"
+    "Atanos" "Je la ramènerai coûte que coûte!"
+    hide atanos
+    show mobos
+    "Mobos" "Dans ce cas je te suivrais pour t'empêcher de lui faire du mal."
+    hide mobos
+    scene black
+    "Plus tard dans un autre lieu."
+    show darmain
+    "Darmain" "Helios ne va pas tarder à passer à l'action Atanos! j'espère que tu es prêt."
+    hide darmain
+    show atanos
+    "Atanos" "Oui, je vais enfin pouvoir me venger!"
+    hide atanos
+    "Ailleurs, dans un autre endroit."
+    show yae
+    "Yae" "Je suis désolé, mais je vais devoir te laisser tout seul… Prends soin de toi!"
+    hide yae
+    show grey
+    "???" "Mais pourquoi?"
+    hide grey
+    show yae
+    "Yae" "Ma place est avec eux, tu pourrais être libre, tu pourrais prendre mon royaume si jamais je meurs…"
+    hide yae
+    show grey
+    "???" "Je suis pas d'accord!"
+    hide grey
+    "Il s'enfuit.."
+    show darmain
+    "Darmain" "Viens avec moi petit, j'ai quelque chose à te montrer…"
+    "Darmain" "Il y'a quelque chose de plus puissant que les astres."
+    "Darmain" "On l'appelle le Noyau."
+    "Darmain" "Mon objectif est de prendre la force du noyau."
+    "Darmain" "Mais chaque chose en son temps…"
+    "Darmain" "Nous allons d'abord observer si une Arcane peut briser un astre."
+    "Darmain" "Et nous essaieront de s'approprier les arcanes."
+    "Darmain" "Toi et moi, nous façonneront le monde!"
+    "Darmain" "Mais j'ai besoin de toi… tu seras mon remplaçant."
+    show grey
+    "???" "Pourquoi moi?"
+    hide grey
+    show darmain
+    "Darmain" "Ta mère a jeté un puissant sortilège et heureusement, ou malheureusement, tu en est affecté…"
+    "Darmain" "Je t'en dirai plus en temps voulu, mais tu es quelqu'un d'exceptionnel. Et je vais avoir grand besoin de toi!"
+    "Darmain" "Je comprends que tu puisses douter de moi, alors je vais lier ma vie à la tienne."
+    "Darmain" "Si tu meurs, je meurs… et nous serons liée à la vie et à la mort…"
+    "Darmain" "Avec toi garçon, on va avoir l'armée du royaume et contrôler le monde dans l'ombre!"
+    hide darmain
+    show grey
+    "???" "Je suis prêt !"
+    "???" "Ma mère ma toujours laisser seul je sais que père et toujours vivant je l'entend dans ma tête"
+    "???" "Je suis rempli de haine et de pouvoir j'ai envie de crée un monde meilleur ou personne ne pourra rejetter autrui"
+    "???" "J'ai un arcane très puissant le gant du pouvoir"
+    "???" "Il me permet de tout transformer en statut c'est mon père qui la laissé"
+    "???" "Ma mère l'avais caché sous le trone"
+    "???" "Elle ma dit : Un jour je te laisserai ce gant pour faire la paix,cepandant c'est grace au nerf de la guerre que l'on pourra rebatir"
+    "???" "Nous devont agir"
+    hide grey
+    show darmain
+    "Darmain" "tu sais mon petit tu et l'enfant de yae et d'Helios"
+    "Darmain" "tu sais mon enfant que lors de ton bapteme des aile du pouvoir"
+    "Darmain" "Je tes observer depuis tout le temp ou ta mère etais seul j'étais la"
+    "Darmain" "Le jour de ta naissance je tes offert un livre d'incantation pour que vega apparait et te donne sont savoir"
+    "Darmain" "Vega tel et le nom de mon père de notre père a tous"
+    "Darmain" "Rejoin moi nous allons sur les terre des draka chercher la moitié de l'astre du bien"
+    "C'est ainsi que Darmain recruta ce mystérieux inconnu."
+    "Pour renverser le royaume."
+    "Obéissant à des forces obscures."
+    "Pour contrôler le monde."
+    "C'est ainsi que ce fini le chapitre bonus j'espère que vous avez apprécié."
+    "Si vous voulez découvrir qui est ce personnage mystérieux,"
+    "Vous pourrez trouver son nom dans les histoires de vos personnages."
+    "Alors retrouvez vos identités."
+    "Bon jeu!"
+    return
